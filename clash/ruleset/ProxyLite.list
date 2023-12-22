@@ -5,6 +5,7 @@ DOMAIN-SUFFIX,github.com
 DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,edgeservices.bing.com
+DOMAIN-SUFFIX,yarnpkg.com
 
 # MyList && Other
 DOMAIN-SUFFIX,1password.com

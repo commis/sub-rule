@@ -8,6 +8,7 @@ DOMAIN-SUFFIX,edgeservices.bing.com
 DOMAIN-SUFFIX,yarnpkg.com
 DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,golang.org
+DOMAIN-SUFFIX,apkpure.com
 
 # MyList && Other
 DOMAIN-SUFFIX,1password.com

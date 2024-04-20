@@ -10,6 +10,7 @@ DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,golang.org
 DOMAIN-SUFFIX,apkpure.com
 DOMAIN-SUFFIX,nextcloud.com
+DOMAIN-SUFFIX,google.com
 
 # MyList && Other
 DOMAIN-SUFFIX,1password.com

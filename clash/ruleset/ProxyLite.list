@@ -9,6 +9,7 @@ DOMAIN-SUFFIX,yarnpkg.com
 DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,golang.org
 DOMAIN-SUFFIX,apkpure.com
+DOMAIN-SUFFIX,nextcloud.com
 
 # MyList && Other
 DOMAIN-SUFFIX,1password.com

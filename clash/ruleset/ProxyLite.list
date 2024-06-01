@@ -1,15 +1,12 @@
 # 代理列表
 
 # Others for Brian
-DOMAIN-SUFFIX,github.com
-DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,yarnpkg.com
 DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,golang.org
 DOMAIN-SUFFIX,apkpure.com
 DOMAIN-SUFFIX,nextcloud.com
-DOMAIN-SUFFIX,google.com
 
 # MyList && Other
 DOMAIN-SUFFIX,1password.com

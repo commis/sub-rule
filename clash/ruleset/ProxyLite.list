@@ -7,6 +7,8 @@ DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,golang.org
 DOMAIN-SUFFIX,apkpure.com
 DOMAIN-SUFFIX,nextcloud.com
+DOMAIN-SUFFIX,getpostman.com
+DOMAIN-SUFFIX,postman.com
 
 # MyList && Other
 DOMAIN-SUFFIX,1password.com

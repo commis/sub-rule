@@ -1,0 +1,12 @@
+# PPCP-dev
+192.168.1.181 dev-ppcp17-admin.sh.energy-blockchain.com
+192.168.1.181 dev-ppcp17-admin2.sh.energy-blockchain.com
+192.168.1.181 dev-ppcp17-admin3.sh.energy-blockchain.com
+# PPCP-testing
+192.168.1.181 ppcp-adminweb1.test.sh.energy-blockchain.com
+192.168.1.181 ppcp-adminweb2.test.sh.energy-blockchain.com
+192.168.1.181 ppcp-adminweb3.test.sh.energy-blockchain.com
+# TDS
+192.168.1.181 tds-platform.test.sh.energy-blockchain.com
+192.168.1.181 tds-enterprise1.test.sh.energy-blockchain.com
+192.168.1.181 tds-enterprise2.test.sh.energy-blockchain.com

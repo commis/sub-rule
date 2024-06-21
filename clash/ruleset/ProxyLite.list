@@ -1,7 +1,6 @@
 # 代理列表
 
 # Others for Brian
-DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,yarnpkg.com
 DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,golang.org

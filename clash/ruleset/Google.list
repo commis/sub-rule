@@ -1,5 +1,9 @@
 # 内容：Google
 # 数量：24条
+
+# add by Brian
+DOMAIN-SUFFIX,gemini.google.com,NoHKip
+
 DOMAIN-KEYWORD,gmail
 DOMAIN-KEYWORD,google
 DOMAIN-SUFFIX,1e100.net

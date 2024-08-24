@@ -8,6 +8,7 @@ DOMAIN-SUFFIX,apkpure.com
 DOMAIN-SUFFIX,nextcloud.com
 DOMAIN-SUFFIX,getpostman.com
 DOMAIN-SUFFIX,postman.com
+DOMAIN-SUFFIX,nodejs.org
 
 # MyList && Other
 DOMAIN-SUFFIX,1password.com

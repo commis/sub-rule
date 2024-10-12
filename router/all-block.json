@@ -1,0 +1,10 @@
+[
+  {
+    "type": "field",
+    "port": "0-65535",
+    "outboundTag": "block",
+    "ip": [],
+    "domain": [],
+    "protocol": []
+  }
+]

@@ -7,8 +7,6 @@ DOMAIN-SUFFIX,acl4.ssr
 # Others for Brian
 DOMAIN-SUFFIX,gitee.com
 DOMAIN-SUFFIX,gee-cloud.com
-IP-CIDR,107.174.95.154,no-resolve
-IP-CIDR,174.137.62.251,no-resolve
 
 # 本地/局域网地址
 DOMAIN-SUFFIX,ip6-localhost

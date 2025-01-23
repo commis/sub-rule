@@ -9,10 +9,28 @@ DOMAIN-SUFFIX,cloudcone.com
 DOMAIN-SUFFIX,gameloft.com
 DOMAIN-SUFFIX,ip138.com
 DOMAIN-SUFFIX,ping.pe
-DOMAIN-SUFFIX,reddit.com
-DOMAIN-SUFFIX,teddysun.com
-DOMAIN-SUFFIX,twdvd.com
 DOMAIN-SUFFIX,unsplash.com
+
+# Developer 开发者常用国外网站、镜像和论坛
+DOMAIN-SUFFIX,apache.org
+DOMAIN-SUFFIX,apkpure.com
+DOMAIN-SUFFIX,elastic.com
+DOMAIN-SUFFIX,gitlab.com
+DOMAIN-SUFFIX,gitlab.io
+DOMAIN-SUFFIX,maven.org
+DOMAIN-SUFFIX,mvnrepository.com
+DOMAIN-SUFFIX,reddit.com
+DOMAIN-SUFFIX,redhat.com
+DOMAIN-SUFFIX,spring.io
+DOMAIN-SUFFIX,spring.net
+DOMAIN-SUFFIX,stackoverflow.com
+DOMAIN-SUFFIX,yarnpkg.com
+DOMAIN-SUFFIX,jetbrains.com
+DOMAIN-SUFFIX,gradle.org
+DOMAIN-SUFFIX,nextcloud.com
+DOMAIN-SUFFIX,getpostman.com
+DOMAIN-SUFFIX,postman.com
+DOMAIN-SUFFIX,nodejs.org
 
 # 国外域名
 DOMAIN-SUFFIX,eu
@@ -169,27 +187,6 @@ DOMAIN-SUFFIX,bbc.com
 # Claude
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,anthropic.com
-
-# Developer 开发者常用国外网站、镜像和论坛
-DOMAIN-SUFFIX,apache.org
-DOMAIN-SUFFIX,elastic.com
-DOMAIN-SUFFIX,gitlab.com
-DOMAIN-SUFFIX,gitlab.io
-DOMAIN-SUFFIX,maven.org
-DOMAIN-SUFFIX,mvnrepository.com
-DOMAIN-SUFFIX,reddit.com
-DOMAIN-SUFFIX,redhat.com
-DOMAIN-SUFFIX,spring.io
-DOMAIN-SUFFIX,spring.net
-DOMAIN-SUFFIX,stackoverflow.com
-DOMAIN-SUFFIX,yarnpkg.com
-DOMAIN-SUFFIX,jetbrains.com
-DOMAIN-SUFFIX,gradle.org
-DOMAIN-SUFFIX,apkpure.com
-DOMAIN-SUFFIX,nextcloud.com
-DOMAIN-SUFFIX,getpostman.com
-DOMAIN-SUFFIX,postman.com
-DOMAIN-SUFFIX,nodejs.org
 
 # Discord
 DOMAIN-SUFFIX,discord.co

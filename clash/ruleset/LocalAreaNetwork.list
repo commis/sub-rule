@@ -5,8 +5,8 @@
 DOMAIN-SUFFIX,acl4.ssr
 
 # Others for Brian
-DOMAIN-SUFFIX,lingshu.sh
-DOMAIN-SUFFIX,energy-blockchain.com
+DOMAIN-KEYWORD,lingshu.sh
+DOMAIN-KEYWORD,energy-blockchain.com
 DOMAIN-SUFFIX,gitee.com
 
 # 本地/局域网地址

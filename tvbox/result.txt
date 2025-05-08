@@ -3,7 +3,6 @@ CCTV-1,http://42.48.17.230:808/hls/1/index.m3u8
 CCTV-2,http://42.48.17.230:808/hls/2/index.m3u8
 CCTV-3,http://42.48.17.230:808/hls/3/index.m3u8
 CCTV-4,http://42.48.17.230:808/hls/4/index.m3u8
-CCTV-4,http://42.48.17.230:808/hls/125/index.m3u8
 CCTV-5,http://42.48.17.230:808/hls/5/index.m3u8
 CCTV-5+,http://42.48.17.230:808/hls/6/index.m3u8
 CCTV-6,http://42.48.17.230:808/hls/7/index.m3u8
@@ -18,7 +17,7 @@ CCTV-14,http://42.48.17.230:808/hls/15/index.m3u8
 CCTV-15,http://42.48.17.230:808/hls/16/index.m3u8
 CCTV-16,
 CCTV-17,http://42.48.17.230:808/hls/17/index.m3u8
-CCTV-央视文化精品,http://42.48.17.230:808/hls/107/index.m3u8
+CCTV-央视文化,http://42.48.17.230:808/hls/107/index.m3u8
 CCTV-央视台球,http://42.48.17.230:808/hls/108/index.m3u8
 CCTV-世界地理,http://42.48.17.230:808/hls/109/index.m3u8
 CCTV-女性时常,http://42.48.17.230:808/hls/110/index.m3u8
@@ -30,11 +29,11 @@ CCTV-风云剧场,http://42.48.17.230:808/hls/115/index.m3u8
 CCTV-电视指南,http://42.48.17.230:808/hls/116/index.m3u8
 CCTV-第一剧场,http://42.48.17.230:808/hls/117/index.m3u8
 CCTV-兵器科技,http://42.48.17.230:808/hls/118/index.m3u8
-CGNT-DOCU,http://42.48.17.230:808/hls/18/index.m3u8
-CGTN,http://42.48.17.230:808/hls/19/index.m3u8
+CGNT-记录,http://42.48.17.230:808/hls/18/index.m3u8
+CGTN-英语,http://42.48.17.230:808/hls/19/index.m3u8
 CGTN-德语,http://42.48.17.230:808/hls/69/index.m3u8
-CGTN-西班牙语,http://42.48.17.230:808/hls/70/index.m3u8
-CGTN-阿拉伯,http://42.48.17.230:808/hls/71/index.m3u8
+CGTN-西语,http://42.48.17.230:808/hls/70/index.m3u8
+CGTN-阿语,http://42.48.17.230:808/hls/71/index.m3u8
 CGTN-法语,http://42.48.17.230:808/hls/72/index.m3u8
 CETV-1,http://42.48.17.230:808/hls/73/index.m3u8
 CETV-2,http://42.48.17.230:808/hls/74/index.m3u8

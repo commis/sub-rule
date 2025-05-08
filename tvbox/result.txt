@@ -105,17 +105,19 @@ CETV5,
 
 
 ☘️湖南频道,#genre#
-湖南都市,http://42.48.17.230:808/hls/20/index.m3u8
-湖南电视剧,http://42.48.17.230:808/hls/21/index.m3u8
-湖南电影,http://42.48.17.230:808/hls/22/index.m3u8
-湖南金鹰卡通,http://42.48.17.230:808/hls/23/index.m3u8
-湖南娱乐,http://42.48.17.230:808/hls/24/index.m3u8
-湖南金鹰纪实,http://42.48.17.230:808/hls/25/index.m3u8
-湖南教育台,http://42.48.17.230:808/hls/26/index.m3u8
-湖南经视,http://42.48.17.230:808/hls/27/index.m3u8
-湖南先锋乒羽,http://42.48.17.230:808/hls/77/index.m3u8
-湖南茶频道,http://42.48.17.230:808/hls/76/index.m3u8
-湖南快乐钓鱼,http://42.48.17.230:808/hls/62/index.m3u8
+都市,http://42.48.17.230:808/hls/20/index.m3u8
+电影,http://42.48.17.230:808/hls/22/index.m3u8
+经视,http://42.48.17.230:808/hls/27/index.m3u8
+娱乐,http://42.48.17.230:808/hls/24/index.m3u8
+爱晚,http://42.48.17.230:808/hls/98/index.m3u8
+电视剧,http://42.48.17.230:808/hls/21/index.m3u8
+教育台,http://42.48.17.230:808/hls/26/index.m3u8
+茶频道,http://42.48.17.230:808/hls/76/index.m3u8
+国际频道,http://42.48.17.230:808/hls/97/index.m3u8
+先锋乒羽,http://42.48.17.230:808/hls/77/index.m3u8
+金鹰纪实,http://42.48.17.230:808/hls/25/index.m3u8
+快乐钓鱼,http://42.48.17.230:808/hls/62/index.m3u8
+金鹰卡通,http://42.48.17.230:808/hls/23/index.m3u8
 
 ☘️浙江频道,#genre#
 浙江少儿,http://ms.fxim.net:808/hls/5/index.m3u8
@@ -209,14 +211,25 @@ CCTV-15,http://42.48.17.230:808/hls/16/index.m3u8
 
 🪁动画频道,#genre#
 优漫卡通,http://42.48.17.230:808/hls/66/index.m3u8
+BRTV少儿,http://42.48.17.230:808/hls/67/index.m3u8
 嘉佳卡通,http://42.48.17.230:808/hls/68/index.m3u8
+金鹰卡通,http://42.48.17.230:808/hls/23/index.m3u8
 动漫秀场,http://ms.fxim.net:808/hls/11/index.m3u8
 
-🏛经典剧场,#genre#
 
+🏛经典剧场,#genre#
 
 
 🪁未分组1,#genre#
 武术世界,http://42.48.17.230:808/hls/119/index.m3u8
 文物宝库,http://42.48.17.230:808/hls/120/index.m3u8
 证券服务,http://42.48.17.230:808/hls/124/index.m3u8
+新闻综合,http://42.48.17.230:808/hls/58/index.m3u8
+政法频道,http://42.48.17.230:808/hls/59/index.m3u8
+天元围棋,http://42.48.17.230:808/hls/75/index.m3u8
+四海钓鱼,http://42.48.17.230:808/hls/79/index.m3u8
+天下收藏,http://42.48.17.230:808/hls/81/index.m3u8
+中国天气,http://42.48.17.230:808/hls/82/index.m3u8
+家庭理财,http://42.48.17.230:808/hls/84/index.m3u8
+家庭理财,http://42.48.17.230:808/hls/84/index.m3u8
+

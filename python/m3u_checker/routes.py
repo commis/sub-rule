@@ -6,6 +6,7 @@ from services import task_service
 from utils.api_utils import ApiUtils
 from . import channel_service
 from .channel_checker import ChannelExtractor
+from .channel_convertor import ChannelConvertor
 
 bp = Blueprint('channel', __name__, url_prefix='/channel')
 swagger_tags = [
@@ -125,24 +126,19 @@ def check_batch_channels():
                 success_count = extractor.check_batch(task)
 
                 # 更新任务完成状态
+                success_ids = channel_service.channel_ids()
                 task_service.update_task(
                     task_id,
                     status="completed",
                     result={
                         "success": success_count,
-                        "channels": channel_service.channel_ids()
-                    }
-                )
+                        "channels": success_ids
+                    })
             except Exception as e:
-                task_service.update_task(
-                    task_id,
-                    status="error",
-                    error=str(e)
-                )
+                task_service.update_task(task_id, status="error", error=str(e))
 
         # 启动后台线程
         threading.Thread(target=run_batch_check).start()
-
         return ApiUtils.sync_request_accepted_202(task_id)
     except Exception as e:
         return ApiUtils.invalid_response_500(e)
@@ -190,5 +186,65 @@ def get_channels_m3u():
         for i, item in enumerate(channels, start=1):
             response += f"{item.get_m3u()}\n"
         return response
+    except Exception as e:
+        return ApiUtils.invalid_response_500(e)
+
+
+@bp.route('/txt', methods=['POST'])
+def convert_txt_channels():
+    """
+    转换频道数据（TXT格式）
+    ---
+    tags:
+      - M3U转换器
+    parameters:
+      - in: body
+        name: channel_convert_txt
+        required: true
+        schema:
+          type: string
+    responses:
+      200:
+        description: 检查结果
+        schema:
+          type: object
+    """
+    try:
+        txt_data = request.data.decode('utf-8')
+        if not txt_data:
+            return ApiUtils.invalid_request_400()
+
+        converter = ChannelConvertor()
+        return converter.txt_to_m3u(txt_data)
+    except Exception as e:
+        return ApiUtils.invalid_response_500(e)
+
+
+@bp.route('/m3u', methods=['POST'])
+def convert_m3u_channels():
+    """
+    转换频道数据（M3U格式）
+    ---
+    tags:
+      - M3U转换器
+    parameters:
+      - in: body
+        name: channel_convert_m3u
+        required: true
+        schema:
+          type: string
+    responses:
+      200:
+        description: 检查结果
+        schema:
+          type: object
+    """
+    try:
+        m3u_data = request.data.decode('utf-8')
+        if not m3u_data:
+            return ApiUtils.invalid_request_400()
+
+        converter = ChannelConvertor()
+        return converter.m3u_to_txt(m3u_data)
     except Exception as e:
         return ApiUtils.invalid_response_500(e)

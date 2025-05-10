@@ -2,24 +2,17 @@ import threading
 import time
 from uuid import uuid4
 
+from core.core_singleton import singleton
 
+
+@singleton
 class TaskService:
-    __instance = None
-    __lock = threading.Lock()
-
-    @staticmethod
-    def get_instance():
-        with TaskService.__lock:
-            if not TaskService.__instance:
-                TaskService.__instance = TaskService()
-            return TaskService.__instance
-
     def __init__(self):
         self.__tasks = {}
         self.__lock = threading.Lock()
 
     def create_task(self, task_type, description=""):
-        task_id = str(uuid4())
+        task_id = str(uuid4()).replace('-', '')
         task = {
             "id": task_id,
             "type": task_type,
@@ -29,8 +22,8 @@ class TaskService:
             "processed": 0,
             "total": 0,
             "success": 0,
-            "created_at": time.time(),
-            "updated_at": time.time(),
+            "created_at": int(time.time()),
+            "updated_at": int(time.time()),
             "result": None,
             "error": None
         }
@@ -48,7 +41,7 @@ class TaskService:
         with self.__lock:
             if task_id in self.__tasks:
                 self.__tasks[task_id].update(kwargs)
-                self.__tasks[task_id]["updated_at"] = time.time()
+                self.__tasks[task_id]["updated_at"] = int(time.time())
                 return True
         return False
 

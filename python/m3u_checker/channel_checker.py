@@ -5,7 +5,7 @@ import m3u8
 import requests
 
 from m3u_checker import channel_service
-from m3u_checker.channel_service import ChannelInfo
+from m3u_checker.channel import ChannelInfo
 
 
 class ChannelExtractor:
@@ -102,14 +102,3 @@ class ChannelExtractor:
                 task_status["success"] = success_count
 
         return success_count
-
-    # def dump_results(self):
-    #     try:
-    #         with contextlib.ExitStack() as stack:
-    #             txt_file = stack.enter_context(open(f"{self.dir}/iptv_checker.txt", 'w', encoding='utf-8'))
-    #             m3u_file = stack.enter_context(open(f"{self.dir}/iptv_checker.m3u", 'w', encoding='utf-8'))
-    #             for i, item in enumerate(self.results, start=1):
-    #                 txt_file.write(f"{item.get_txt()}\n")
-    #                 m3u_file.write(f"{item.get_m3u()}\n")
-    #     except Exception as e:
-    #         print(f"写入文件时出错: {e}")

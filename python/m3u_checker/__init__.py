@@ -1,3 +1,3 @@
-from flask import Blueprint
+from m3u_checker.channel_service import ChannelService
 
-channel_bp = Blueprint('channel', __name__)
+channel_service = ChannelService()

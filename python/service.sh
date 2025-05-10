@@ -8,4 +8,4 @@ basepath=$(
 )
 
 #cd "${basepath}/python" || exit 1
-gunicorn -w 2 -b 0.0.0.0:5000 flash_app:app
+gunicorn -w 2 -b 0.0.0.0:8001 application:app

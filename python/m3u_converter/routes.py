@@ -1,14 +1,23 @@
-from flask import request, jsonify, send_file
+from flask import request, jsonify, send_file, Blueprint
 
 from . import converter
-from . import m3u_bp
+
+bp = Blueprint('m3u', __name__, url_prefix='/m3u')
+swagger_tags = [
+    {
+        "name": "M3U转换器",
+        "description": "M3U 和 TXT 相互转换的相关接口"
+    }
+]
 
 
-@m3u_bp.route('/convert', methods=['POST'])
+@bp.route('/convert', methods=['POST'])
 def convert_m3u():
     """
     转换 M3U 文件
     ---
+    tags:
+      - M3U转换器
     parameters:
       - in: formData
         name: m3u_file

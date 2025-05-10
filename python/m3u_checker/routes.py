@@ -1,98 +1,194 @@
 import threading
 
-from flask import request, jsonify
+from flask import request, Blueprint
 
-from . import channel_bp, checker
+from services import task_service
+from utils.api_utils import ApiUtils
+from . import channel_service
+from .channel_checker import ChannelExtractor
+
+bp = Blueprint('channel', __name__, url_prefix='/channel')
+swagger_tags = [
+    {
+        "name": "M3U检测器",
+        "description": "检查M3U URL有效性的相关接口"
+    }
+]
 
 
-@channel_bp.route('/single', methods=['POST'])
+@bp.route('/single', methods=['POST'])
 def check_single_channel():
     """
     检查单个频道
     ---
+    tags:
+      - M3U检测器
     parameters:
       - in: body
-        name: channel
+        name: channel_single_data
         required: true
         schema:
           type: object
           properties:
             url:
               type: string
-              required: true
-            timeout:
+              description: 频道URL膜拜
+            id:
               type: integer
-              default: 10
+              description: 频道ID
+              default: 1
     responses:
       200:
         description: 检查结果
         schema:
           type: object
-          properties:
-            reachable:
-              type: boolean
-            latency:
-              type: number
-            status_code:
-              type: integer
-            message:
-              type: string
+      400:
+        description: 无效请求
+        schema:
+          type: object
     """
-    data = request.json
-    url = data.get('url')
-    timeout = data.get('timeout', 10)
+    try:
+        data = request.get_json()
+        if not data:
+            return ApiUtils.invalid_request_400()
 
-    result = checker.check_channel(url, timeout)
-    return jsonify(result)
+        id = data.get('id', 1)
+        url = data.get('url')
+        if not url:
+            return ApiUtils.invalid_parameter_400("请求中必须包含url参数")
+
+        extractor = ChannelExtractor(url)
+        channel_info = extractor.check_single(url, id)
+        return channel_info.get_all()
+    except Exception as e:
+        return ApiUtils.invalid_response_500(e)
 
 
-@channel_bp.route('/batch', methods=['POST'])
+@bp.route('/batch', methods=['POST'])
 def check_batch_channels():
     """
     批量检查频道
     ---
+    tags:
+      - M3U检测器
     parameters:
       - in: body
-        name: channels
+        name: channel_batch_data
         required: true
         schema:
           type: object
           properties:
-            urls:
-              type: array
-              items:
-                type: string
-            timeout:
+            url:
+              type: string
+              description: 频道URL
+            start:
               type: integer
-              default: 10
+              description: 起始频道ID
+            size:
+              type: integer
+              description: 频道数量
     responses:
       200:
-        description: 任务已启动
+        description: 检查结果
         schema:
           type: object
-          properties:
-            task_id:
-              type: string
-            message:
-              type: string
+      400:
+        description: 无效请求
+        schema:
+          type: object
     """
-    data = request.json
-    urls = data.get('urls', [])
-    timeout = data.get('timeout', 10)
+    try:
+        data = request.json
+        if not data:
+            return ApiUtils.invalid_request_400()
 
-    # 创建一个唯一的任务 ID
-    import uuid
-    task_id = str(uuid.uuid4())
+        url = data.get('url')
+        start = data.get('start', 1)
+        size = data.get('size', 10)
 
-    # 异步执行批量检查
-    def run_batch_check():
-        results = checker.check_channels(urls, timeout)
-        # 这里可以将结果保存到数据库或文件
-        print(f"批量检查完成，任务 ID: {task_id}")
+        if not url or start <= 0:
+            return ApiUtils.invalid_parameter_400("请求中必须包含url参数，或者开始频道ID无效")
 
-    threading.Thread(target=run_batch_check).start()
+        task_id = task_service.create_task(
+            "batch_channel_check",
+            f"Checking {size} channels starting from {start}"
+        )
+        task_service.update_task(task_id, total=size)
 
-    return jsonify({
-        'task_id': task_id,
-        'message': '批量检查任务已启动'
-    })
+        def run_batch_check():
+            try:
+                channel_service.clear()
+                task_service.update_task(task_id, status="running")
+
+                task = task_service.get_task(task_id)
+                extractor = ChannelExtractor(url, start, size)
+                success_count = extractor.check_batch(task)
+
+                # 更新任务完成状态
+                task_service.update_task(
+                    task_id,
+                    status="completed",
+                    result={
+                        "success": success_count,
+                        "channels": channel_service.channel_ids()
+                    }
+                )
+            except Exception as e:
+                task_service.update_task(
+                    task_id,
+                    status="error",
+                    error=str(e)
+                )
+
+        # 启动后台线程
+        threading.Thread(target=run_batch_check).start()
+
+        return ApiUtils.sync_request_accepted_202(task_id)
+    except Exception as e:
+        return ApiUtils.invalid_response_500(e)
+
+
+@bp.route('/batch/txt', methods=['GET'])
+def get_channels_txt():
+    """
+    查询频道批量检查结果（TXT格式）
+    ---
+    tags:
+      - M3U检测器
+    responses:
+      200:
+        description: 检查结果
+        schema:
+          type: object
+    """
+    try:
+        response = ""
+        channels = channel_service.get_channels()
+        for i, item in enumerate(channels, start=1):
+            response += f"{item.get_txt()}\n"
+        return response
+    except Exception as e:
+        return ApiUtils.invalid_response_500(e)
+
+
+@bp.route('/batch/m3u', methods=['GET'])
+def get_channels_m3u():
+    """
+    查询频道批量检查结果（M3U格式）
+    ---
+    tags:
+      - M3U检测器
+    responses:
+      200:
+        description: 检查结果
+        schema:
+          type: object
+    """
+    try:
+        response = ""
+        channels = channel_service.get_channels()
+        for i, item in enumerate(channels, start=1):
+            response += f"{item.get_m3u()}\n"
+        return response
+    except Exception as e:
+        return ApiUtils.invalid_response_500(e)

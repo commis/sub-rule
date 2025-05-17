@@ -1,0 +1,26 @@
+[2025-05-17 16:02:54 +0800] [481489] [INFO] Starting gunicorn 23.0.0
+[2025-05-17 16:02:54 +0800] [481489] [INFO] Listening at: http://0.0.0.0:8001 (481489)
+[2025-05-17 16:02:54 +0800] [481489] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2025-05-17 16:02:54 +0800] [481496] [INFO] Booting worker with pid: 481496
+[2025-05-17 16:02:54 +0800] [481496] [INFO] Started server process [481496]
+[2025-05-17 16:02:54 +0800] [481496] [INFO] Waiting for application startup.
+[2025-05-17 16:02:54 +0800] [481496] [INFO] Application startup complete.
+[2025-05-17 16:02:54 +0800] [481497] [INFO] Booting worker with pid: 481497
+[2025-05-17 16:02:54 +0800] [481497] [INFO] Started server process [481497]
+[2025-05-17 16:02:54 +0800] [481497] [INFO] Waiting for application startup.
+[2025-05-17 16:02:54 +0800] [481497] [INFO] Application startup complete.
+[2025-05-17 16:18:08 +0800] [481489] [INFO] Handling signal: term
+[2025-05-17 16:18:08 +0800] [481496] [INFO] Shutting down
+[2025-05-17 16:18:08 +0800] [481497] [INFO] Shutting down
+[2025-05-17 16:18:09 +0800] [481497] [INFO] Waiting for application shutdown.
+[2025-05-17 16:18:09 +0800] [481496] [INFO] Waiting for application shutdown.
+[2025-05-17 16:18:09 +0800] [481496] [INFO] Application shutdown complete.
+[2025-05-17 16:18:09 +0800] [481497] [INFO] Application shutdown complete.
+[2025-05-17 16:18:09 +0800] [481496] [INFO] Finished server process [481496]
+[2025-05-17 16:18:09 +0800] [481497] [INFO] Finished server process [481497]
+[2025-05-17 16:18:09 +0800] [481489] [ERROR] Worker (pid:481496) was sent SIGTERM!
+[2025-05-17 16:18:09 +0800] [481489] [ERROR] Worker (pid:481497) was sent SIGTERM!
+[2025-05-17 16:18:09 +0800] [481489] [INFO] Shutting down: Master
+working directory: /media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule
+成功导入路由模块: python.services.routes
+成功导入路由模块: python.m3u_checker.routes

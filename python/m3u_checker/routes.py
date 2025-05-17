@@ -58,9 +58,11 @@ def check_single_channel(request: SingleCheckRequest):
         url = request.url
         id = request.extract_id(url)
 
+        result = ""
         extractor = ChannelExtractor(url)
         channel_info = extractor.check_single(url, id)
-        result = channel_info.get_all()
+        if channel_info:
+            result = channel_info.get_all()
         return Response(content=result, media_type="text/plain")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

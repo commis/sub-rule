@@ -20,32 +20,25 @@ class ChannelExtractor:
         # 第一阶段：基础验证
         m3u8_content = self.__check_m3u8_url(url)
         if not m3u8_content:
-            channel = ChannelInfo(cid, url)
-            channel.set_validation(False, "无法获取M3U8内容")
-            return channel
+            return None
 
         # 第二阶段：结构验证
         # is_valid, reason = self.__check_m3u8_validity(m3u8_content)
         # if not is_valid:
-        #     channel = ChannelInfo(cid, url)
-        #     channel.set_validation(False, reason)
-        #     return channel
+        #     return None
 
         # 第三阶段：TS验证
         base_url = url.rsplit('/', 1)[0]
         ts_urls = self.__extract_ts_urls(m3u8_content)
         ts_valid, ts_reason, tested_urls = self.__check_ts_availability(ts_urls, base_url)
         if not ts_valid:
-            channel = ChannelInfo(cid, url)
-            channel.set_validation(False, ts_reason)
-            return channel
+            return None
 
         # 第四阶段：测速
         # speed = self.__benchmark_speed(tested_urls)
 
         # 第五阶段：元数据提取
         channel = ChannelInfo(cid, url)
-        channel.set_validation(True, "验证通过")
         channel.set_speed(0)
         channel.set_channel_name(self.__extract_channel_name(m3u8_content, cid, url))
         channel.set_resolution(self.__detect_resolution(tested_urls[0]))
@@ -232,7 +225,7 @@ class ChannelExtractor:
         for i, index in enumerate(range(self.__start, self.__start + self.__size)):
             url = self.__template_url.format(i=index)
             channel_info = self.check_single(url, index)
-            if channel_info and channel_info.is_valid:
+            if channel_info:
                 channel_service.add_channel(channel_info)
                 success_count += 1
 

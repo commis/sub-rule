@@ -45,7 +45,7 @@ class ChannelConvertor:
                     channel_id = len(channels) + 1
 
                 channel = ChannelInfo(channel_id, line)
-                channel.channel_name = current_name
+                channel.set_channel_name(current_name)
                 channels.append(channel)
                 current_name = None
         return channels
@@ -63,7 +63,7 @@ class ChannelConvertor:
             if len(parts) != 2:
                 continue
 
-            name, url = parts
+            current_name, url = parts
             try:
                 # 尝试从URL路径中提取数字ID
                 path_parts = url.split('/')
@@ -73,6 +73,6 @@ class ChannelConvertor:
                 channel_id = len(channels) + 1
 
             channel = ChannelInfo(channel_id, url)
-            channel.channel_name = name
+            channel.set_channel_name(current_name)
             channels.append(channel)
         return channels

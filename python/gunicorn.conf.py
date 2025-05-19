@@ -5,7 +5,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
 
 bind = "0.0.0.0:8001"
-workers = 2
+workers = 1
 worker_class = "uvicorn.workers.UvicornWorker"
 chdir = project_root
 preload_app = True

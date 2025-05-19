@@ -29,3 +29,9 @@ def get_task(task_id: TaskQuery = Depends(lambda id: TaskQuery(id=id))):
         raise HTTPException(status_code=404, detail=f"任务ID {task_id} 不存在")
 
     return task
+
+
+@router.post('/delete', summary="删除任务")
+def delete_task(task_id: TaskQuery = Depends(lambda id: TaskQuery(id=id))):
+    task_service.delete_task(task_id.id)
+    return {"message": f"任务ID {task_id} 已删除"}

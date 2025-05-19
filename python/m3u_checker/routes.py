@@ -40,6 +40,7 @@ class BatchCheckRequest(BaseModel):
     url: str = Field(..., description="包含{i}占位符的URL")
     start: int = Field(1, description="起始频道ID", ge=1)
     size: int = Field(10, description="检查数量", ge=1)
+    is_clear: bool = Field(True, description="是否清空已有频道数据")
 
 
 class ChannelQuery(BaseModel):
@@ -74,6 +75,10 @@ def check_batch_channels(request: BatchCheckRequest, background: BackgroundTasks
         url = request.url
         start = request.start
         size = request.size
+        is_clear = request.is_clear
+
+        if is_clear:
+            channel_service.clear()
 
         task_id = task_service.create_task(
             "batch_channel_check",
@@ -83,7 +88,6 @@ def check_batch_channels(request: BatchCheckRequest, background: BackgroundTasks
 
         def run_batch_check():
             try:
-                channel_service.clear()
                 task_service.update_task(task_id, status="running")
 
                 task = task_service.get_task(task_id)

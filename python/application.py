@@ -3,7 +3,7 @@ import os
 import uvicorn
 from fastapi import FastAPI
 
-from core.core_scanner import RouteScanner
+from utils.scanner import RouteScanner
 
 
 class CreateApplication:

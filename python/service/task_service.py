@@ -2,7 +2,7 @@ import threading
 import time
 from uuid import uuid4
 
-from core.core_singleton import singleton
+from core.singleton import singleton
 
 
 @singleton

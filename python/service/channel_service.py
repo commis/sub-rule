@@ -1,6 +1,6 @@
 import threading
 
-from core.core_singleton import singleton
+from core.singleton import singleton
 
 
 @singleton

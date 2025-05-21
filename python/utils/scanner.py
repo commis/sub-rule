@@ -5,6 +5,10 @@ from typing import List
 from fastapi import FastAPI, APIRouter
 from starlette.responses import RedirectResponse
 
+from core.logger_factory import LoggerFactory
+
+logger = LoggerFactory.get_logger("scanner")
+
 
 class RouteScanner:
     def __init__(self, app: FastAPI, app_package):
@@ -34,9 +38,9 @@ class RouteScanner:
                         attr = getattr(module, attr_name)
                         if isinstance(attr, APIRouter):
                             self.routers.append(attr)
-                    print(f"成功导入路由模块: {full_module_name}")
+                    logger.info(f"成功导入路由模块: {full_module_name}")
                 except Exception as e:
-                    print(f"导入模块 {full_module_name} 失败: {e}")
+                    logger.error(f"导入模块 {full_module_name} 失败: {e}")
 
     def register_routers(self):
         """将收集到的APIRouter注册到FastAPI应用"""

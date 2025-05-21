@@ -11,7 +11,6 @@ cd "$SCRIPT_DIR" || exit 1
 PYENV=/home/cache-python/tvbox
 
 PIDFILE="/var/run/tvbox.pid"
-LOGFILE="$SCRIPT_DIR/gunicorn.log"
 COMMAND="gunicorn -c gunicorn.conf.py python.application:app"
 
 function init_env() {
@@ -42,14 +41,14 @@ function start() {
     return 0
   fi
 
-  $COMMAND >"$LOGFILE" 2>&1 &
+  $COMMAND >/dev/null 2>&1 &
   echo $! >"$PIDFILE"
 
   sleep 2
   if is_running; then
     echo "Service started successfully.，PID: $(cat "$PIDFILE")"
   else
-    echo "Service failed to start. Check $LOGFILE" >&2
+    echo "Service failed to start." >&2
     rm -f "$PIDFILE"
     return 1
   fi

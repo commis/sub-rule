@@ -1,3 +1,4 @@
+import concurrent
 import os
 import re
 import time
@@ -220,18 +221,34 @@ class ChannelExtractor:
             return "未知"
 
     def check_batch(self, task_status=None):
-        success_count = 0
         total_count = self.__size
-        for i, index in enumerate(range(self.__start, self.__start + self.__size)):
-            url = self.__template_url.format(i=index)
-            channel_info = self.check_single(url, index)
-            if channel_info:
-                channel_manager.add_channel(channel_info)
-                success_count += 1
+        success_count = 0
+        processed_count = 0
 
-            if task_status:
-                task_status["progress"] = (i + 1) / total_count * 100
-                task_status["processed"] = i + 1
-                task_status["success"] = success_count
+        # 创建线程池，最大线程数设为10（可根据需要调整）
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            # 提交所有任务到线程池
+            future_to_index = {
+                executor.submit(self.check_single, self.__template_url.format(i=index), index): index
+                for index in range(self.__start, self.__start + self.__size)
+            }
+
+            # 处理完成的任务
+            for future in concurrent.futures.as_completed(future_to_index):
+                index = future_to_index[future]
+                processed_count += 1
+
+                try:
+                    channel_info = future.result()
+                    if channel_info:
+                        channel_manager.add_channel(channel_info)
+                        success_count += 1
+                except Exception as e:
+                    print(f"Error processing index {index}: {e}")
+
+                if task_status:
+                    task_status["progress"] = processed_count / total_count * 100
+                    task_status["processed"] = processed_count
+                    task_status["success"] = success_count
 
         return success_count

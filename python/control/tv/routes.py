@@ -6,9 +6,12 @@ from fastapi.responses import Response
 from pydantic import BaseModel, Field, model_validator
 
 from control.tv.checker import ChannelExtractor
+from core.logger_factory import LoggerFactory
 from service import task_manager, channel_manager
 
 router = APIRouter(prefix="/tv", tags=["M3U检测器"])
+
+logger = LoggerFactory.get_logger(__name__)
 
 
 # 定义请求模型
@@ -39,6 +42,7 @@ class BatchCheckRequest(BaseModel):
     start: int = Field(1, description="起始频道ID", ge=1)
     size: int = Field(10, description="检查数量", ge=1)
     is_clear: bool = Field(True, description="是否清空已有频道数据")
+    thread_size: Optional[int] = Field(10, description="并发线程数", ge=1)
 
 
 class ChannelQuery(BaseModel):
@@ -70,16 +74,17 @@ def check_single_channel(request: SingleCheckRequest):
 @router.post('/batch', summary="批量检查频道")
 def check_batch_channels(request: BatchCheckRequest, background: BackgroundTasks):
     try:
-        url = request.url
         start = request.start
         size = request.size
-        is_clear = request.is_clear
+        thread_size = request.thread_size
 
-        if is_clear:
+        logger.info(f"Checking {size} channels for {request.url}")
+
+        if request.is_clear:
             channel_manager.clear()
 
         task_id = task_manager.create_task(
-            url=url,
+            url=request.url,
             type="batch_channel_check",
             description=f"Checking {size} channels starting from {start}"
         )
@@ -90,8 +95,8 @@ def check_batch_channels(request: BatchCheckRequest, background: BackgroundTasks
                 task_manager.update_task(task_id, status="running")
 
                 task = task_manager.get_task(task_id)
-                extractor = ChannelExtractor(url, start, size)
-                success_count = extractor.check_batch(task)
+                extractor = ChannelExtractor(request.url, start, size)
+                success_count = extractor.check_batch(threads=thread_size, task_status=task)
 
                 # 更新任务完成状态
                 success_ids = channel_manager.channel_ids()

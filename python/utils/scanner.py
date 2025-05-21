@@ -7,7 +7,7 @@ from starlette.responses import RedirectResponse
 
 from core.logger_factory import LoggerFactory
 
-logger = LoggerFactory.get_logger("scanner")
+logger = LoggerFactory.get_logger(__name__)
 
 
 class RouteScanner:

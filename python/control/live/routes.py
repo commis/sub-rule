@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Body
+from fastapi import APIRouter, HTTPException, Body, Query
 from fastapi.responses import Response
 
 from control.live.converter import LiveConverter
@@ -35,7 +35,8 @@ def live_convert_m3u(m3u_data: str = Body(..., media_type="text/plain")):
 
 
 @router.post('/mgr/txt', summary="合并直播源（TXT格式）")
-def live_merge_txt(txt_data: str = Body(..., media_type="text/plain")):
+def live_merge_txt(txt_data: str = Body(..., media_type="text/plain"),
+                   top_n: int = Query(3, ge=1, le=10, description="选择排名前N的直播源")):
     try:
         if not txt_data.strip():
             raise HTTPException(status_code=400, detail="无效输入：空文本")
@@ -43,7 +44,7 @@ def live_merge_txt(txt_data: str = Body(..., media_type="text/plain")):
         live_data = parse_channel_data(txt_data)
 
         merger = LiveMerger(live_data)
-        merger.find_top_hosts()
+        merger.find_top_hosts(n=top_n)
         result = merger.format_output()
 
         return Response(content=result, media_type="text/plain")

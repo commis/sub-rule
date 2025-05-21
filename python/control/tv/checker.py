@@ -220,13 +220,13 @@ class ChannelExtractor:
         except:
             return "未知"
 
-    def check_batch(self, task_status=None):
+    def check_batch(self, threads, task_status=None):
         total_count = self.__size
         success_count = 0
         processed_count = 0
 
         # 创建线程池，最大线程数设为10（可根据需要调整）
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=threads) as executor:
             # 提交所有任务到线程池
             future_to_index = {
                 executor.submit(self.check_single, self.__template_url.format(i=index), index): index
@@ -247,7 +247,7 @@ class ChannelExtractor:
                     print(f"Error processing index {index}: {e}")
 
                 if task_status:
-                    task_status["progress"] = processed_count / total_count * 100
+                    task_status["progress"] = round(processed_count / total_count * 100, 2)
                     task_status["processed"] = processed_count
                     task_status["success"] = success_count
 

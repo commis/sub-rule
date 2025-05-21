@@ -7,8 +7,9 @@ class ChannelInfo:
         self.resolution = "未知"
 
     def set_channel_name(self, channel_name):
-        if channel_name:
-            self.name = channel_name.strip()
+        name = channel_name.strip()
+        if name not in [",", ""]:
+            self.name = name
 
     def set_speed(self, speed):
         self.speed = round(speed, 1)

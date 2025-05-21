@@ -6,8 +6,8 @@ import av
 import m3u8
 import requests
 
-from m3u_checker import channel_service
-from m3u_checker.channel import ChannelInfo
+from datastruct import ChannelInfo
+from service import channel_manager
 
 
 class ChannelExtractor:
@@ -226,7 +226,7 @@ class ChannelExtractor:
             url = self.__template_url.format(i=index)
             channel_info = self.check_single(url, index)
             if channel_info:
-                channel_service.add_channel(channel_info)
+                channel_manager.add_channel(channel_info)
                 success_count += 1
 
             if task_status:

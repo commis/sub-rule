@@ -31,7 +31,8 @@ class CreateApplication:
         module_name = os.path.basename(main.__file__).replace('.py', '')
         uvicorn.run(
             f"{module_name}:app",
-            port=8001
+            port=8001,
+            workers=1
         )
 
 

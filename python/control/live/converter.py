@@ -1,10 +1,10 @@
 import re
 from typing import List
 
-from m3u_checker.channel import ChannelInfo
+from datastruct import ChannelInfo
 
 
-class ChannelConvertor:
+class LiveConverter:
     """M3U与TXT格式频道数据相互转换工具"""
 
     def __init__(self):

@@ -1,16 +1,14 @@
 import re
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException, BackgroundTasks, Body
+from fastapi import APIRouter, HTTPException, BackgroundTasks
 from fastapi.responses import Response
 from pydantic import BaseModel, Field, model_validator
 
-from m3u_checker import channel_service
-from m3u_checker.channel_checker import ChannelExtractor
-from m3u_checker.channel_convertor import ChannelConvertor
-from services import task_service
+from control.tv.checker import ChannelExtractor
+from service import task_manager, channel_manager
 
-router = APIRouter(prefix="/channel", tags=["M3U检测器"])
+router = APIRouter(prefix="/tv", tags=["M3U检测器"])
 
 
 # 定义请求模型
@@ -78,25 +76,26 @@ def check_batch_channels(request: BatchCheckRequest, background: BackgroundTasks
         is_clear = request.is_clear
 
         if is_clear:
-            channel_service.clear()
+            channel_manager.clear()
 
-        task_id = task_service.create_task(
-            "batch_channel_check",
-            f"Checking {size} channels starting from {start}"
+        task_id = task_manager.create_task(
+            url=url,
+            type="batch_channel_check",
+            description=f"Checking {size} channels starting from {start}"
         )
-        task_service.update_task(task_id, total=size)
+        task_manager.update_task(task_id, total=size)
 
         def run_batch_check():
             try:
-                task_service.update_task(task_id, status="running")
+                task_manager.update_task(task_id, status="running")
 
-                task = task_service.get_task(task_id)
+                task = task_manager.get_task(task_id)
                 extractor = ChannelExtractor(url, start, size)
                 success_count = extractor.check_batch(task)
 
                 # 更新任务完成状态
-                success_ids = channel_service.channel_ids()
-                task_service.update_task(
+                success_ids = channel_manager.channel_ids()
+                task_manager.update_task(
                     task_id,
                     status="completed",
                     result={
@@ -104,7 +103,7 @@ def check_batch_channels(request: BatchCheckRequest, background: BackgroundTasks
                         "channels": success_ids
                     })
             except Exception as e:
-                task_service.update_task(task_id, status="error", error=str(e))
+                task_manager.update_task(task_id, status="error", error=str(e))
 
         background.add_task(run_batch_check)
         return {
@@ -120,7 +119,7 @@ def check_batch_channels(request: BatchCheckRequest, background: BackgroundTasks
 def get_channels_txt():
     try:
         result = ""
-        channels = channel_service.get_channels()
+        channels = channel_manager.get_channels()
         for i, item in enumerate(channels, start=1):
             result += f"{item.get_txt()}\n"
         return Response(content=result, media_type="text/plain")
@@ -132,35 +131,9 @@ def get_channels_txt():
 def get_channels_m3u():
     try:
         result = ""
-        channels = channel_service.get_channels()
+        channels = channel_manager.get_channels()
         for i, item in enumerate(channels, start=1):
             result += f"{item.get_m3u()}\n"
-        return Response(content=result, media_type="text/plain")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@router.post('/txt', summary="转换频道数据（TXT格式）")
-def convert_txt_channels(txt_data: str = Body(..., media_type="text/plain")):
-    try:
-        if not txt_data.strip():
-            raise HTTPException(status_code=400, detail="无效输入：空文本")
-
-        converter = ChannelConvertor()
-        result = converter.txt_to_m3u(txt_data)
-        return Response(content=result, media_type="text/plain")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@router.post('/m3u', summary="转换频道数据（M3U格式）")
-def convert_m3u_channels(m3u_data: str = Body(..., media_type="text/plain")):
-    try:
-        if not m3u_data.strip():
-            raise HTTPException(status_code=400, detail="无效输入：空文本")
-
-        converter = ChannelConvertor()
-        result = converter.m3u_to_txt(m3u_data)
         return Response(content=result, media_type="text/plain")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

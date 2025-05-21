@@ -4,7 +4,7 @@ from core.core_singleton import singleton
 
 
 @singleton
-class ChannelService:
+class ChannelManager:
     def __init__(self):
         self.__channels = []
         self.__lock = threading.RLock()

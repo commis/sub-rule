@@ -6,18 +6,19 @@ from core.core_singleton import singleton
 
 
 @singleton
-class TaskService:
+class TaskManager:
     def __init__(self):
         self.__tasks = {}
         self.__lock = threading.RLock()
 
-    def create_task(self, task_type, description=""):
+    def create_task(self, **kwargs):
         task_id = str(uuid4()).replace('-', '')
         task = {
             "id": task_id,
-            "type": task_type,
+            "type": kwargs['type'],
             "status": "initializing",
-            "description": description,
+            "description": kwargs['description'],
+            'url': kwargs['url'],
             "progress": 0,
             "processed": 0,
             "total": 0,

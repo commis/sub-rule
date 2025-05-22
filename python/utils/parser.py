@@ -11,14 +11,14 @@ def parse_channel_data(text_data):
     current_category = None
     lines = [line.strip() for line in text_data.split('\n') if line.strip()]
 
-    # 表情符号正则匹配（涵盖常见类别符号）
-    emoji_pattern = re.compile(
-        r'[\U0001F000-\U0001FFFF\U00002500-\U00002BEF\U00002E00-\U00002E7F\U00003000-\U00003300]')
+    # 合并正则：移除表情符号、逗号、#genre#和多余空格
+    clean_pattern = re.compile(
+        r'[\U0001F000-\U0001FFFF\U00002500-\U00002BEF\U00002E00-\U00002E7F\U00003000-\U00003300,#genre#\s]+')
 
     for line in lines:
         # 识别类别行（以#genre#结尾）
         if '#genre#' in line:
-            category_part = emoji_pattern.sub('', line).replace('#genre#', '').strip()
+            category_part = clean_pattern.sub(' ', line).strip()
             if category_part:
                 current_category = category_part
             continue

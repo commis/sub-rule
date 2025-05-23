@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+from control.category import category_manager
+
 
 class LiveMerger:
     def __init__(self, data):
@@ -8,16 +10,6 @@ class LiveMerger:
         self.__top_hosts = []
         self.__filtered_data = defaultdict(list)
         self.__host_count = None
-        self.__category_icons = {
-            "央视频道": "📺",
-            "央视精品": "🌟",
-            "卫视频道": "📡",
-            "体育频道": "🏀",
-            "综艺频道": "🎭",
-            "电视剧场": "🏛",
-            "电影频道": "🎬",
-            "动画频道": "🎮"
-        }
 
     def __extract_host(self, url):
         """从URL中提取主机部分（IP或域名+端口），使用缓存优化"""
@@ -89,12 +81,12 @@ class LiveMerger:
             self.find_top_hosts()
 
         # 生成host统计信息
-        host_stats = [f"{host}: {count}" for host, count in self.__top_hosts]
+        host_stats = [f"#{host}: {count}" for host, count in self.__top_hosts]
 
         # 生成频道数据部分
         channel_data = []
         for category, items in self.__filtered_data.items():
-            icon = self.__category_icons.get(category, "")
+            icon = category_manager.get_category_icon(category)
             category_title = f"{icon} {category},#genre#" if icon else f"{category},#genre#"
             channel_data.extend([
                 category_title,
@@ -104,7 +96,8 @@ class LiveMerger:
 
         # 组合输出
         return "\n".join([
+            "#========================",
             *host_stats,
-            "========================",
+            "#========================",
             *channel_data
         ])

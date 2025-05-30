@@ -1,0 +1,133 @@
+2025-05-28 17:27:08 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 17:27:08 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 17:27:08 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 17:27:08 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 17:27:08 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 17:27:08 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 17:27:08 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 17:27:08 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:00:44 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:00:44 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:00:44 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:00:44 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:00:44 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:00:44 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:00:44 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:00:44 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:00:55 - ERROR - routes:134 - 更新直播源请求处理失败: 406: 直播源数量过少(0个)
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 95, in update_live_sources
+    handle_exception(f"直播源数量过少({total_count}个)", status.HTTP_406_NOT_ACCEPTABLE)
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/utils/handler.py", line 9, in handle_exception
+    raise HTTPException(status_code=status_code, detail=error_msg)
+fastapi.exceptions.HTTPException: 406: 直播源数量过少(0个)
+2025-05-28 20:01:45 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:01:45 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:01:45 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:01:45 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:01:45 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:01:45 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:01:45 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:01:45 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:01:50 - ERROR - routes:134 - 更新直播源请求处理失败: 200: 直播源数量过少(0个)
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 95, in update_live_sources
+    handle_exception(f"直播源数量过少({total_count}个)", status.HTTP_200_OK)
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/utils/handler.py", line 9, in handle_exception
+    raise HTTPException(status_code=status_code, detail=error_msg)
+fastapi.exceptions.HTTPException: 200: 直播源数量过少(0个)
+2025-05-28 20:02:53 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:02:53 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:02:53 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:02:53 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:02:53 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:02:53 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:02:53 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:02:53 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:03:19 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:03:19 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:03:19 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:03:19 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:03:19 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:03:19 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:03:19 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:03:19 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:03:25 - ERROR - routes:134 - 更新直播源请求处理失败: 200: 直播源数量过少(0个)
+2025-05-28 20:04:10 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:04:10 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:04:10 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:04:10 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:04:10 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:04:10 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:04:10 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:04:10 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:04:15 - ERROR - routes:134 - 更新直播源请求处理失败: 200: 直播源数量过少(0个)
+2025-05-28 20:05:17 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:05:17 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:05:17 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:05:17 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:05:17 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:05:17 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:05:17 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:05:17 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:05:23 - ERROR - routes:134 - 更新直播源请求处理失败: 200: 直播源数量过少(0个)
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 95, in update_live_sources
+    handle_exception(f"直播源数量过少({total_count}个)", status.HTTP_200_OK)
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/utils/handler.py", line 9, in handle_exception
+    raise HTTPException(status_code=status_code, detail=error_msg)
+fastapi.exceptions.HTTPException: 200: 直播源数量过少(0个)
+2025-05-28 20:06:13 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:06:13 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:06:13 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:06:13 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:06:13 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:06:13 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:06:13 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:06:13 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:06:23 - ERROR - routes:134 - 更新直播源请求处理失败: 500: 直播源数量过少(0个)
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 95, in update_live_sources
+    handle_exception(f"直播源数量过少({total_count}个)")
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/utils/handler.py", line 9, in handle_exception
+    raise HTTPException(status_code=status_code, detail=error_msg)
+fastapi.exceptions.HTTPException: 500: 直播源数量过少(0个)
+2025-05-28 20:08:50 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:08:50 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:08:50 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:08:50 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:08:50 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:08:50 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:08:50 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:08:50 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:08:58 - ERROR - routes:134 - 更新直播源请求处理失败: 500: 直播源数量过少(0个)
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 95, in update_live_sources
+    handle_exception(f"直播源数量过少({total_count}个)")
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/utils/handler.py", line 9, in handle_exception
+    raise HTTPException(status_code=status_code, detail=error_msg)
+fastapi.exceptions.HTTPException: 500: 直播源数量过少(0个)
+2025-05-28 20:13:24 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:13:24 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:13:24 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:13:24 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:13:24 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:13:24 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:13:24 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:13:24 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:14:49 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:14:49 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:14:49 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:14:49 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:14:49 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:14:49 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:14:49 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:14:49 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:26:27 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:26:27 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:26:27 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:26:27 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes
+2025-05-28 20:26:27 - INFO - scanner:41 - 成功导入路由模块: python.control.tv.routes
+2025-05-28 20:26:27 - INFO - scanner:41 - 成功导入路由模块: python.control.live.routes
+2025-05-28 20:26:27 - INFO - scanner:41 - 成功导入路由模块: python.control.task.routes
+2025-05-28 20:26:27 - INFO - scanner:41 - 成功导入路由模块: python.control.category.routes

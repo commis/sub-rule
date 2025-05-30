@@ -1,0 +1,429 @@
+2025-05-29 09:25:11 - INFO - scanner:41 - import routes module: python.control.tv.routes success
+2025-05-29 09:25:11 - INFO - scanner:41 - import routes module: python.control.live.routes success
+2025-05-29 09:25:11 - INFO - scanner:41 - import routes module: python.control.task.routes success
+2025-05-29 09:25:11 - INFO - scanner:41 - import routes module: python.control.category.routes success
+2025-05-29 09:25:11 - INFO - scanner:41 - import routes module: python.control.tv.routes success
+2025-05-29 09:25:11 - INFO - scanner:41 - import routes module: python.control.live.routes success
+2025-05-29 09:25:11 - INFO - scanner:41 - import routes module: python.control.task.routes success
+2025-05-29 09:25:11 - INFO - scanner:41 - import routes module: python.control.category.routes success
+2025-05-29 09:26:29 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 09:26:29 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 09:26:29 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 09:26:29 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 09:26:29 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 09:26:29 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 09:26:29 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 09:26:29 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 09:33:37 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 09:33:37 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 09:33:37 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 09:33:37 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 09:33:37 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 09:33:37 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 09:33:37 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 09:33:37 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 09:33:59 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397625850_2121182362/2/00/CHANNEL00000311/5840800/_349696476.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8279ba0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:34:07 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397625850_2121182362/2/00/CHANNEL00000311/5840800/_349696477.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6a2c0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:34:15 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397625850_2121182362/2/00/CHANNEL00000311/5840800/_349696478.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e82a82b0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:34:29 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.177:80/wh7f454c46tw397894944_-372223701/2/00/CHANNEL00000359/9470800/_349696482.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b695a0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:34:37 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.177:80/wh7f454c46tw397894944_-372223701/2/00/CHANNEL00000359/9470800/_349696483.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6a110>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:34:45 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.177:80/wh7f454c46tw397894944_-372223701/2/00/CHANNEL00000359/9470800/_349696484.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8279930>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:36:13 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000063&redirect=1&hls_segment=4_0_1_2_3_4_9082.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b68430>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:36:21 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000063&redirect=1&hls_segment=4_0_1_2_3_4_9083.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b68d30>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:36:30 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000063&redirect=1&hls_segment=4_0_1_2_3_4_9084.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e82a9690>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:36:34 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397683181_-299242042/2/00/CHANNEL00000316/5840800/_349696508.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b691e0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:36:40 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000246&redirect=1&hls_segment=4_0_1_2_3_4_7863.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e82a9300>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:36:43 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397683181_-299242042/2/00/CHANNEL00000316/5840800/_349696509.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e82a9390>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:36:48 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000246&redirect=1&hls_segment=4_0_1_2_3_4_7864.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6bf10>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:36:51 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397683181_-299242042/2/00/CHANNEL00000316/5840800/_349696510.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6a9e0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:36:56 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000246&redirect=1&hls_segment=4_0_1_2_3_4_7865.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b69660>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:37:13 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397866308_-1802513591/2/00/CHANNEL00000362/9470800/_349696516.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b07f40>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:37:21 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397866308_-1802513591/2/00/CHANNEL00000362/9470800/_349696517.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbc3d0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:37:29 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.46:80/wh7f454c46tw397866308_-1802513591/2/00/CHANNEL00000362/9470800/_349696518.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6b700>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:39:26 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000130&redirect=1&hls_segment=4_0_1_2_3_4_18527.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b69cf0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:39:34 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000130&redirect=1&hls_segment=4_0_1_2_3_4_18528.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6ba60>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:39:42 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000130&redirect=1&hls_segment=4_0_1_2_3_4_18529.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b07040>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:39:53 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000131&redirect=1&hls_segment=4_0_1_2_3_4_17096.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6b6a0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:40:01 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000131&redirect=1&hls_segment=4_0_1_2_3_4_17097.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b68550>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:40:09 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000131&redirect=1&hls_segment=4_0_1_2_3_4_17098.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6b820>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:40:23 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397809820_687545357/2/00/CHANNEL00000346/9470800/_349696554.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbf6a0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:40:31 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397809820_687545357/2/00/CHANNEL00000346/9470800/_349696555.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbfee0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:40:39 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397809820_687545357/2/00/CHANNEL00000346/9470800/_349696556.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbd390>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:41:02 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000204&redirect=1&hls_segment=4_0_1_2_3_4_17096.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbd8a0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:41:10 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000204&redirect=1&hls_segment=4_0_1_2_3_4_17097.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6b940>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:41:18 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000204&redirect=1&hls_segment=4_0_1_2_3_4_17098.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e817a620>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:41:40 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.165:80/wh7f454c46tw397625063_1105863633/2/00/CHANNEL00000302/5840800/_349696569.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6b880>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:41:48 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.165:80/wh7f454c46tw397625063_1105863633/2/00/CHANNEL00000302/5840800/_349696570.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e817ad70>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:41:56 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.165:80/wh7f454c46tw397625063_1105863633/2/00/CHANNEL00000302/5840800/_349696571.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e817bb20>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:42:06 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000124&redirect=1&hls_segment=4_0_1_2_3_4_1601.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e817b220>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:42:14 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000124&redirect=1&hls_segment=4_0_1_2_3_4_1602.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e817bb50>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:42:22 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000124&redirect=1&hls_segment=4_0_1_2_3_4_1603.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbe680>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:42:38 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.175:80/wh7f454c46tw397668190_-1513240532/2/00/CHANNEL00000310/9470800/_349696581.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd4730>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:42:46 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.175:80/wh7f454c46tw397668190_-1513240532/2/00/CHANNEL00000310/9470800/_349696582.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5450>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:42:54 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.175:80/wh7f454c46tw397668190_-1513240532/2/00/CHANNEL00000310/9470800/_349696583.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e81c8310>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:43:50 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000119&redirect=1&hls_segment=4_0_1_2_3_4_4693.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd4670>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:43:58 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000119&redirect=1&hls_segment=4_0_1_2_3_4_4694.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbf070>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:44:06 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000119&redirect=1&hls_segment=4_0_1_2_3_4_4695.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e817b490>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:44:08 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.47:80/wh7f454c46tw111685212_1092286008/2/00/CHANNEL00000038/2540800/_349696599.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd6470>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:44:16 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.47:80/wh7f454c46tw111685212_1092286008/2/00/CHANNEL00000038/2540800/_349696600.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbf1f0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:44:24 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.47:80/wh7f454c46tw111685212_1092286008/2/00/CHANNEL00000038/2540800/_349696601.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5f90>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:44:40 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='cssbyd.imwork.net', port=8082): Read timed out. (read timeout=8)
+2025-05-29 09:44:45 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='live.cztv.cc', port=85): Read timed out.
+2025-05-29 09:44:48 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='cssbyd.imwork.net', port=8082): Read timed out. (read timeout=8)
+2025-05-29 09:44:53 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397814055_1526386413/2/00/CHANNEL00000347/9470800/_349696608.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbcf10>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:44:58 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='cssbyd.imwork.net', port=8082): Read timed out. (read timeout=8)
+2025-05-29 09:45:01 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397814055_1526386413/2/00/CHANNEL00000347/9470800/_349696609.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e817b130>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:04 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='cssbyd.imwork.net', port=8082): Read timed out. (read timeout=5)
+2025-05-29 09:45:09 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397814055_1526386413/2/00/CHANNEL00000347/9470800/_349696610.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbfaf0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:17 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.41:80/wh7f454c46tw397777614_1911072758/2/00/CHANNEL00000330/9470800/_349696611.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd7100>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:25 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.41:80/wh7f454c46tw397777614_1911072758/2/00/CHANNEL00000330/9470800/_349696612.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6a7a0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:28 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.168:80/wh7f454c46tw397719455_-55694690/2/00/CHANNEL00000325/9470800/_349696615.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbd480>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:33 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.41:80/wh7f454c46tw397777614_1911072758/2/00/CHANNEL00000330/9470800/_349696613.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e817bcd0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:36 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.168:80/wh7f454c46tw397719455_-55694690/2/00/CHANNEL00000325/9470800/_349696616.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e81bc520>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:44 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.168:80/wh7f454c46tw397719455_-55694690/2/00/CHANNEL00000325/9470800/_349696617.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd6770>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:50 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000086&redirect=1&hls_segment=4_0_1_2_3_4_18599.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd70d0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:45:53 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.43:80/wh7f454c46tw3394797750_2100012903/2/00/CHANNEL00000036/2540800/_349696620.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5a20>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:45:58 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000086&redirect=1&hls_segment=4_0_1_2_3_4_18600.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd65c0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:46:02 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.43:80/wh7f454c46tw3394797750_2100012903/2/00/CHANNEL00000036/2540800/_349696621.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbc2b0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:46:06 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000086&redirect=1&hls_segment=4_0_1_2_3_4_18601.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbd3c0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:46:10 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.43:80/wh7f454c46tw3394797750_2100012903/2/00/CHANNEL00000036/2540800/_349696622.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbecb0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:46:25 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.42:80/wh7f454c46tw397825295_-496712260/2/00/CHANNEL00000335/9470800/_349696626.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd50f0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:46:33 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.42:80/wh7f454c46tw397825295_-496712260/2/00/CHANNEL00000335/9470800/_349696627.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd6f20>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:46:41 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.42:80/wh7f454c46tw397825295_-496712260/2/00/CHANNEL00000335/9470800/_349696628.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bed000>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:48:34 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.172:80/wh7f454c46tw397694576_-1748067702/2/00/CHANNEL00000326/9470800/_349696652.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd6080>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:48:42 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.172:80/wh7f454c46tw397694576_-1748067702/2/00/CHANNEL00000326/9470800/_349696653.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5720>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:48:50 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.172:80/wh7f454c46tw397694576_-1748067702/2/00/CHANNEL00000326/9470800/_349696654.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbfe80>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:49:22 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000122&redirect=1&hls_segment=4_0_1_2_3_4_17806.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b68c40>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:49:30 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000122&redirect=1&hls_segment=4_0_1_2_3_4_17807.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbfc10>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:49:38 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000122&redirect=1&hls_segment=4_0_1_2_3_4_17808.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5210>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:50:12 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000111&redirect=1&hls_segment=4_0_1_2_3_4_4740.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5e40>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:50:17 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.44:80/wh7f454c46tw3668958560_-1590177523/2/00/CHANNEL00000042/2540800/_349696673.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd7670>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:50:20 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000111&redirect=1&hls_segment=4_0_1_2_3_4_4741.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b69bd0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:50:25 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.44:80/wh7f454c46tw3668958560_-1590177523/2/00/CHANNEL00000042/2540800/_349696674.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bed2a0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:50:28 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000111&redirect=1&hls_segment=4_0_1_2_3_4_4742.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6b5b0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:50:33 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.44:80/wh7f454c46tw3668958560_-1590177523/2/00/CHANNEL00000042/2540800/_349696675.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd7d90>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:51:06 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='39.164.180.36', port=19901): Read timed out. (read timeout=8)
+2025-05-29 09:51:13 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='test.smart-more.cn', port=35455): Read timed out.
+2025-05-29 09:51:14 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='39.164.180.36', port=19901): Read timed out. (read timeout=8)
+2025-05-29 09:51:22 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='39.164.180.36', port=19901): Read timed out. (read timeout=8)
+2025-05-29 09:52:20 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='39.164.180.36', port=19901): Read timed out. (read timeout=5)
+2025-05-29 09:52:28 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='39.164.180.36', port=19901): Read timed out. (read timeout=8)
+2025-05-29 09:52:36 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='39.164.180.36', port=19901): Read timed out. (read timeout=8)
+2025-05-29 09:52:47 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='cssbyd.imwork.net', port=8082): Read timed out. (read timeout=5)
+2025-05-29 09:53:42 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000100&redirect=1&hls_segment=4_0_1_2_3_4_15507.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b68df0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:53:50 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000100&redirect=1&hls_segment=4_0_1_2_3_4_15508.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e820d840>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:53:58 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000100&redirect=1&hls_segment=4_0_1_2_3_4_15509.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd6bf0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:54:05 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397829230_1808428360/2/00/CHANNEL00000348/9470800/_349696719.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5ea0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:54:13 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397829230_1808428360/2/00/CHANNEL00000348/9470800/_349696720.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd6e30>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:54:21 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.162.52:80/wh7f454c46tw397829230_1808428360/2/00/CHANNEL00000348/9470800/_349696721.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5ae0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:54:38 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.172:80/wh7f454c46tw397712930_-1190805300/2/00/CHANNEL00000327/9470800/_349696724.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e820c2b0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:54:46 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.172:80/wh7f454c46tw397712930_-1190805300/2/00/CHANNEL00000327/9470800/_349696725.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b68400>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:54:54 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/222.174.161.172:80/wh7f454c46tw397712930_-1190805300/2/00/CHANNEL00000327/9470800/_349696726.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbf7f0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:55:17 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000121&redirect=1&hls_segment=4_0_1_2_3_4_4876.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbfd90>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:55:23 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.43:80/wh7f454c46tw3619216835_-1782766063/2/00/CHANNEL00000044/2540800/_349696734.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e820f190>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:55:25 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000121&redirect=1&hls_segment=4_0_1_2_3_4_4877.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e820ebf0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:55:31 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.43:80/wh7f454c46tw3619216835_-1782766063/2/00/CHANNEL00000044/2540800/_349696735.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5ae0>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:55:33 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000121&redirect=1&hls_segment=4_0_1_2_3_4_4878.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd4fa0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:55:39 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='10.10.0.1', port=8085): Max retries exceeded with url: /txkj_iptv/144.123.220.43:80/wh7f454c46tw3619216835_-1782766063/2/00/CHANNEL00000044/2540800/_349696736.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e820e830>, 'Connection to 10.10.0.1 timed out. (connect timeout=8)'))
+2025-05-29 09:55:48 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000117&redirect=1&hls_segment=4_0_1_2_3_4_13992.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bd5a80>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:55:56 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000117&redirect=1&hls_segment=4_0_1_2_3_4_13993.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8b6bc40>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 09:56:04 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000117&redirect=1&hls_segment=4_0_1_2_3_4_13994.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8bbc1f0>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 10:01:09 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000289&redirect=1&hls_segment=4_0_1_2_3_4_5757.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8225480>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 10:01:17 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000289&redirect=1&hls_segment=4_0_1_2_3_4_5758.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e8226860>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 10:01:25 - ERROR - checker:110 - ChannelExtractor.validate_ts error: HTTPConnectionPool(host='httplive.slave.bfgd.com.cn', port=14311): Max retries exceeded with url: /playurl?playtype=live&protocol=hls&accesstoken=R5F2408FEU3198804BK78052214IE73560DFP2BF4M340CE68V0Z339CBW1626D4D261E46FEA&playtoken=ABCDEFGH&programid=4200000289&redirect=1&hls_segment=4_0_1_2_3_4_5759.ts (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x74a8e820f580>, 'Connection to httplive.slave.bfgd.com.cn timed out. (connect timeout=8)'))
+2025-05-29 10:57:44 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 10:57:44 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 10:57:44 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 10:57:44 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 10:57:44 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 10:57:44 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 10:57:44 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 10:57:44 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:05:28 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:05:28 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:05:28 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:05:28 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:05:28 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:05:28 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:05:28 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:05:28 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:05:37 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:05:37 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:05:37 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:05:37 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:05:38 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:05:38 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:05:38 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:05:38 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:08:04 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:08:04 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:08:04 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:08:04 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:08:04 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:08:04 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:08:04 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:08:04 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:08:25 - ERROR - routes:126 - update live sources task failed: module 'threading' has no attribute 'AtomicInteger'
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 111, in run_update_live_task
+    success_count = extractor.update_batch_live(
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/service/checker.py", line 283, in update_batch_live
+    success_counter = threading.AtomicInteger(0)
+AttributeError: module 'threading' has no attribute 'AtomicInteger'
+2025-05-29 13:43:36 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:43:36 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:43:36 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:43:36 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:43:36 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:43:36 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:43:36 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:43:36 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:55:19 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:55:19 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:55:19 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:55:19 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:55:19 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:55:19 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:55:19 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:55:19 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:59:39 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:59:39 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:59:39 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:59:39 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:59:39 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:59:39 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:59:39 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:59:39 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:59:55 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:59:56 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:59:56 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:59:56 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 13:59:56 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 13:59:56 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 13:59:56 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 13:59:56 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:00:22 - ERROR - base_events:1758 - Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<Server.serve() done, defined at /home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/server.py:68> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+  File "/home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+  File "/media/xubing/Workspace/SourceForge/Linux/DevTools/pycharm-2024.1/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+  File "/media/xubing/Workspace/SourceForge/Linux/DevTools/pycharm-2024.1/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 234, in run_until_complete
+    self._run_once()
+  File "/media/xubing/Workspace/SourceForge/Linux/DevTools/pycharm-2024.1/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 286, in _run_once
+    handle._run()
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/lib/python3.10/asyncio/tasks.py", line 315, in __wakeup
+    self.__step()
+  File "/media/xubing/Workspace/SourceForge/Linux/DevTools/pycharm-2024.1/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 395, in step
+    step_orig(task, exc)
+  File "/usr/lib/python3.10/asyncio/tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "/home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/server.py", line 69, in serve
+    with self.capture_signals():
+  File "/usr/lib/python3.10/contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "/home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+2025-05-29 14:00:25 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:00:26 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:00:26 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:00:26 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:00:26 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:00:26 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:00:26 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:00:26 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:01:44 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:01:44 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:01:44 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:01:44 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:01:44 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:01:44 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:01:44 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:01:44 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:02:17 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:02:17 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:02:17 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:02:17 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:02:17 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:02:17 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:02:17 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:02:17 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:06:37 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:06:38 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:06:38 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:06:38 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:06:38 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:06:38 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:06:38 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:06:38 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:07:02 - ERROR - base_events:1758 - Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<Server.serve() done, defined at /home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/server.py:68> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+  File "/home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+  File "/media/xubing/Workspace/SourceForge/Linux/DevTools/pycharm-2024.1/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+  File "/media/xubing/Workspace/SourceForge/Linux/DevTools/pycharm-2024.1/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 234, in run_until_complete
+    self._run_once()
+  File "/media/xubing/Workspace/SourceForge/Linux/DevTools/pycharm-2024.1/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 286, in _run_once
+    handle._run()
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/lib/python3.10/asyncio/tasks.py", line 315, in __wakeup
+    self.__step()
+  File "/media/xubing/Workspace/SourceForge/Linux/DevTools/pycharm-2024.1/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 395, in step
+    step_orig(task, exc)
+  File "/usr/lib/python3.10/asyncio/tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "/home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/server.py", line 69, in serve
+    with self.capture_signals():
+  File "/usr/lib/python3.10/contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "/home/cache-python/tvbox/lib/python3.10/site-packages/uvicorn/server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+2025-05-29 14:09:28 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:09:28 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:09:28 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:09:28 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:09:28 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:09:28 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:09:28 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:09:28 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:10:20 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:10:20 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:10:20 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:10:20 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:10:20 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:10:20 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:10:20 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:10:20 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:10:39 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:10:39 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:10:39 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:10:39 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:10:39 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:10:39 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:10:39 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:10:39 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:11:11 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:11:11 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:11:11 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:11:11 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:11:12 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:11:12 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:11:12 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:11:12 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:15:03 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:15:03 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:15:03 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:15:03 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:15:03 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:15:03 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:15:03 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:15:03 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:15:24 - ERROR - checker:223 - ChannelExtractor.extract_from_content_disposition error: HTTPConnectionPool(host='60.29.124.66', port=6080): Max retries exceeded with url: /hls/7/index.m3u8 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x79b5fd3c5b40>, 'Connection to 60.29.124.66 timed out. (connect timeout=5)'))
+2025-05-29 14:24:49 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:24:49 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:24:49 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:24:49 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 14:24:49 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 14:24:49 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 14:24:49 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 14:24:49 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:03:59 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:03:59 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:03:59 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:03:59 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:03:59 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:03:59 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:03:59 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:03:59 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:10:13 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:10:13 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:10:13 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:10:13 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:10:13 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:10:13 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:10:13 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:10:13 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:10:28 - INFO - checker:287 - channel data saved to file /tmp/result-1.txt
+2025-05-29 21:10:28 - ERROR - routes:126 - update live sources task failed: 'int' object is not callable
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 111, in run_update_live_task
+    success_count = extractor.update_batch_live(
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/service/checker.py", line 273, in update_batch_live
+    return success_counter.value()
+TypeError: 'int' object is not callable
+2025-05-29 21:11:34 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:11:34 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:11:34 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:11:34 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:11:34 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:11:34 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:11:34 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:11:34 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:11:42 - INFO - checker:287 - channel data saved to file /tmp/result-1.txt
+2025-05-29 21:11:42 - ERROR - routes:126 - update live sources task failed: 'int' object is not callable
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 111, in run_update_live_task
+    success_count = extractor.update_batch_live(
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/service/checker.py", line 273, in update_batch_live
+    return success_counter.value()
+TypeError: 'int' object is not callable
+2025-05-29 21:13:56 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:13:56 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:13:56 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:13:56 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:13:56 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:13:56 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:13:56 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:13:56 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:14:10 - INFO - checker:285 - channel data saved to file /tmp/result-1.txt
+2025-05-29 21:14:10 - ERROR - routes:126 - update live sources task failed: 'int' object is not callable
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 111, in run_update_live_task
+    success_count = extractor.update_batch_live(
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/service/checker.py", line 271, in update_batch_live
+    return success_counter.value()
+TypeError: 'int' object is not callable
+2025-05-29 21:16:03 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:16:03 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:16:03 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:16:03 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:16:03 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:16:03 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:16:03 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:16:03 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:16:22 - ERROR - parser:70 - parse sitemap data failed: HTTPSConnectionPool(host='live.izbds.com', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x77e7ef7082b0>, 'Connection to live.izbds.com timed out. (connect timeout=10)'))
+2025-05-29 21:16:22 - ERROR - routes:134 - update live sources request failed: 500: live sources count is too low: 0 (less than 100)
+Traceback (most recent call last):
+  File "/home/projects/src/github.com/commis/sub-rule/python/control/live/routes.py", line 95, in update_live_sources
+    handle_exception(f"live sources count is too low: {total_count} (less than {request.low_limit})")
+  File "/media/xubing/Workspace/DevelopWork/DevProjects/src/github.com/commis/sub-rule/python/utils/handler.py", line 9, in handle_exception
+    raise HTTPException(status_code=status_code, detail=error_msg)
+fastapi.exceptions.HTTPException: 500: live sources count is too low: 0 (less than 100)
+2025-05-29 21:17:25 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:17:25 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:17:25 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:17:25 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:17:25 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:17:25 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:17:25 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:17:25 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:25:42 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:25:42 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:25:42 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:25:42 - INFO - scanner:41 - successfully import routes module: python.control.category.routes
+2025-05-29 21:25:42 - INFO - scanner:41 - successfully import routes module: python.control.tv.routes
+2025-05-29 21:25:42 - INFO - scanner:41 - successfully import routes module: python.control.live.routes
+2025-05-29 21:25:42 - INFO - scanner:41 - successfully import routes module: python.control.task.routes
+2025-05-29 21:25:42 - INFO - scanner:41 - successfully import routes module: python.control.category.routes

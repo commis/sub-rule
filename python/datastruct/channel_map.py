@@ -8,15 +8,26 @@ class ChannelMap:
         self._channels = {}
         self._lock = threading.RLock()
 
-    def add_channel(self, channel_name, url):
+    def add_channel(self, name, url):
         with self._lock:
-            urls = self._channels.get(channel_name, [])
-            urls.append(url)
-            self._channels[channel_name] = urls
+            if name not in self._channels:
+                self._channels[name] = []
+            self._channels[name].append(url)
 
     def get_channels(self):
         with self._lock:
             return self._channels.keys()
+
+    def get_urls(self, name):
+        with self._lock:
+            if name in self._channels:
+                return self._channels[name]
+        return []
+
+    def remove_invalid_url(self, name, url):
+        with self._lock:
+            if name in self._channels:
+                self._channels[name].remove(url)
 
     def to_string(self):
         with self._lock:

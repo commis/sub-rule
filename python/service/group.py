@@ -1,7 +1,6 @@
 import threading
 
 from core.singleton import singleton
-from datastruct.channel_info import ChannelInfo
 from datastruct.channel_map import ChannelMap
 
 
@@ -15,11 +14,22 @@ class GroupManager:
         with self._lock:
             self._groups.clear()
 
-    def add_group(self, name, channel_info: ChannelInfo):
+    def add_group(self, name, channel_name, channel_url):
         with self._lock:
             if name not in self._groups:
                 self._groups[name] = ChannelMap()
-            self._groups[name].add_channel(channel_info.name, channel_info.url)
+            self._groups[name].add_channel(channel_name, channel_url)
+
+    def get_groups(self):
+        with self._lock:
+            return list(self._groups.keys())
+
+    def get_channels(self, name) -> ChannelMap:
+        channel_map = None
+        with self._lock:
+            if name in self._groups:
+                channel_map = self._groups[name]
+        return channel_map
 
     def to_string(self) -> str:
         from service.category import category_manager

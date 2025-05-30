@@ -72,7 +72,7 @@ def check_single_channel(request: SingleCheckRequest) -> Response:
     try:
         channel_id = request.extract_id(request.url)
         extractor = ChannelExtractor(request.url)
-        channel_info = extractor.check_single(request.url, cid=channel_id, channel_name=None)
+        channel_info = extractor.check_single_with_timeout(request.url, cid=channel_id, channel_name=None)
 
         if not channel_info:
             return Response(content="", media_type="text/plain")

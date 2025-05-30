@@ -89,9 +89,9 @@ def update_live_sources(request: UpdateLiveRequest, background_tasks: Background
         if request.is_clear:
             group_manager.clear()
 
-        live_data = parse_sitemap_data(request.url)
-        total_count = len(live_data)
+        total_count = parse_sitemap_data(request.url)
         if total_count <= request.low_limit:
+            group_manager.clear()
             handle_exception(f"live sources count is too low: {total_count} (less than {request.low_limit})")
 
         task_id = task_manager.create_task(
@@ -110,7 +110,6 @@ def update_live_sources(request: UpdateLiveRequest, background_tasks: Background
                 extractor = ChannelExtractor(request.url)
                 success_count = extractor.update_batch_live(
                     threads=request.thread_size,
-                    live_data=live_data,
                     output_file=request.output,
                     task_status=task
                 )

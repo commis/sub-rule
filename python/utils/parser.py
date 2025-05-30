@@ -1,5 +1,3 @@
-import re
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -9,35 +7,38 @@ from core.logger_factory import LoggerFactory
 logger = LoggerFactory.get_logger(__name__)
 
 
-def parse_channel_data(text_data, is_filter=False) -> list:
+def parse_channel_data(text_data) -> list:
     """
     将用户提供的频道数据文本解析为指定格式的元组列表
     :return: 解析后的元组列表，格式为 [(类别, 子类型, URL), ...]
     """
-    from service import category_manager
-
     data = []
     current_category = None
-    lines = [line.strip() for line in text_data.split('\n') if line.strip()]
 
-    # 合并正则：移除表情符号、逗号、#genre#和多余空格
-    clean_pattern = re.compile(
-        r'[\U0001F000-\U0001FFFF\U00002500-\U00002BEF\U00002E00-\U00002E7F\U00003000-\U00003300,#genre#\s]+')
+    # 使用生成器逐行处理文本数据，避免一次性加载所有行到内存
+    def line_generator():
+        start = 0
+        while True:
+            end = text_data.find('\n', start)
+            if end == -1:
+                if start < len(text_data):
+                    yield text_data[start:].strip()
+                break
+            line = text_data[start:end].strip()
+            if line:
+                yield line
+            start = end + 1
 
-    for line in lines:
+    for line_text in line_generator():
         # 识别类别行（以#genre#结尾）
-        if '#genre#' in line:
-            category_part = clean_pattern.sub(' ', line).strip()
+        if '#genre#' in line_text:
+            category_part = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line_text).strip()
             if category_part:
                 current_category = category_part
             continue
 
         if current_category:
-            # 过滤掉不需要找的分类
-            if is_filter and category_manager.is_not_exist(current_category):
-                continue
-
-            parts = line.split(',', 1)
+            parts = line_text.split(',', 1)
             if len(parts) < 2:
                 continue
 
@@ -48,8 +49,8 @@ def parse_channel_data(text_data, is_filter=False) -> list:
     return data
 
 
-def parse_sitemap_data(sitemap_url) -> list:
-    data = []
+def parse_sitemap_data(sitemap_url) -> int:
+    total_count = 0
     try:
         response = requests.get(sitemap_url, timeout=Constants.REQUEST_TIMEOUT)
         response.raise_for_status()
@@ -60,19 +61,17 @@ def parse_sitemap_data(sitemap_url) -> list:
             if url.endswith(".txt"):
                 urls.append(url)
 
-        content = ''
         for url in urls:
-            text = __get_remote_url_data(url)
+            text = _get_remote_url_data(url)
             if text:
-                content += text
-        data = parse_channel_data(content, True)
+                total_count += _parse_sitemap_channel_data(text)
     except Exception as e:
         logger.error(f"parse sitemap data failed: {e}")
 
-    return data
+    return total_count
 
 
-def __get_remote_url_data(url):
+def _get_remote_url_data(url):
     try:
         response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
         response.raise_for_status()
@@ -80,3 +79,47 @@ def __get_remote_url_data(url):
     except Exception as e:
         logger.error(f"obtain remote url data failed: {e}")
         return None
+
+
+def _parse_sitemap_channel_data(text_data) -> int:
+    """
+    将用户提供的频道数据文本解析并存储GroupManager中
+    """
+    from service import category_manager
+    from service.group import group_manager
+    current_category = None
+    total_data_count = 0
+
+    # 使用生成器逐行处理文本数据，避免一次性加载所有行到内存
+    def line_generator():
+        start = 0
+        while True:
+            end = text_data.find('\n', start)
+            if end == -1:
+                if start < len(text_data):
+                    yield text_data[start:].strip()
+                break
+            line = text_data[start:end].strip()
+            if line:
+                yield line
+            start = end + 1
+
+    for line_text in line_generator():
+        # 识别类别行（以#genre#结尾）
+        if '#genre#' in line_text:
+            category_part = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line_text).strip()
+            if category_part:
+                current_category = category_part
+            continue
+
+        if current_category:
+            parts = line_text.split(',', 1)
+            if len(parts) < 2 or category_manager.is_not_exist(current_category):
+                continue
+
+            subgenre, url = [p.strip() for p in parts]
+            if url:
+                group_manager.add_group(current_category, subgenre, url)
+                total_data_count += 1
+
+    return total_data_count

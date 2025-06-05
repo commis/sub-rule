@@ -62,7 +62,7 @@ class ChannelChecker:
         # 第二阶段：结构验证
         is_valid, reason = self._check_m3u8_validity(m3u8_content)
         if not is_valid:
-            logger.warning(f"M3U8 structure invalid for {channel_info.name} with {url_info.url}: {reason}")
+            logger.debug(f"M3U8 structure invalid for {channel_info.name} with {url_info.url}: {reason}")
             return False
 
         # 第三阶段：TS验证
@@ -73,7 +73,7 @@ class ChannelChecker:
             return False
 
         # 第四阶段：测速
-        url_info.set_speed(self._benchmark_speed(tested_urls))
+        # url_info.set_speed(self._benchmark_speed(tested_urls))
 
         # 第五阶段：元数据提取
         if not channel_info.name:
@@ -119,7 +119,8 @@ class ChannelChecker:
                     child_url = urljoin(url, match.group(1).strip())
                     child_content = self._check_m3u8_url(child_url, timeout)
                     if child_content:
-                        return child_content
+                        content = child_content
+                        break
             return content
         except:
             return None
@@ -150,7 +151,8 @@ class ChannelChecker:
             start_time = time.time()
 
             for ts in ts_urls[:max_test_count]:
-                full_url = urljoin(base_url, ts)
+                full_url = ts if ts.startswith('http') else urljoin(
+                    base_url if base_url.endswith('/') else base_url + '/', ts)
                 futures.append(executor.submit(self._validate_ts, full_url, timeout=timeout / 2))
 
             # 带超时的结果处理

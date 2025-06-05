@@ -73,7 +73,7 @@ class ChannelChecker:
             return False
 
         # 第四阶段：测速
-        # url_info.set_speed(self._benchmark_speed(tested_urls))
+        url_info.set_speed(self._benchmark_speed(tested_urls))
 
         # 第五阶段：元数据提取
         if not channel_info.name:

@@ -18,12 +18,13 @@ class Parser:
         """
 
         def generate_channels():
-            category_stack = []
+            category_stack = None
             for line in (line.strip() for line in text_data.splitlines() if line.strip() and not line.startswith('#')):
                 if line.endswith('#genre#'):
+                    category_stack = None
                     category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line[:-7]).strip()
                     if category:
-                        category_stack.append(category)
+                        category_stack = category
                     continue
 
                 if category_stack:
@@ -36,7 +37,7 @@ class Parser:
                         current_category = (
                             category_manager.get_category_name(subgenre)
                             if subgenre.startswith('CCTV')
-                            else category_stack[-1]
+                            else category_stack
                         )
                         yield current_category, subgenre, url
                     except ValueError:
@@ -73,12 +74,13 @@ class Parser:
     def load_channel_data(text_data):
         from services import category_manager
 
-        category_stack = []
+        category_stack = None
         for line in (line.strip() for line in text_data.splitlines() if line.strip() and not line.startswith('#')):
             if line.endswith('#genre#'):
+                category_stack = None
                 category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line).strip()
                 if category and category_manager.exists(category):
-                    category_stack.append(category)
+                    category_stack = category
                 continue
 
             if category_stack:
@@ -87,6 +89,6 @@ class Parser:
                     subgenre, url = line.split(',', 1)
                     subgenre, url = subgenre.strip(), url.strip()
                     if url:
-                        channel_manager.add_channel(category_stack[-1], subgenre, url)
+                        channel_manager.add_channel(category_stack, subgenre, url)
                 except ValueError:
                     continue

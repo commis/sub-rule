@@ -10,7 +10,6 @@ class LiveMerger:
         self._top_hosts = []
         self._filtered_data = defaultdict(list)
         self._host_count = None
-        self._ignore_categories = ["央视精品", "春晚频道"]
 
     def _extract_host(self, url):
         """从URL中提取主机部分（IP或域名+端口），使用缓存优化"""
@@ -65,7 +64,7 @@ class LiveMerger:
         filtered_items = (
             (category, subgenre, url)
             for category, subgenre, url in self._data
-            if self._extract_host(url) in top_host_set or category in self._ignore_categories
+            if self._extract_host(url) in top_host_set or category_manager.is_ignore(category)
         )
 
         for category, subgenre, url in filtered_items:

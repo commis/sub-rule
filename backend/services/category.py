@@ -33,11 +33,16 @@ class CategoryManager:
             "春晚频道": {"icon": "🏮"},
             "未分类组": {"icon": "📂"}
         }
+        self._ignore_categories = ["央视精品", "春晚频道", "直播中国"]
 
     def clear(self) -> None:
         """清空所有分类图标映射"""
         with self._lock:
             self._categories.clear()
+
+    def is_ignore(self, category: str):
+        """判断是否为忽略的分类"""
+        return category in self._ignore_categories
 
     def get_groups(self):
         """获取所有分类的组"""

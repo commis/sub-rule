@@ -33,7 +33,12 @@ class ChannelBaseModel:
 
     def total_count(self):
         with self._lock:
-            return sum(channel_list.count() for channel_list in self._channelGroups.values())
+            # 对于忽略处理的分类，不计算总数
+            return sum(
+                channel_list.count()
+                for group_name, channel_list in self._channelGroups.items()
+                if not category_manager.is_ignore(group_name)
+            )
 
     def add_channel(self, name: str, channel_name, channel_url, id: int = 0):
         with self._lock:

@@ -15,7 +15,7 @@ from core.constants import Constants
 from core.logger_factory import LoggerFactory
 from models.channel_info import ChannelInfo, ChannelUrl
 from models.counter import Counter
-from services import channel_manager
+from services import channel_manager, category_manager
 
 logger = LoggerFactory.get_logger(__name__)
 
@@ -380,7 +380,8 @@ class ChannelChecker:
         with ThreadPoolExecutor(max_workers=optimal_threads) as executor:
             def task_generator():
                 actual_count = 0
-                for group_name in channel_manager.get_groups():
+                # 部分分类组忽略不予处理
+                for group_name in filter(lambda g: not category_manager.is_ignore(g), channel_manager.get_groups()):
                     chanmel_list = channel_manager.get_channel_list(group_name)
                     channel_name_list = chanmel_list.get_channel_names()
                     for channel_name in channel_name_list:

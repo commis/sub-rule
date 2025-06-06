@@ -5,6 +5,7 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
+from typing import Tuple
 from urllib.parse import urljoin
 
 import m3u8
@@ -12,6 +13,7 @@ import requests
 from requests import Timeout
 
 from core.constants import Constants
+from core.execution_time import log_execution_time, ref
 from core.logger_factory import LoggerFactory
 from models.channel_info import ChannelInfo, ChannelUrl
 from models.counter import Counter
@@ -31,31 +33,32 @@ class ChannelChecker:
         self._start = start
         self._size = size
 
-    def check_single_with_timeout(self, channel_info: ChannelInfo, url_info: ChannelUrl, timeout=60) -> bool:
+    @log_execution_time(name=ref("channel_info.name"), url=ref("url_info.url"))
+    def check_single_with_timeout(self, channel_info: ChannelInfo, url_info: ChannelUrl, timeout=30) -> bool:
         """带超时控制的频道检测方法"""
-        try:
-            # 使用线程池执行检测任务
-            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-                future = executor.submit(self._check_single, channel_info, url_info)
-                try:
-                    return future.result(timeout=timeout)
-                except concurrent.futures.TimeoutError:
-                    # 超时发生时，future会被自动取消
-                    logger.warning(
-                        f"Check for {channel_info.name} with {url_info.url} timed out after {timeout} seconds")
-                    raise TimeoutException(f"Timeout checking {url_info.url}")
-                except Exception as e:
-                    logger.error(f"check_single error: {e}")
-                    return False
-        except Exception:
-            return False
+        logger.debug(f"Checking {channel_info.name} with {url_info.url}")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(self._check_single, channel_info, url_info)
+            try:
+                return future.result(timeout=timeout)
+            except concurrent.futures.TimeoutError:
+                # 超时发生时，future会被自动取消
+                logger.warning(
+                    f"Check for {channel_info.name} with {url_info.url} timed out after {timeout} seconds")
+                return False
+            except Exception as e:
+                logger.error(f"check_single error: {e}")
+                return False
 
     def _check_single(self, channel_info: ChannelInfo, url_info: ChannelUrl) -> bool:
         if url_info.url.endswith(".mp4"):
             return self._check_mp4_validity(url_info.url)
 
+        if ".m3u8" not in url_info.url:
+            return False
+
         # 第一阶段：基础验证
-        m3u8_content = self._check_m3u8_url(url_info.url)
+        m3u8_content = self._check_m3u8_url(url_info)
         if not m3u8_content:
             return False
 
@@ -70,6 +73,7 @@ class ChannelChecker:
         ts_urls = self._extract_ts_urls(m3u8_content)
         ts_valid, ts_reason, tested_urls = self._check_ts_availability(ts_urls, base_url)
         if not ts_valid:
+            logger.debug(f"TS segments invalid for {channel_info.name} with {url_info.url}: {ts_reason}")
             return False
 
         # 第四阶段：测速
@@ -106,18 +110,22 @@ class ChannelChecker:
         except:
             return False
 
-    def _check_m3u8_url(self, url, timeout=Constants.REQUEST_TIMEOUT):
+    def _check_m3u8_url(self, url_info: ChannelUrl, timeout=Constants.REQUEST_TIMEOUT):
         """带超时的m3u8 URL检查，支持递归解析子m3u8"""
         try:
-            response = requests.get(url, timeout=(2, timeout - 2))
+            response = requests.get(url_info.url, timeout=(2, timeout - 2))
             response.raise_for_status()
             content = response.text
 
             if '#EXT-X-STREAM-INF' in content:
                 # 使用正则表达式提取所有流信息和路径
                 for match in re.finditer(r'#EXT-X-STREAM-INF:.*?\n(.+)', content):
-                    child_url = urljoin(url, match.group(1).strip())
-                    child_content = self._check_m3u8_url(child_url, timeout)
+                    child_m3u8 = match.group(1).strip()
+                    if child_m3u8.startswith('http'):
+                        url_info.set_url(child_m3u8)
+                    else:
+                        url_info.set_url(urljoin(url_info.url, child_m3u8))
+                    child_content = self._check_m3u8_url(url_info)
                     if child_content:
                         content = child_content
                         break
@@ -139,48 +147,45 @@ class ChannelChecker:
 
         return True, "结构完整"
 
-    def _check_ts_availability(self, ts_urls, base_url, timeout=Constants.REQUEST_TIMEOUT):
+    def _check_ts_availability(self, ts_urls, base_url):
         """带超时和并发的TS片段检查"""
-        success = 0
-        tested_urls = []
+        success = Counter()
         max_test_count = min(len(ts_urls), Constants.TS_SEGMENT_TEST_COUNT)
 
         # 使用线程池并发测试TS片段
-        with ThreadPoolExecutor(max_workers=Constants.TS_SEGMENT_TEST_COUNT) as executor:
+        with ThreadPoolExecutor(max_workers=max_test_count) as executor:
             futures = []
-            start_time = time.time()
+            tested_urls = []
 
             for ts in ts_urls[:max_test_count]:
                 full_url = ts if ts.startswith('http') else urljoin(
                     base_url if base_url.endswith('/') else base_url + '/', ts)
-                futures.append(executor.submit(self._validate_ts, full_url, timeout=timeout / 2))
+                futures.append(executor.submit(self._validate_ts, full_url, timeout=Constants.REQUEST_TIMEOUT))
 
             # 带超时的结果处理
-            for future in as_completed(futures, timeout=timeout):
-                if time.time() - start_time > timeout:
-                    break
-
+            for future in as_completed(futures):
                 try:
-                    if future.result():
-                        success += 1
-                        tested_urls.append(full_url)
+                    ts_url, is_valid = future.result(timeout=30)
+                    if is_valid:
+                        success.increment()
+                        tested_urls.append(ts_url)
                 except Exception as e:
                     logger.debug(f"TS check error: {e}")
 
-        if success == 0:
+        if success.get_value() == 0:
             return False, "all ts segments are not available", []
-        return True, f"{success}/{max_test_count} segments are available", tested_urls
+        return True, f"{success.get_value()}/{max_test_count} segments are available.", tested_urls
 
-    def _validate_ts(self, url, timeout: float = 5) -> bool:
+    def _validate_ts(self, url, timeout) -> Tuple[str, bool]:
         """带超时的TS片段验证"""
         try:
             # 只获取头部信息，减少数据传输
             response = requests.head(url, timeout=(1, timeout - 1), allow_redirects=True)
             response.raise_for_status()
-            return response.status_code == 200
+            return url, response.status_code == 200
         except Exception as e:
             logger.debug(f"_validate_ts error: {e}")
-            return False
+            return url, False
 
     def _extract_ts_urls(self, m3u8_content):
         m3u8_obj = m3u8.loads(m3u8_content)
@@ -212,27 +217,28 @@ class ChannelChecker:
 
     def _extract_channel_name(self, m3u8_content, url, timeout=3):
         """带超时的频道名称提取"""
+
+        def get_channel_name_worker(m3u8_info, request_url):
+            """频道名称提取的实际工作函数"""
+            # 方案1: 从EXTINF行提取
+            channel_name = self._extract_from_extinf(m3u8_info)
+            if channel_name:
+                return channel_name
+
+            # 方案2: 从Content-Disposition头提取 - 增加超时控制
+            channel_name = self._extract_from_content_disposition(request_url, timeout=2)
+            if channel_name:
+                return channel_name
+
+            return None
+
         with ThreadPoolExecutor(max_workers=1) as executor:
-            future = executor.submit(self._extract_channel_name_worker, m3u8_content, url)
+            future = executor.submit(get_channel_name_worker, m3u8_content, url)
             try:
                 return future.result(timeout=timeout)
             except Exception as e:
                 logger.error(f"Channel name extraction error: {e}")
                 return None
-
-    def _extract_channel_name_worker(self, m3u8_content, url):
-        """频道名称提取的实际工作函数"""
-        # 方案1: 从EXTINF行提取
-        channel_name = self._extract_from_extinf(m3u8_content)
-        if channel_name:
-            return channel_name
-
-        # 方案2: 从Content-Disposition头提取 - 增加超时控制
-        channel_name = self._extract_from_content_disposition(url, timeout=2)
-        if channel_name:
-            return channel_name
-
-        return None
 
     def _extract_from_extinf(self, m3u8_content):
         """
@@ -316,8 +322,7 @@ class ChannelChecker:
             try:
                 return self.check_single_with_timeout(
                     channel_info=tmp_channel_info,
-                    url_info=url_info
-                ), tmp_channel_info
+                    url_info=url_info), tmp_channel_info
             except TimeoutException as te:
                 logger.warning(f"Timeout checking {url_info.url}: {te}")
                 return False, None
@@ -360,10 +365,8 @@ class ChannelChecker:
             try:
                 if check_result:
                     success_counter.increment()
-                    return True
                 else:
                     channel_info.remove_invalid_url(url_info)
-                    return False
             finally:
                 with task_status_lock:
                     processed_counter.increment()
@@ -401,7 +404,10 @@ class ChannelChecker:
             # 提交所有任务
             futures = [executor.submit(process_url, task) for task in task_generator()]
             for future in as_completed(futures):
-                future.result()
+                try:
+                    future.result()
+                except Exception as e:
+                    logger.error(f"future result error: {e}")
 
         # 最终状态验证
         final_processed = processed_counter.get_value()

@@ -33,7 +33,7 @@ class CategoryManager:
             "春晚频道": {"icon": "🏮"},
             "未分类组": {"icon": "📂"}
         }
-        self._ignore_categories = ["央视精品", "春晚频道", "直播中国"]
+        self._ignore_categories = []
 
     def clear(self) -> None:
         """清空所有分类图标映射"""

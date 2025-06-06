@@ -13,6 +13,9 @@ class ChannelUrl:
         self.url = url
         self.speed = 0  # 单位：KB/s
 
+    def set_url(self, url: str):
+        self.url = url
+
     def set_speed(self, speed):
         self.speed = round(speed, 1)
 
@@ -31,20 +34,24 @@ class ChannelInfo:
     def __init__(self, id: int = 0, name: str = None):
         self.id = id
         self.name = name
-        self.urls: Set[ChannelUrl] = set()
         self.title = "未分类组"
+        self.urls: Set[ChannelUrl] = set()
+        self._lock = threading.RLock()
 
     def set_name(self, name: str):
         self.name = name or f"频道-{self.id}"
 
     def add_url(self, url: ChannelUrl):
-        self.urls.add(url)
+        with self._lock:
+            self.urls.add(url)
 
     def get_urls(self):
-        return self.urls
+        with self._lock:
+            return self.urls
 
     def remove_invalid_url(self, url_info: ChannelUrl):
-        self.urls.remove(url_info)
+        with self._lock:
+            self.urls.discard(url_info)
 
     def get_txt(self):
         return "\n".join(f"{self.name},{url.url}" for url in sorted(self.urls, key=lambda url: url.speed))

@@ -35,6 +35,10 @@ class TaskManager:
 
         return task_id
 
+    def clear(self):
+        with self._lock:
+            self._tasks.clear()
+
     def get_tasks(self):
         with self._lock:
             return [{"id": task["id"], "status": task["status"]} for task in self._tasks.values()]

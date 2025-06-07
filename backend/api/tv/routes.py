@@ -107,6 +107,7 @@ def check_batch_channels(request: BatchCheckRequest, background_tasks: Backgroun
     try:
         if request.is_clear:
             channel_manager.clear()
+            task_manager.clear()
 
         task_id = task_manager.create_task(
             url=request.url,
@@ -150,6 +151,7 @@ def update_live_sources(request: UpdateLiveRequest, background_tasks: Background
     try:
         if request.is_clear:
             channel_manager.clear()
+            task_manager.clear()
 
         parser = Parser()
         parser.load_sitemap_data(request.url)

@@ -85,6 +85,7 @@ def check_live_sources(
 
         if is_clear:
             channel_manager.clear()
+            task_manager.clear()
 
         Parser.load_channel_data(txt_data)
         total_count = channel_manager.total_count()

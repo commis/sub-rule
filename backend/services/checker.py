@@ -34,7 +34,7 @@ class ChannelChecker:
         self._size = size
 
     @log_execution_time(name=ref("channel_info.name"), url=ref("url_info.url"))
-    def check_single_with_timeout(self, channel_info: ChannelInfo, url_info: ChannelUrl, timeout=30) -> bool:
+    def check_single_with_timeout(self, channel_info: ChannelInfo, url_info: ChannelUrl, timeout=60) -> bool:
         """带超时控制的频道检测方法"""
         logger.debug(f"Checking {channel_info.name} with {url_info.url}")
         with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:

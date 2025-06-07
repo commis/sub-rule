@@ -43,7 +43,7 @@ CETV2,http://111.43.126.240:9003/hls/35/index.m3u8
 CETV4,http://58.17.48.228:808/hls/86/index.m3u8
 CETV4,http://111.43.126.240:9003/hls/36/index.m3u8
 CGTN,http://111.43.126.240:9003/hls/33/index.m3u8
-CGYN纪录,http://111.43.126.240:9003/hls/32/index.m3u8
+CGTN纪录,http://111.43.126.240:9003/hls/32/index.m3u8
 
 ✨央视精品,#genre#
 CCTV兵器科技,http://58.17.48.228:808/hls/99/index.m3u8

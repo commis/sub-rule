@@ -16,34 +16,37 @@ class Parser:
         """
         将用户提供的频道数据文本解析为 [(类别, 子类型, URL), ...] 格式的元组列表
         """
+        category_stack = None
+        special_category = None
+        channel_list = []
 
-        def generate_channels():
-            category_stack = None
-            for line in (line.strip() for line in text_data.splitlines() if line.strip() and not line.startswith('#')):
-                if line.endswith('#genre#'):
-                    category_stack = None
-                    category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line[:-7]).strip()
-                    if category:
-                        category_stack = category
+        for line in text_data.splitlines():
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+
+            if line.endswith('#genre#'):
+                category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line[:-7]).strip()
+                category_stack = category if category else None
+                special_category = None
+                continue
+
+            if category_stack:
+                parts = line.split(',', 1)
+                if len(parts) != 2:
+                    continue
+                subgenre, url = [p.strip() for p in parts]
+                if not url:
                     continue
 
-                if category_stack:
-                    try:
-                        subgenre, url = line.split(',', 1)
-                        subgenre = subgenre.strip()
-                        url = url.strip()
-                        if not url:
-                            continue
-                        current_category = (
-                            category_manager.get_category_name(subgenre)
-                            if subgenre.startswith('CCTV')
-                            else category_stack
-                        )
-                        yield current_category, subgenre, url
-                    except ValueError:
-                        continue
+                if not special_category and subgenre.startswith('CCTV'):
+                    special_category = category_manager.get_category_name(subgenre)
+                    if special_category:
+                        category_stack = special_category
 
-        return list(generate_channels())
+                channel_list.append((category_stack, subgenre, url))
+
+        return channel_list
 
     def load_sitemap_data(cls, url: str):
         try:
@@ -54,7 +57,7 @@ class Parser:
                 url = loc.text.strip()
                 if not url.endswith(".txt"):
                     continue
-                cls._get_remote_url_data(url)
+                cls._get_remote_url_data(url, True)
 
             # 处理自建频道
             cls._get_remote_url_data(cls._live_url)
@@ -62,16 +65,16 @@ class Parser:
         except Exception as e:
             logger.error(f"parse sitemap data failed: {e}")
 
-    def _get_remote_url_data(cls, url):
+    def _get_remote_url_data(cls, url, use_ignore=False):
         try:
             response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
             response.raise_for_status()
-            cls.load_channel_data(response.text.strip())
+            cls.load_channel_data(response.text.strip(), use_ignore)
         except Exception as e:
             logger.error(f"access remote url data failed: {e}")
 
     @staticmethod
-    def load_channel_data(text_data):
+    def load_channel_data(text_data, use_ignore: bool = False):
         from services import category_manager
 
         category_stack = None
@@ -79,6 +82,8 @@ class Parser:
             if line.endswith('#genre#'):
                 category_stack = None
                 category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line).strip()
+                if use_ignore and category_manager.is_ignore(category):
+                    continue
                 if category and category_manager.exists(category):
                     category_stack = category
                 continue

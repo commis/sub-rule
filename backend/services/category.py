@@ -23,17 +23,17 @@ class CategoryManager:
             },
             "卫视频道": {"icon": "📡"},
             "体育频道": {"icon": "⚽"},
-            "纪录频道": {"icon": "📽"},
+            "纪录频道": {"icon": "📜"},
             "综艺频道": {"icon": "🎤"},
             "戏曲频道": {"icon": "🎭"},
             "电视剧场": {"icon": "📽️"},
             "电影频道": {"icon": "🎬"},
-            "儿童频道": {"icon": "🧸"},
+            "儿童频道": {"icon": "👶"},
             "直播中国": {"icon": "📹"},
             "春晚频道": {"icon": "🏮"},
             "未分类组": {"icon": "📂"}
         }
-        self._ignore_categories = ["直播中国"]
+        self._ignore_categories = ["春晚频道", "直播中国"]
 
     def clear(self) -> None:
         """清空所有分类图标映射"""
@@ -63,7 +63,7 @@ class CategoryManager:
         with self._lock:
             return self._categories.get(category_name)
 
-    def get_category_name(self, channel_name: str) -> Optional[(str)]:
+    def get_category_name(self, channel_name: str) -> Optional[str]:
         """
         根据频道名称获取分类信息
         """

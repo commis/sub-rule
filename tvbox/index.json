@@ -439,17 +439,6 @@
         "from": "4k|auto"
       }
     }, {
-      "key": "push_agent",
-      "name": "🛴手机┃推送",
-      "type": 3,
-      "api": "csp_PushGuard",
-      "searchable": 0,
-      "quickSearch": 0,
-      "ext": {
-        "Cloud-drive": "tvfan/Cloud-drive.txt",
-        "from": "4k|auto"
-      }
-    }, {
       "key": "Bili",
       "name": "🅱哔哔合集┃弹幕",
       "type": 3,

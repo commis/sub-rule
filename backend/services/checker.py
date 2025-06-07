@@ -414,10 +414,11 @@ class ChannelChecker:
         final_success = success_counter.get_value()
         logger.info(f"Final status: Total={total_count}, Processed={final_processed}, Success={final_success}")
 
-        self._write_data_to_file(output_file)
+        self._write_data_to_txt_file(output_file)
+        self._write_data_to_m3u_file(output_file)
         return final_success
 
-    def _write_data_to_file(self, file_path):
+    def _write_data_to_txt_file(self, file_path):
         """将分组管理器中的频道信息保存到文件"""
         if not file_path:
             return
@@ -430,7 +431,32 @@ class ChannelChecker:
                 # 添加时间戳
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 f.write(f"# 频道数据导出时间: {timestamp}\n")
-                channel_manager.write_to_file(f)
-            logger.info(f"channel data saved to file {file_path}")
+                channel_manager.write_to_txt_file(f)
+            logger.info(f"channel data saved to txt file {file_path}")
         except Exception as e:
-            logger.error(f"save data to file error: {e}")
+            logger.error(f"save data to txt file error: {e}")
+
+    def _write_data_to_m3u_file(self, file_path):
+        """将分组管理器中的频道信息保存到文件"""
+
+        def replace_file_extension(target_path, new_ext):
+            file_name, _ = os.path.splitext(target_path)
+            return file_name + new_ext
+
+        if not file_path:
+            return
+
+        new_file_path = replace_file_extension(file_path, '.m3u')
+        try:
+            # 确保目录存在
+            os.makedirs(os.path.dirname(new_file_path), exist_ok=True)
+
+            # 写入数据
+            with open(new_file_path, 'w', encoding='utf-8') as f:
+                # 添加时间戳
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                f.write(f"# 频道数据导出时间: {timestamp}\n")
+                channel_manager.write_to_m3u_file(f)
+            logger.info(f"channel data saved to m3u file {new_file_path}")
+        except Exception as e:
+            logger.error(f"save data to m3u file error: {e}")

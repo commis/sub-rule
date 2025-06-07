@@ -134,9 +134,16 @@ class ChannelList:
         with self._lock:
             return "\n".join(filter(None, (channel_info.get_txt() for channel_info in self._sorted_channels())))
 
-    def write_to_file(self, file_handle):
+    def write_to_txt_file(self, file_handle):
         with self._lock:
             for channel_info in self._sorted_channels():
                 txt_line = channel_info.get_txt()
                 if txt_line:
                     file_handle.write(f"{txt_line}\n")
+
+    def write_to_m3u_file(self, group_name, file_handle):
+        with self._lock:
+            for channel_info in self._sorted_channels():
+                m3u_line = channel_info.get_m3u(group_name)
+                if m3u_line:
+                    file_handle.write(f"{m3u_line}\n")

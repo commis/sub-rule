@@ -98,15 +98,21 @@ class ChannelBaseModel:
                 result.append("")
             return "\n".join(result).strip()
 
-    def write_to_file(self, file_handle):
+    def write_to_txt_file(self, file_handle):
         from services.category import category_manager
         with self._lock:
             for group_name, channel_list in self._channelGroups.items():
                 category_info = category_manager.get_category_info(group_name)
                 icon = category_info.get("icon", "")
                 file_handle.write(f"{icon}{group_name},#genre#\n")
-                channel_list.write_to_file(file_handle)
+                channel_list.write_to_txt_file(file_handle)
                 file_handle.write("\n")
+
+    def write_to_m3u_file(self, file_handle):
+        with self._lock:
+            file_handle.write("#EXTM3U\n")
+            for group_name, channel_list in self._channelGroups.items():
+                file_handle.write(channel_list.get_m3u(group_name))
 
 
 @singleton

@@ -90,7 +90,6 @@ def check_live_sources(
         Parser.load_channel_data(txt_data)
         total_count = channel_manager.total_count()
         if total_count <= 0:
-            channel_manager.clear()
             handle_exception(f"invalidate input: no valid channel data found")
 
         task_id = task_manager.create_task(

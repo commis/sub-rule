@@ -121,10 +121,9 @@ class ChannelChecker:
                 # 使用正则表达式提取所有流信息和路径
                 for match in re.finditer(r'#EXT-X-STREAM-INF:.*?\n(.+)', content):
                     child_m3u8 = match.group(1).strip()
-                    if child_m3u8.startswith('http'):
-                        url_info.set_url(child_m3u8)
-                    else:
-                        url_info.set_url(urljoin(url_info.url, child_m3u8))
+                    url_info.set_url(child_m3u8
+                                     if child_m3u8.startswith('http')
+                                     else urljoin(url_info.url, child_m3u8))
                     child_content = self._check_m3u8_url(url_info)
                     if child_content:
                         content = child_content

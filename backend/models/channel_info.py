@@ -12,12 +12,16 @@ class ChannelUrl:
     def __init__(self, url: str):
         self.url = url
         self.speed = 0  # 单位：KB/s
+        self.resolution = None
 
     def set_url(self, url: str):
         self.url = url
 
     def set_speed(self, speed):
         self.speed = round(speed, 1)
+
+    def set_resolution(self, resolution):
+        self.resolution = resolution
 
     def __eq__(self, other):
         return self.url == other.url

@@ -55,7 +55,7 @@ class Parser:
             soup = BeautifulSoup(response.text, 'xml')
             for loc in soup.find_all('loc'):
                 url = loc.text.strip()
-                if not url.endswith(".txt"):
+                if not url.endswith("iptv4.txt"):
                     continue
                 cls._get_remote_url_data(url, True)
 

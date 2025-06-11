@@ -288,16 +288,10 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 未知景点,https://gctxyc.liveplay.myqcloud.com/gc/hkylxs06_1/index.m3u8
 
 🧶港澳台,#genre#
-ANTV,http://antvlive.ab5c6921.cdnviet.com/antv/chunklist.m3u8
-HISTORY頻道,http://37.27.111.214:8080/live/27/hls.m3u8
 重温经典,https://cdn3.163189.xyz/live/cwjd/stream.m3u8
-動物星球,http://61.221.215.25:8800/hls/57/index.m3u8
 台湾-GOODTV道在人間,https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch2-3.m3u8
-台湾-GOODTV復興禱告,https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch38-2.m3u8
 台湾-GOODTV好消息,https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch1-3.m3u8
-台湾-SET三立戲劇,http://61.221.215.25:8800/hls/41/index.m3u8
 台湾-TVBJ1,https://cdn3.163189.xyz/live/j1/stream.m3u8
-台湾-TVBS新闻台,http://61.221.215.25:8800/hls/9/index.m3u8
 台湾-TVBS亚洲,http://38.64.72.148/hls/modn/list/4005/chunklist1.m3u8
 台湾-番薯台,http://61.216.67.119:1935/TWHG/E1/chunklist_w70581102.m3u8
 台湾-番薯台,http://61.216.67.119:1935/TWHG/E1/chunklist_w7058102.m3u8

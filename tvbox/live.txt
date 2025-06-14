@@ -245,12 +245,13 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 湖南-邵阳：崀山八角寨,https://gcalic.v.myalicdn.com/gc/hkts02_1/index.m3u8
 吉林-吉林：北山公园,https://gctxyc.liveplay.myqcloud.com/gc/hkylxs03_1/index.m3u8
 吉林-吉林：朱雀云顶远眺,https://gcalic.v.myalicdn.com/gc/hsxksqj_1/index.m3u8
+吉林-吉林：临江门大桥,https://gctxyc.liveplay.myqcloud.com/gc/jhs05_1/index.m3u8
 吉林-四平：梨树镇,https://gctxyc.liveplay.myqcloud.com/gc/dlst01_1/index.m3u8
 江苏-南京：玄武湖景区,https://gcalic.v.myalicdn.com/gc/xwh01_1/index.m3u8
 江苏-无锡：太湖鼋头渚,https://gcalic.v.myalicdn.com/gc/blg05_1/index.m3u8
 江苏-无锡：无锡大剧院,https://gcalic.v.myalicdn.com/gc/taishan05_1/index.m3u8
 江苏-徐州：徐州之夜,https://gctxyc.liveplay.myqcloud.com/gc/hspyt_1/index.m3u8
-辽宁-沈阳：未知景点,https://gctxyc.liveplay.myqcloud.com/gc/ljgcdsc_1/index.m3u8
+辽宁-沈阳：浑河桥,https://gctxyc.liveplay.myqcloud.com/gc/ljgcdsc_1/index.m3u8
 内蒙古：乌审旗萨拉乌苏考古遗址公园,https://gctxyc.liveplay.myqcloud.com/gc/taishan06_1/index.m3u8
 青海：祁连县：野牛沟拉克龙洼,https://gctxyc.liveplay.myqcloud.com/gc/emspxps_1/index.m3u8
 青海-尖扎县：李家峡水电站,https://gcalic.v.myalicdn.com/gc/bsszjs_1/index.m3u8
@@ -267,7 +268,11 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 天津：海河,https://gcalic.v.myalicdn.com/gc/hkylxs05_1/index.m3u8
 西藏-林芝：工布江达县岷山错高民宿,https://gctxyc.liveplay.myqcloud.com/gc/zjjybf_1/index.m3u8
 西藏-林芝：鲁朗色季拉山,https://gcalic.v.myalicdn.com/gc/dhyyqst_1/index.m3u8
-新疆-昌吉州：天山天池,https://gcalic.v.myalicdn.com/gc/zjwzlxt_1/index.m3u8
+西藏-林芝：南迦巴瓦星空,https://gctxyc.liveplay.myqcloud.com/gc/qdls02_1/index.m3u8
+西藏-林芝：米林岷山彩门民宿,https://gctxyc.liveplay.myqcloud.com/gc/ljgcwglytylxs_1/index.m3u8
+西藏-日喀则：珠穆朗玛峰,https://gctxyc.liveplay.myqcloud.com/gc/hlwxt_1/index.m3u8
+西藏-日喀则：珠穆朗玛峰,https://gctxyc.liveplay.myqcloud.com/gc/zh03_1/index.m3u8
+新疆-昌吉：5A天山天池,https://gcalic.v.myalicdn.com/gc/zjwzlxt_1/index.m3u8
 云南-保山：板桥镇青龙街,https://gctxyc.liveplay.myqcloud.com/gc/ylxs12_1/index.m3u8
 云南-保山：比顿咖啡产业文化园,https://gctxyc.liveplay.myqcloud.com/gc/zyqcdx01_1/index.m3u8
 云南-大理：无量山樱花谷,https://gctxyc.liveplay.myqcloud.com/gc/taishan01_1/index.m3u8
@@ -278,14 +283,9 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 云南-丽江：远眺玉龙雪山,https://gctxyc.liveplay.myqcloud.com/gc/hkts07_1/index.m3u8
 云南-普洱：澜沧县景迈山,https://gctxyc.liveplay.myqcloud.com/gc/tms05_1/index.m3u8
 云南-西双版纳：千年古寨曼丢,https://gctxyc.liveplay.myqcloud.com/gc/fcw03_1/index.m3u8
+云南-云县：漫湾镇昔宜小镇,https://gctxyc.liveplay.myqcloud.com/gc/hkylxs06_1/index.m3u8
 浙江-舟山：东极岛远眺东海,https://gcalic.v.myalicdn.com/gc/djd01_1/index.m3u8
 浙江-舟山：嵊泗县中心渔港,https://gctxyc.liveplay.myqcloud.com/gc/emsyh_1/index.m3u8
-未知景点,https://gctxyc.liveplay.myqcloud.com/gc/qdls02_1/index.m3u8
-未知景点,https://gctxyc.liveplay.myqcloud.com/gc/zh03_1/index.m3u8
-未知景点,https://gctxyc.liveplay.myqcloud.com/gc/jhs05_1/index.m3u8
-未知景点,https://gctxyc.liveplay.myqcloud.com/gc/hlwxt_1/index.m3u8
-未知景点,https://gctxyc.liveplay.myqcloud.com/gc/ljgcwglytylxs_1/index.m3u8
-未知景点,https://gctxyc.liveplay.myqcloud.com/gc/hkylxs06_1/index.m3u8
 
 🧶港台频道,#genre#
 重温经典,https://cdn3.163189.xyz/live/cwjd/stream.m3u8

@@ -160,14 +160,14 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 优漫卡通,http://111.43.126.240:9003/hls/74/index.m3u8
 
 📹直播中国,#genre#
-安徽-黄山：飞来石,https://gcalic.v.myalicdn.com/gc/hsptgy_1/index.m3u8
-安徽-黄山：光明顶,https://gcalic.v.myalicdn.com/gc/drs01_1/index.m3u8
-安徽-黄山：卧云峰,https://gcalic.v.myalicdn.com/gc/wgw02_1/index.m3u8
-安徽-黄山：梦笔生花,https://gcalic.v.myalicdn.com/gc/xywfl_1/index.m3u8
-安徽-黄山：排云亭,https://gcalic.v.myalicdn.com/gc/yxxdpf_1/index.m3u8
-安徽-黄山：平天矼,https://gctxyc.liveplay.myqcloud.com/gc/wysyxdhp_1/index.m3u8
-安徽-黄山：始信新道,https://gcalic.v.myalicdn.com/gc/emsarm_1/index.m3u8
-安徽-黄山：西海大峡谷,https://gcalic.v.myalicdn.com/gc/yxlcyt_1/index.m3u8
+安徽-黄山：黄山风景区,https://gcalic.v.myalicdn.com/gc/hsptgy_1/index.m3u8
+安徽-黄山：黄山风景区,https://gcalic.v.myalicdn.com/gc/drs01_1/index.m3u8
+安徽-黄山：黄山风景区,https://gcalic.v.myalicdn.com/gc/wgw02_1/index.m3u8
+安徽-黄山：黄山风景区,https://gcalic.v.myalicdn.com/gc/xywfl_1/index.m3u8
+安徽-黄山：黄山风景区,https://gcalic.v.myalicdn.com/gc/yxxdpf_1/index.m3u8
+安徽-黄山：黄山风景区,https://gctxyc.liveplay.myqcloud.com/gc/wysyxdhp_1/index.m3u8
+安徽-黄山：黄山风景区,https://gcalic.v.myalicdn.com/gc/emsarm_1/index.m3u8
+安徽-黄山：黄山风景区,https://gcalic.v.myalicdn.com/gc/yxlcyt_1/index.m3u8
 北京-密云：古水北镇,https://gcalic.v.myalicdn.com/gc/dlst03_1/index.m3u8
 福建-南平：武夷山玉女峰,https://gcalic.v.myalicdn.com/gc/wysynf_1/index.m3u8
 甘肃-定西：桂清山植物园,https://gcalic.v.myalicdn.com/gc/lsdfgfl_1/index.m3u8
@@ -191,7 +191,6 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 河北-秦皇岛：金梦海湾,https://gcalic.v.myalicdn.com/gc/zjwzblt_1/index.m3u8
 河北-秦皇岛：5A老龙头,https://gcalic.v.myalicdn.com/gc/zjwzbblh_1/index.m3u8
 河南-焦作：云台山红石峡,https://gcalic.v.myalicdn.com/gc/pts01_1/index.m3u8
-河南-平顶山：鲁山县画眉谷景区,https://gcalic.v.myalicdn.com/gc/xjtcmys_1/index.m3u8
 黑龙江-哈尔滨：霁虹桥,https://gcalic.v.myalicdn.com/gc/hkts09_1/index.m3u8
 黑龙江-萝北县：4A嘟噜河省级自然保护区,https://gcalic.v.myalicdn.com/gc/taishan03_1/index.m3u8
 湖南-邵阳：崀山八角寨,https://gcalic.v.myalicdn.com/gc/hkts02_1/index.m3u8
@@ -203,7 +202,6 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 陕西-咸阳：乾陵景区,https://gcalic.v.myalicdn.com/gc/taishan02_1/index.m3u8
 西藏-林芝：鲁朗色季拉山,https://gcalic.v.myalicdn.com/gc/dhyyqst_1/index.m3u8
 新疆-昌吉：5A天山天池,https://gcalic.v.myalicdn.com/gc/zjwzlxt_1/index.m3u8
-云南-保山：比顿咖啡产业文化园,https://gctxyc.liveplay.myqcloud.com/gc/zyqcdx01_1/index.m3u8
 浙江-舟山：东极岛,https://gcalic.v.myalicdn.com/gc/djd01_1/index.m3u8
 
 🏮春晚频道,#genre#

@@ -472,10 +472,17 @@
   ],
   "lives": [
     {
-      "name": "自动直播源",
+      "name": "电视直播",
       "type": 0,
       "playerType": 1,
       "url": "http://107.174.95.154/tvbox/result.txt",
+      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
+      "logo": "https://epg.v1.mk/logo/{name}.png"
+    }, {
+      "name": "直播中国",
+      "type": 0,
+      "playerType": 1,
+      "url": "http://107.174.95.154/tvbox/history.txt",
       "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
       "logo": "https://epg.v1.mk/logo/{name}.png"
     }, {

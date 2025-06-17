@@ -194,7 +194,6 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 黑龙江-哈尔滨霁虹桥,https://gcalic.v.myalicdn.com/gc/hkts09_1/index.m3u8
 黑龙江-萝北县4A嘟噜河省级自然保护区,https://gcalic.v.myalicdn.com/gc/taishan03_1/index.m3u8
 湖南-邵阳崀山八角寨,https://gcalic.v.myalicdn.com/gc/hkts02_1/index.m3u8
-江苏-南京4A玄武湖景区,https://gcalic.v.myalicdn.com/gc/xwh01_1/index.m3u8
 江苏-无锡太湖鼋头渚,https://gcalic.v.myalicdn.com/gc/blg05_1/index.m3u8
 青海-门源仙米国家森林公园,https://gcalic.v.myalicdn.com/gc/mdjxxdsb_1/index.m3u8
 陕西-西安大雁塔,https://gcalic.v.myalicdn.com/gc/hkylxs01_1/index.m3u8

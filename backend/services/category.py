@@ -18,7 +18,7 @@ class CategoryManager:
                 "icon": "✨",
                 "channels": [
                     "CCTV兵器科技", "CCTV风云剧场", "CCTV风云音乐", "CCTV风云足球", "CCTV高尔夫网球",
-                    "CCTV怀旧剧场", "CCTV世界地理", "CCTV文化精品", "CCTV央视台球"
+                    "CCTV怀旧剧场", "CCTV世界地理", "CCTV文化精品", "CCTV央视台球", "CCTV第一剧场"
                 ]
             },
             "卫视频道": {"icon": "📡"},

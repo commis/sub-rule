@@ -169,7 +169,6 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 安徽-黄山风景区,https://gcalic.v.myalicdn.com/gc/emsarm_1/index.m3u8
 安徽-黄山风景区,https://gcalic.v.myalicdn.com/gc/yxlcyt_1/index.m3u8
 北京-密云古水北镇,https://gcalic.v.myalicdn.com/gc/dlst03_1/index.m3u8
-福建-南平武夷山玉女峰,https://gcalic.v.myalicdn.com/gc/wysynf_1/index.m3u8
 甘肃-定西桂清山植物园,https://gcalic.v.myalicdn.com/gc/lsdfgfl_1/index.m3u8
 甘肃-敦煌鸣沙山,https://gcalic.v.myalicdn.com/gc/fhgcdnhs_1/index.m3u8
 甘肃-兰州中山桥,https://gcalic.v.myalicdn.com/gc/gly01_1/index.m3u8

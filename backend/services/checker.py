@@ -255,6 +255,7 @@ class ChannelChecker:
             r'\s*(?:#.*)?$',  # 注释部分
             re.IGNORECASE | re.MULTILINE
         )
+        remove_chars = str.maketrans('', '', ',.，。')
 
         candidates = []
         for line in m3u8_content.splitlines():
@@ -276,7 +277,8 @@ class ChannelChecker:
             if groups['display_name']:
                 display = groups['display_name'].strip()
                 # 过滤无效名称（纯数字、空值等）
-                if display and not display.replace('.', '').isdigit():
+                cleaned_display = display.translate(remove_chars)
+                if cleaned_display:
                     candidates.append(display)
 
         # 选择最优显示名称（最长非空值）

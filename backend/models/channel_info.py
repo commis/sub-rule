@@ -8,11 +8,27 @@ class ChannelUrl:
     """
     频道地址：数据流地址和速度信息
     """
+    _instances = {}
 
-    def __init__(self, url: str):
+    def __new__(cls, url: str, speed=0, resolution=None):
+        if url in cls._instances:
+            instance = cls._instances[url]
+            # 只更新非默认值的属性
+            if speed != 0:
+                instance.set_speed(speed)
+            if resolution is not None:
+                instance.set_resolution(resolution)
+            return instance
+        else:
+            instance = super().__new__(cls)
+            instance.__init__(url, speed, resolution)
+            cls._instances[url] = instance
+            return instance
+
+    def __init__(self, url: str, speed=0, resolution=None):
         self.url = url
-        self.speed = 0  # 单位：KB/s
-        self.resolution = None
+        self.speed = speed  # 单位：KB/s
+        self.resolution = resolution
 
     def set_url(self, url: str):
         self.url = url

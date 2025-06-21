@@ -60,6 +60,7 @@
 陕西-西安阎良关山石川河风景区,https://gctxyc.liveplay.myqcloud.com/gc/nss01_1/index.m3u8
 陕西-西安钟楼,https://gcalic.v.myalicdn.com/gc/blg03_1/index.m3u8
 陕西-咸阳乾陵景区,https://gcalic.v.myalicdn.com/gc/taishan02_1/index.m3u8
+四川-程度安顺廊桥,https://gcalic.v.myalicdn.com/gc/zsslsjjfsd_1/index.m3u8
 天津-海河,https://gcalic.v.myalicdn.com/gc/hkylxs05_1/index.m3u8
 西藏-林芝工布江达县岷山错高民宿,https://gctxyc.liveplay.myqcloud.com/gc/zjjybf_1/index.m3u8
 西藏-林芝鲁朗色季拉山,https://gcalic.v.myalicdn.com/gc/dhyyqst_1/index.m3u8

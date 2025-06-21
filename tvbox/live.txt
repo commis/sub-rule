@@ -152,6 +152,10 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 优漫卡通,http://111.43.126.240:9003/hls/74/index.m3u8
 优漫卡通,http://58.17.48.228:808/hls/67/index.m3u8
 
+📂未分类组
+军事评论,http://111.43.126.240:9003/hls/91/index.m3u8
+农业致富,http://111.43.126.240:9003/hls/92/index.m3u8
+
 📹直播中国,#genre#
 安徽-黄山风景区,https://gcalic.v.myalicdn.com/gc/xywfl_1/index.m3u8
 安徽-黄山风景区,https://gcalic.v.myalicdn.com/gc/yxlcyt_1/index.m3u8
@@ -192,6 +196,7 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 陕西-西安大雁塔,https://gcalic.v.myalicdn.com/gc/hkylxs01_1/index.m3u8
 陕西-咸阳乾陵景区,https://gcalic.v.myalicdn.com/gc/taishan02_1/index.m3u8
 陕西-西安钟楼,https://gcalic.v.myalicdn.com/gc/blg03_1/index.m3u8
+四川-程度安顺廊桥,https://gcalic.v.myalicdn.com/gc/zsslsjjfsd_1/index.m3u8
 天津-海河,https://gcalic.v.myalicdn.com/gc/hkylxs05_1/index.m3u8
 新疆-昌吉5A天山天池,https://gcalic.v.myalicdn.com/gc/zjwzlxt_1/index.m3u8
 西藏-林芝鲁朗色季拉山,https://gcalic.v.myalicdn.com/gc/dhyyqst_1/index.m3u8
@@ -463,6 +468,4 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 [以色列]TeleM1,https://cflive.kaltura.com/env/d.live.nvp1/live/hls/p/1719221/e/1_ljzy3evp/tl/main/st/0/t/kfXPNZDgr_dXTsaaChhTBQ/index-s32.m3u8
 [智利]ElPingüinoTV,http://167.114.133.205:1935/live/pinguinotv_720p/chunklist_w927525277.m3u8
 
-📂未分类组,#genre#
-军事评论,http://111.43.126.240:9003/hls/91/index.m3u8
-农业致富,http://111.43.126.240:9003/hls/92/index.m3u8
+🌏全球实况,#genre#

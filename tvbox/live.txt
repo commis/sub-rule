@@ -321,9 +321,9 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 [奥地利]FS1 Salzburg,http://stream.fs1.tv:8080/hls/webstream.m3u8
 [奥地利]红牛运动,http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8
 [澳大利亚]ausbiz TV,https://d9quh89lh7dtw.cloudfront.net/public-output/index_1024x576_2000k.m3u8
-[澳大利亚]Sky News Extra 1,https://skynewsau-live.akamaized.net/hls/live/2002689/skynewsau-extra1/master_576p.m3u8
-[澳大利亚]Sky News Extra 2,https://skynewsau-live.akamaized.net/hls/live/2002690/skynewsau-extra2/master_576p.m3u8
-[澳大利亚]Sky News Extra 3,https://skynewsau-live.akamaized.net/hls/live/2002691/skynewsau-extra3/master_576p.m3u8
+[澳大利亚]Sky News,https://skynewsau-live.akamaized.net/hls/live/2002689/skynewsau-extra1/master_576p.m3u8
+[澳大利亚]Sky News,https://skynewsau-live.akamaized.net/hls/live/2002690/skynewsau-extra2/master_576p.m3u8
+[澳大利亚]Sky News,https://skynewsau-live.akamaized.net/hls/live/2002691/skynewsau-extra3/master_576p.m3u8
 [澳大利亚]Trace Sports,https://lightning-tracesport-samsungau.amagi.tv/playlist1080p.m3u8
 [巴西]Novo Tempo,http://stream.novotempo.com/tv/tvnovotempo.smil/chunklist_w156963398_b478000_slpor.m3u8
 [德国]Baden TV,http://badentv-stream2.siebnich.info/rtplive/btv.stream/chunklist_w589168334.m3u8
@@ -336,9 +336,9 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 [俄罗斯]РБК,http://online.video.rbc.ru/online2/rbctv_576p/index.m3u8
 [俄罗斯]СТС,http://spacetv.in/stream/DVB2D6AE8CU/138.m3u8
 [俄罗斯]红星电视台,https://tvchannelstream1.tvzvezda.ru/cdn/tvzvezda/playlist_hdhigh.m3u8
-[法国]时尚台 FTV(Fashion TV),http://files4.3y1.xyz/media/video/nosignal_h264/playlist.m3u8
-[韩国]Arirang Korea,http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b656000_sleng.m3u8
-[韩国]Arirang Korea,http://amdlive-ch01.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b656000_sleng.m3u8
+[法国]时尚台 FTV,http://files4.3y1.xyz/media/video/nosignal_h264/playlist.m3u8
+[韩国]Arirang,http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b656000_sleng.m3u8
+[韩国]Arirang,http://amdlive-ch01.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b656000_sleng.m3u8
 [韩国]Arirang,http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b656000_sleng.m3u8
 [韩国]Arirang,https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b656000_sleng.m3u8
 [韩国]Arirang,https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b3256000_sleng.m3u8
@@ -347,8 +347,8 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 [韩国]SBS CJB,http://1.222.207.80:1935/live/cjbtv/chunklist_w1357270949.m3u8
 [卡塔尔]半岛电视台,http://live-hls-web-aja.getaj.net/AJA/02.m3u8
 [卡塔尔]半岛电视台,http://live-hls-web-aje.getaj.net/AJE/01.m3u8
-[美国]ABC 4 Seattle (KOMO-TV),https://content-aaps1.uplynk.com/2c88dfe19e1447e6a6aa27e8e143a140/d.m3u8
-[美国]CBS 3 Omaha NE (KMTV-TV),https://content-aapm1.uplynk.com/4a09fbea28ef4f32bce095e9eae04bd8/d.m3u8
+[美国]ABC 4 Seattle,https://content-aaps1.uplynk.com/2c88dfe19e1447e6a6aa27e8e143a140/d.m3u8
+[美国]CBS 3 Omaha NE,https://content-aapm1.uplynk.com/4a09fbea28ef4f32bce095e9eae04bd8/d.m3u8
 [美国]CNBC HD,http://vasilius.akciatv.ru/iptv/RGD5Y7ZWRWP4UK/962/index.m3u8
 [美国]NBC HD,http://vasilius.akciatv.ru/iptv/RGD5Y7ZWRWP4UK/1081/index.m3u8
 [美国]Newsmax TV,http://nmxlive.akamaized.net/hls/live/529965/Live_1/1.m3u8

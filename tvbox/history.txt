@@ -131,6 +131,26 @@
 2024年春晚,https://p2.bdstatic.com/rtmp.liveshow.lss-user.baidubce.com/live/stream_bduid_6488563992_8982723413/merged_1707497046297_88536_25144_41936.m3u8
 2025年春晚,https://res.cctvnews.cctv.com/video/3005/record/cctv/merge1/133396667284143308839013005/8fbd6180bdef4da19f6155cf6b4652e1-4.m3u8
 
+🧶港台频道,#genre#
+台湾-GOODTV道在人間,https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch2-3.m3u8
+台湾-GOODTV好消息,https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch1-3.m3u8
+台湾-TVBJ1,https://cdn3.163189.xyz/live/j1/stream.m3u8
+台湾-TVBS亚洲,http://38.64.72.148/hls/modn/list/4005/chunklist1.m3u8
+台湾-番薯台,http://61.216.67.119:1935/TWHG/E1/chunklist_w7058102.m3u8
+台湾-番薯台,http://61.216.67.119:1935/TWHG/E1/chunklist_w70581102.m3u8
+台湾-面包台,https://video.bread-tv.com:8091/hls-live24/online/index.m3u8
+台湾-緯來精采HD,http://61.221.215.25:8800/hls/48/index.m3u8
+台湾-中天娱乐HD,http://61.221.215.25:8800/hls/47/index.m3u8
+香港-翡翠台,https://cdn3.163189.xyz/live/fct/stream.m3u8
+香港-凤凰香港,https://cdn6.163189.xyz/live/fhhk/stream.m3u8
+香港-凤凰资讯,https://cdn3.163189.xyz/live/fhzx/stream.m3u8
+香港-龙华电影,https://cdn8.163189.xyz/live/lhdy/stream.m3u8
+香港-龙华经典,https://cdn8.163189.xyz/live/lhjd/stream.m3u8
+香港-龙华卡通,https://cdn8.163189.xyz/live/lhkt/stream.m3u8
+香港-龙华偶像,https://cdn8.163189.xyz/live/lhox/stream.m3u8
+香港-龙华日韩,https://cdn8.163189.xyz/live/lhrh/stream.m3u8
+香港-美亚C+,http://ottproxy2.ist.ooo/livehls/MOB-U1-NO/03.m3u8
+
 🌐海外频道,#genre#
 [阿根廷]Canal 13 La Rioja (480p),http://arcast.net:1935/mp/mp/chunklist_w565757193.m3u8
 [阿联酋]DUBAI SPORTS 2 (1920×1080),http://dmitwlvvll.cdn.mangomolo.com/dubaisportshd/smil:dubaisportshd.smil/chunklist_b300000.m3u8

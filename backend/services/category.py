@@ -4,14 +4,24 @@ from typing import Dict, Optional
 from core.singleton import singleton
 
 
+class CategoryObject:
+    def __init__(self, name: str):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+
 @singleton
 class CategoryManager:
     """
     管理分类与图标映射关系的单例类
     """
+    _channel_relations: Dict[str, CategoryObject] = {}
 
     def __init__(self):
-        self._lock = threading.RLock()
+        # 分类信息，channels仅为配置，内存中的数据不存在
         self._categories: Dict[str, Dict[str, object]] = {
             "央视频道": {"icon": "📺"},
             "央视精品": {
@@ -36,7 +46,20 @@ class CategoryManager:
             "全球实况": {"icon": "🌏"},
             "未分类组": {"icon": "📂"}
         }
+        self._lock = threading.RLock()
         self._ignore_categories = ["春晚频道", "直播中国", "港台频道", "海外频道", "全球实况"]
+
+        self._init_channel_relations()
+
+    def _init_channel_relations(self):
+        """初始化频道名称与分类的映射关系"""
+        with self._lock:
+            for category_name, category_info in self._categories.items():
+                if "channels" in category_info:
+                    category_object = CategoryObject(category_name)
+                    channel_list = category_info.pop("channels")
+                    for channel in channel_list:
+                        self._channel_relations[channel] = category_object
 
     def clear(self) -> None:
         """清空所有分类图标映射"""
@@ -66,21 +89,11 @@ class CategoryManager:
         with self._lock:
             return self._categories.get(category_name)
 
-    def get_category_name(self, channel_name: str) -> Optional[str]:
+    def get_category_name(self, channel_name: str, category_name="未分类组"):
         """
-        根据频道名称获取分类信息
+        根据频道名称获取分类名称
         """
-        with self._lock:
-            if not channel_name:
-                return None
-
-            for category_name, category_info in self._categories.items():
-                if "channels" in category_info:
-                    channel_list = category_info["channels"]
-                    if channel_name in channel_list:
-                        return category_name
-
-            return None
+        return self._channel_relations[channel_name].name if channel_name in self._channel_relations else category_name
 
     def update_category(self, category_infos: Dict[str, Dict[str, object]]) -> None:
         """

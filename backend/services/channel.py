@@ -43,14 +43,10 @@ class ChannelBaseModel:
     def add_channel(self, name: str, channel_name, channel_url, id: int = 0):
         with self._lock:
             # 自动分类处理
-            if channel_name.startswith("CCTV"):
-                category_name = category_manager.get_category_name(channel_name)
-                if category_name:
-                    name = category_name
-
-            if name not in self._channelGroups:
-                self._channelGroups[name] = ChannelList()
-            channel_list = self._channelGroups[name]
+            category_name = category_manager.get_category_name(channel_name, name)
+            if category_name not in self._channelGroups:
+                self._channelGroups[category_name] = ChannelList()
+            channel_list = self._channelGroups[category_name]
             channel_list.add_channel(channel_name, channel_url, id)
 
     def add_channel_info(self, name, channel_info: ChannelInfo):

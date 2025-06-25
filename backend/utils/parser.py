@@ -39,12 +39,8 @@ class Parser:
                 if not url:
                     continue
 
-                if not special_category and subgenre.startswith('CCTV'):
-                    special_category = category_manager.get_category_name(subgenre)
-                    if special_category:
-                        category_stack = special_category
-
-                channel_list.append((category_stack, subgenre, url))
+                category_name = category_manager.get_category_name(subgenre, special_category)
+                channel_list.append((category_name, subgenre, url))
 
         return channel_list
 

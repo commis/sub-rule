@@ -93,17 +93,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
-    }, {
-      "key": "溢彩",
-      "name": "💡溢彩┃秒播",
-      "type": 3,
-      "api": "csp_AppSxGuard",
-      "timeout": 15,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "ext": "rfOb1uAWbkRHp7hdxprG9un3+TfN183v1zIyaYDoDAIaLw5L8Dp8+v88LrEL3dBzrmWbdMBX0WNm7HtkQuw0AIzUurGBVyPqCKzDmbriATuukhctJlsLo8KxCw=="
-    }, {
+    },, {
       "key": "Lib",
       "name": "🌟立播┃秒播",
       "type": 3,
@@ -167,17 +157,7 @@
       "quickSearch": 1,
       "changeable": 1,
       "ext": "uqGL1bNENExT7/hGxpSE5qU="
-    }, {
-      "key": "兄弟",
-      "name": "🍊水星┃多线",
-      "type": 3,
-      "api": "csp_AppSxGuard",
-      "timeout": 15,
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "rfOb1uAWbkRHp7hdxprG9un3+SLP183q3ik3cJDiAwlFdF8L6SIvrvc9LrpTyIg76T7QJZdEkWNj43wiSaA0TJyQpu2IF2jsSLWFx7WkAmG40hFxJ1tI+Jf+EVG8DtoDRcNi+TtVGULnWrSz3EWnVcxR3EJhXnrwYWe1kJtNW5txuHAO"
-    }, {
+    },{
       "key": "即看",
       "name": "🐻即看┃多线",
       "type": 3,
@@ -291,15 +271,6 @@
         "type": "rect",
         "ratio": 3.8
       }
-    }, {
-      "key": "alllive",
-      "name": "📽️一直播┃直播",
-      "type": 3,
-      "api": "csp_AllliveGuard",
-      "playerType": 2,
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0
     }, {
       "key": "抠搜",
       "name": "🍄抠抠┃搜搜",

@@ -93,7 +93,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
-    },, {
+    }, {
       "key": "Lib",
       "name": "🌟立播┃秒播",
       "type": 3,
@@ -157,9 +157,9 @@
       "quickSearch": 1,
       "changeable": 1,
       "ext": "uqGL1bNENExT7/hGxpSE5qU="
-    },{
+    }, {
       "key": "即看",
-      "name": "🐻即看┃多线",
+      "name": "🐻即7看┃多线",
       "type": 3,
       "api": "csp_AppSxGuard",
       "timeout": 15,

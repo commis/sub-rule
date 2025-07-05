@@ -7,7 +7,7 @@ from core.constants import Constants
 from core.logger_factory import LoggerFactory
 from core.singleton import singleton
 from utils.base64_util import base64_decode
-from utils.url_util import url_decode, url_encode
+from utils.url_util import url_encode
 
 logger = LoggerFactory.get_logger(__name__)
 

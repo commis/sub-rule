@@ -3,7 +3,7 @@ import os
 from typing import List
 
 from fastapi import FastAPI, APIRouter
-from starlette.responses import FileResponse
+from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
 
 from core.logger_factory import LoggerFactory
@@ -27,13 +27,13 @@ class RouteScanner:
             StaticFiles(directory=f"{self._project_path}/static"),
             name="static")
 
-        @app.get("/", include_in_schema=False)
-        def redirect_index():
-            return FileResponse(f"{self._project_path}/static/index.html")
-
         # @app.get("/", include_in_schema=False)
-        # def redirect_swagger():
-        #     return RedirectResponse(url="/docs")
+        # def redirect_index():
+        #     return FileResponse(f"{self._project_path}/static/index.html")
+
+        @app.get("/", include_in_schema=False)
+        def redirect_swagger():
+            return RedirectResponse(url="/docs")
 
     def register_routers(self):
         """将收集到的APIRouter注册到FastAPI应用"""

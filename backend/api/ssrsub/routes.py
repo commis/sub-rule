@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from fastapi.responses import Response
 
 from services.subscribe import subscribe_service
@@ -8,10 +8,10 @@ router = APIRouter(prefix="/ssrsub", tags=["VPN白嫖订阅"])
 
 
 @router.get("/clash", summary="获取clash订阅节点列表", response_model=str)
-def get_tasks():
+def get_subscribe_data(sub_name: str = Query(description="订阅名称[ssrsub|subsub]")):
     """获取clash订阅节点列表"""
     try:
-        content = subscribe_service.get_clash_subscribe("ssrsub_v2ray")
+        content = subscribe_service.get_clash_subscribe(sub_name)
         return Response(content=content, media_type="text/plain")
     except Exception as e:
         handle_exception(f"occur error when get clash subscribe: {str(e)}")

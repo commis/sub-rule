@@ -5,7 +5,7 @@ from core.logger_factory import LoggerFactory
 logger = LoggerFactory.get_logger(__name__)
 
 
-def url_encode(text: str, safe: str = '/') -> str:
+def url_encode(text: str, safe: str = '') -> str:
     """
     对字符串进行 URL 编码，将特殊字符转换为 %xx 格式
 

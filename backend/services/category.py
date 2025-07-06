@@ -23,6 +23,7 @@ class CategoryManager:
     def __init__(self):
         # 分类信息，channels仅为配置，内存中的数据不存在
         self._categories: Dict[str, Dict[str, object]] = {
+            "超慢跑": {"icon": "🏃"},
             "央视频道": {"icon": "📺"},
             "央视精品": {
                 "icon": "✨",

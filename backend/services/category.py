@@ -45,7 +45,8 @@ class CategoryManager:
             "港台频道": {"icon": "🧶"},
             "海外频道": {"icon": "🌐"},
             "全球实况": {"icon": "🌏"},
-            "未分类组": {"icon": "📂"}
+            "轮播电影": {"icon": "🔁"},
+            "未分类组": {"icon": "📂"},
         }
         self._lock = threading.RLock()
         self._ignore_categories = ["春晚频道", "直播中国", "港台频道", "海外频道", "全球实况"]

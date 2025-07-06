@@ -153,6 +153,15 @@ CHC影迷电影,http://58.17.48.228:808/hls/28/index.m3u8
 优漫卡通,http://111.43.126.240:9003/hls/74/index.m3u8
 优漫卡通,http://58.17.48.228:808/hls/67/index.m3u8
 
+🔁轮播电影,#genre#
+电影|黄飞鸿少林拳（国语）,https://vip.lz-cdn3.com/20220919/13800_3f3f5b74/index.m3u8
+电影|黄飞鸿之一代宗师（国语）,https://vip1.lz-cdn1.com/20220409/1493_5e79b91f/index.m3u8
+电影|黄飞鸿之南北英雄（国语）,https://vip1.lz-cdn1.com/20220531/7149_4ee50df5/index.m3u8
+电影|黄飞鸿之怒海雄风（国语）,https://vip.lzcdn2.com/20221112/22451_cee67955/index.m3u8
+电影|黄飞鸿之狮魂觉醒（国语）,https://vip1.lz-cdn1.com/20221020/17586_8f4e2bf6/index.m3u8
+电影|黄飞鸿之英雄有梦（国语）,https://vip1.lz-cdn1.com/20220605/7385_e5646ece/index.m3u8
+电影|童子功（国语）,https://v.cdnlz11.com/20231102/18082_a4e1be75/index.m3u8
+
 📂未分类组,#genre#
 军事评论,http://111.43.126.240:9003/hls/91/index.m3u8
 农业致富,http://111.43.126.240:9003/hls/92/index.m3u8

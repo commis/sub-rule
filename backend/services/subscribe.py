@@ -23,7 +23,7 @@ class SubscribeService:
         self._pattern_2empty = r'dafei\.de |-[A-Za-z\s,\. ]+- '
         # self._replace_empty_reg = r'[\U0001F1E6-\U0001F1FF]{2} |dafei\.de '
         # self._regex_filter = re.compile(r'^.*(v2ray-plugin).*$', re.MULTILINE)
-        self._regex_filter = re.compile(r'^.*(中国|日本).*$', re.MULTILINE)
+        self._regex_filter = re.compile(r'^.*(中国|日本|俄罗斯).*$', re.MULTILINE)
         self._urls: Dict[str, str] = {
             "ssrsub": "https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yaml",
             "subsub": "https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml"

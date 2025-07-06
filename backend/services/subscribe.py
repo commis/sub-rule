@@ -61,37 +61,14 @@ class SubscribeService:
         """替换数据行"""
         return re.sub(self._pattern_2empty, '', line)
 
-    def get_clash_subscribe(self, url_name: str) -> str:
+    def get_clash_subscribe(self, clash_key: str) -> str:
         try:
-            url = self._urls.get(url_name)
+            url = clash_key if 'http' in clash_key else self._urls.get(clash_key)
             decoded_text = self._convert_to_v2ray(url)
             sub_url_text = re.sub(re.compile(r'\n'), '|', decoded_text)
             return self._convert_to_clash(sub_url_text)
         except Exception as e:
             logger.error(f"get clash subscribe failed: {e}")
-
-    # def get_v2ray_subscribe(self, url_name: str) -> str:
-    #     try:
-    #         url = self._urls.get(url_name)
-    #         response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
-    #         response.raise_for_status()
-    #         decoded_text = base64_decode(response.text)
-    #         url_decode_text = url_decode(decoded_text)
-    #
-    #         v2ray_urls = []
-    #         for line in url_decode_text.splitlines():
-    #             line = url_decode(line.strip())
-    #             filtered = self._regex_filter.match(line)
-    #             retained = self._regex_retain.match(line)
-    #             if filtered or not retained:
-    #                 continue
-    #
-    #             line = re.sub(self._replace_empty_reg, '', line)
-    #             v2ray_urls.append(line.replace(' ', '-'))
-    #
-    #         return self._convert_to_clash('|'.join(v2ray_urls))
-    #     except Exception as e:
-    #         logger.error(f"get clash subscribe failed: {e}")
 
 
 subscribe_service = SubscribeService()

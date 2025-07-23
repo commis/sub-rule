@@ -1,4 +1,4 @@
-.idea
+.idea/
 
-/**/logs/
-/tvbox/result.*
+logs/
+spider/dist/

@@ -25,7 +25,7 @@ class SubscribeService:
         # self._regex_filter = re.compile(r'^.*(v2ray-plugin).*$', re.MULTILINE)
         self._regex_filter = re.compile(r'^.*(中国).*$', re.MULTILINE)
         self._urls: Dict[str, str] = {
-            "ssrsub": "https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yaml",
+            "ssrsub": "https://raw.githubusercontent.com/ssrsub/ssr/master/clash.yaml",
             "subsub": "https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml"
         }
 

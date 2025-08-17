@@ -16,16 +16,16 @@ logger = LoggerFactory.get_logger(__name__)
 class SubscribeService:
 
     def __init__(self):
-        self._sub_url = "http://107.174.95.154:25500/sub"
-        self._config = "https://raw.githubusercontent.com/commis/sub-rule/main/clash/config/ACL4SSR_Online_Mini_MultiMode.ini"
-        self._params = "clash.dns=1&insert=false&emoji=true&new_name=true"
+        self._sub_url = "http://127.0.0.1:25500/sub"
+        self._config = "config/ACL4SSR_Online_Mini_MultiMode.ini"
+        self._params = "clash.dns=1&insert=false&emoji=true&new_name=true&flag=meta"
 
         self._pattern_2empty = r'dafei\.de |-[A-Za-z\s,\. ]+- '
         # self._replace_empty_reg = r'[\U0001F1E6-\U0001F1FF]{2} |dafei\.de '
         # self._regex_filter = re.compile(r'^.*(v2ray-plugin).*$', re.MULTILINE)
-        self._regex_filter = re.compile(r'^.*(中国|日本|俄罗斯).*$', re.MULTILINE)
+        self._regex_filter = re.compile(r'^.*(中国).*$', re.MULTILINE)
         self._urls: Dict[str, str] = {
-            "ssrsub": "https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yaml",
+            "ssrsub": "https://raw.githubusercontent.com/ssrsub/ssr/master/clash.yaml",
             "subsub": "https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml"
         }
 

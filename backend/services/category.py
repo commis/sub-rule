@@ -49,7 +49,10 @@ class CategoryManager:
             "未分类组": {"icon": "📂"},
         }
         self._lock = threading.RLock()
-        self._ignore_categories = ["春晚频道", "直播中国", "港台频道", "海外频道", "全球实况"]
+        self._ignore_categories = [
+            "春晚频道", "直播中国", "港台频道", "海外频道", "全球实况",
+            "央视频道", "卫视频道"
+        ]
 
         self._init_channel_relations()
 

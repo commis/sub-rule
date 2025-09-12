@@ -16,16 +16,17 @@ logger = LoggerFactory.get_logger(__name__)
 class SubscribeService:
 
     def __init__(self):
-        self._sub_url = "http://127.0.0.1:25500/sub"
+        self._sub_url = "http://107.174.95.154:25500/sub"
         self._config = "config/ACL4SSR_Online_Mini_MultiMode.ini"
         self._params = "clash.dns=1&insert=false&emoji=true&new_name=true&flag=meta"
 
         self._pattern_2empty = r'dafei\.de |-[A-Za-z\s,\. ]+- '
         # self._replace_empty_reg = r'[\U0001F1E6-\U0001F1FF]{2} |dafei\.de '
-        # self._regex_filter = re.compile(r'^.*(v2ray-plugin).*$', re.MULTILINE)
-        self._regex_filter = re.compile(r'^.*(中国).*$', re.MULTILINE)
+        self._regex_filter = re.compile(r'^.*(v2ray-plugin|北京|上海|广州|杭州|合肥|惠州|青岛).*$', re.MULTILINE)
         self._urls: Dict[str, str] = {
+            # https://github.com/ssrsub/ssr
             "ssrsub": "https://raw.githubusercontent.com/ssrsub/ssr/master/clash.yaml",
+            # https://github.com/go4sharing/sub
             "subsub": "https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml"
         }
 
@@ -41,9 +42,9 @@ class SubscribeService:
             logger.error(f"convert ssrsub to clash failed: {e}")
 
     def _convert_to_clash(self, ssrsub_text: str) -> str:
-        url_encoded_config = url_encode(self._config)
-        url_encoded_ssrsub_text = url_encode(ssrsub_text)
-        url = f"{self._sub_url}?target=clash&url=${url_encoded_ssrsub_text}&config={url_encoded_config}&{self._params}"
+        # url_encoded_config = url_encode(self._config)
+        # url_encoded_ssrsub_text = url_encode(ssrsub_text)
+        url = f"{self._sub_url}?target=clash&url=${ssrsub_text}&config={self._config}&{self._params}"
         try:
             response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
             response.raise_for_status()

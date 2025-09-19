@@ -29,7 +29,8 @@ class CategoryManager:
                 "icon": "✨",
                 "channels": [
                     "CCTV兵器科技", "CCTV风云剧场", "CCTV风云音乐", "CCTV风云足球", "CCTV高尔夫网球",
-                    "CCTV怀旧剧场", "CCTV世界地理", "CCTV文化精品", "CCTV央视台球", "CCTV第一剧场"
+                    "CCTV怀旧剧场", "CCTV世界地理", "CCTV文化精品", "CCTV央视台球", "CCTV第一剧场",
+                    "CCTV女性时尚", "军事评论", "农业致富"
                 ]
             },
             "卫视频道": {"icon": "📡"},
@@ -45,12 +46,12 @@ class CategoryManager:
             "春晚频道": {"icon": "🏮"},
             "港台频道": {"icon": "🌉"},
             "海外频道": {"icon": "🌐"},
-            "全球实况": {"icon": "🌏"},
+            "直播全球": {"icon": "🌏"},
             "未分类组": {"icon": "📂"},
         }
         self._lock = threading.RLock()
         self._ignore_categories = [
-            "春晚频道", "直播中国", "港台频道", "海外频道", "全球实况"
+            "春晚频道", "直播中国", "港台频道", "海外频道", "直播全球"
         ]
 
         self._init_channel_relations()

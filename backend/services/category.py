@@ -51,7 +51,6 @@ class CategoryManager:
         }
         self._lock = threading.RLock()
         self._ignore_categories = [
-            "央视频道", "央视精品", "卫视频道",
             "春晚频道", "直播中国", "港台频道", "海外频道", "直播全球"
         ]
 

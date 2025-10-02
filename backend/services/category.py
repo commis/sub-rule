@@ -33,6 +33,10 @@ class CategoryManager:
                     "CCTV女性时尚", "军事评论", "农业致富"
                 ]
             },
+            "CGTN频道": {
+                "icon": "📢",
+                "channels": ["CGTN", "CGTN阿语", "CGTN俄语", "CGTN法语", "CGTN纪录", "CGTN西语"]
+            },
             "卫视频道": {"icon": "📡"},
             "体育频道": {"icon": "⚽"},
             "纪录频道": {"icon": "📜"},
@@ -43,7 +47,7 @@ class CategoryManager:
             "儿童频道": {"icon": "👶"},
             "轮播电影": {"icon": "🔁"},
             "直播中国": {"icon": "📹"},
-            "春晚频道": {"icon": "🏮"},
+            "历届春晚": {"icon": "🏮"},
             "港台频道": {"icon": "🌉"},
             "海外频道": {"icon": "🌐"},
             "直播全球": {"icon": "🌏"},
@@ -51,7 +55,8 @@ class CategoryManager:
         }
         self._lock = threading.RLock()
         self._ignore_categories = [
-            "春晚频道", "直播中国", "港台频道", "海外频道", "直播全球"
+            "CGTN频道",
+            "历届春晚", "直播中国", "港台频道", "海外频道", "直播全球"
         ]
 
         self._init_channel_relations()

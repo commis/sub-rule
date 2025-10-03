@@ -23,7 +23,8 @@ class CategoryManager:
                 "icon": "✨",
                 "channels": [
                     "CCTV风云音乐", "CCTV风云足球", "CCTV风云剧场", "CCTV怀旧剧场", "CCTV第一剧场",
-                    "CCTV兵器科技", "CCTV世界地理", "军事评论", "农业致富"
+                    "CCTV兵器科技", "CCTV世界地理", "CCTV央视台球",
+                    "军事评论", "农业致富"
                 ],
                 "excludes": ["*"]
             },

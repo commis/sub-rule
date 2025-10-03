@@ -133,10 +133,13 @@ class CategoryManager:
         with self._lock:
             return self._categories.get(category_name)
 
-    def get_category_object(self, channel_name: str, category_name="未分类组"):
+    def get_category_object(self, channel_name: str, category_name):
         """
         根据频道名称获取分类名称
         """
+        if category_name is None:
+            category_name = "未分类组"
+
         if channel_name in self._channel_relations:
             return self._channel_relations[channel_name]
         else:

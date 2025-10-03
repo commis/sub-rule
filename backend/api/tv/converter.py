@@ -67,10 +67,14 @@ class LiveConverter:
         return params, name
 
     def _parse_txt_channels(self, txt_data: str):
+        group_title = ''
         for line in txt_data.strip().split('\n'):
             line = line.strip()
-            if not line or line.startswith('#'):
+            if not line:
+                continue
+            if line.endswith('#genre#'):
+                group_title = line[:-8].strip()
                 continue
 
             name, url = line.split(',', 1)
-            self._channel_model.add_channel(name=None, channel_name=name, channel_url=url)
+            self._channel_model.add_channel(name=group_title, channel_name=name, channel_url=url)

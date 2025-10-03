@@ -35,12 +35,14 @@ class Parser:
                 parts = line.split(',', 1)
                 if len(parts) != 2:
                     continue
-                subgenre, url = [p.strip() for p in parts]
+                channel_name, url = [p.strip() for p in parts]
                 if not url:
                     continue
 
-                category_name = category_manager.get_category_name(subgenre, special_category)
-                channel_list.append((category_name, subgenre, url))
+                category_info = category_manager.get_category_object(channel_name, special_category)
+                category_name = category_info.get('name')
+                if not category_manager.is_exclude(category_info, channel_name):
+                    channel_list.append((category_name, channel_name, url))
 
         return channel_list
 

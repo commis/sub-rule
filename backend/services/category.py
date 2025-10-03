@@ -4,60 +4,74 @@ from typing import Dict, Optional
 from core.singleton import singleton
 
 
-class CategoryObject:
-    def __init__(self, name: str):
-        self._name = name
-
-    @property
-    def name(self):
-        return self._name
-
-
 @singleton
 class CategoryManager:
     """
     管理分类与图标映射关系的单例类
     """
-    _channel_relations: Dict[str, CategoryObject] = {}
+    _channel_relations: Dict[str, Dict[str, object]] = {}
 
     def __init__(self):
         # 分类信息，channels仅为配置，内存中的数据不存在
         self._categories: Dict[str, Dict[str, object]] = {
             "超慢跑": {"icon": "🏃"},
-            "央视频道": {"icon": "📺"},
+            "央视频道": {
+                "icon": "📺",
+                "excludes": ["精选推荐", "熊猫直播", "直播中国", "支持作者"]
+            },
             "央视精品": {
                 "icon": "✨",
                 "channels": [
-                    "CCTV兵器科技", "CCTV风云剧场", "CCTV风云音乐", "CCTV风云足球", "CCTV高尔夫网球",
-                    "CCTV怀旧剧场", "CCTV世界地理", "CCTV文化精品", "CCTV央视台球", "CCTV第一剧场",
-                    "CCTV女性时尚", "军事评论", "农业致富"
-                ]
+                    "CCTV风云音乐", "CCTV风云足球", "CCTV风云剧场", "CCTV怀旧剧场", "CCTV第一剧场",
+                    "CCTV兵器科技", "CCTV世界地理", "军事评论", "农业致富"
+                ],
+                "excludes": ["*"]
             },
             "CGTN频道": {
                 "icon": "📢",
                 "channels": ["CGTN", "CGTN阿语", "CGTN俄语", "CGTN法语", "CGTN纪录", "CGTN西语"]
             },
-            "卫视频道": {"icon": "📡"},
-            "体育频道": {"icon": "⚽"},
+            "卫视频道": {
+                "icon": "📡",
+                "excludes": []
+            },
+            "体育频道": {
+                "icon": "⚽",
+                "excludes": ["精品体育"]
+            },
             "纪录频道": {
                 "icon": "📜",
-                "channels": ["探索发现", "地理中国"]
+                "channels": ["探索发现", "地理中国", "人与自然", "中国村庄", "自然传奇", "航拍中国第二季"],
+                "excludes": ["*"]
             },
             "综艺频道": {
                 "icon": "🎤",
-                "channels": []
+                "channels": [],
+                "excludes": []
             },
             "戏曲频道": {"icon": "🎭"},
             "电视剧场": {"icon": "📽️"},
             "电影频道": {
                 "icon": "🎬",
-                "channels": []
+                "channels": [
+                    "CHC电影", "CHC动作电影", "CHC家庭影院",
+                    "东森电影", "凤凰电影", "黑莓电影", "龙华电影"
+                ],
+                "excludes": ['*']
             },
             "儿童频道": {
                 "icon": "👶",
-                "channels": ["哈哈炫动", "黑龙江少儿", "金鹰卡通", "卡酷少儿", "浙江少儿", "优漫卡通"]
+                "channels": ["哈哈炫动", "黑龙江少儿", "金鹰卡通", "卡酷少儿", "浙江少儿", "优漫卡通"],
+                "excludes": []
             },
-            "轮播电影": {"icon": "🔁"},
+            "轮播电影": {
+                "icon": "🔁",
+                "channels": [
+                    "让子弹飞", "拆弹专家1", "拆弹专家2", "寒战", "龙门飞甲",
+                    "我不是药神", "人在囧途", "人在囧途之港囧", "人在囧途之泰囧",
+                ],
+                "excludes": []
+            },
             "直播中国": {"icon": "📹"},
             "熊猫频道": {"icon": "🐼"},
             "历届春晚": {"icon": "🏮"},
@@ -68,8 +82,8 @@ class CategoryManager:
         }
         self._lock = threading.RLock()
         self._ignore_categories = [
-            "CGTN频道",
-            "轮播电影", "直播中国", "熊猫频道", "历届春晚", "港台频道", "海外频道", "直播全球"
+            "",
+            "CGTN频道", "直播中国", "熊猫频道", "历届春晚", "港台频道", "海外频道", "直播全球"
         ]
 
         self._init_channel_relations()
@@ -78,11 +92,11 @@ class CategoryManager:
         """初始化频道名称与分类的映射关系"""
         with self._lock:
             for category_name, category_info in self._categories.items():
-                if "channels" in category_info:
-                    category_object = CategoryObject(category_name)
-                    channel_list = category_info.pop("channels")
-                    for channel in channel_list:
-                        self._channel_relations[channel] = category_object
+                category_info.update({"name": category_name})
+                category_info.update({"excludes": category_info.get("excludes", [])})
+                channel_list = category_info.get("channels", [])
+                for channel in channel_list:
+                    self._channel_relations[channel] = category_info
 
     def clear(self) -> None:
         """清空所有分类图标映射"""
@@ -92,6 +106,12 @@ class CategoryManager:
     def is_ignore(self, category: str):
         """判断是否为忽略的分类"""
         return category in self._ignore_categories
+
+    def is_exclude(self, category_info: {}, channel_name: str) -> bool:
+        """判断是否为排除的频道"""
+        channels = category_info.get("channels", [])
+        excludes = category_info.get("excludes", [])
+        return ('*' in excludes and channel_name not in channels) or channel_name in excludes
 
     def get_groups(self):
         """获取所有分类的组"""
@@ -112,11 +132,14 @@ class CategoryManager:
         with self._lock:
             return self._categories.get(category_name)
 
-    def get_category_name(self, channel_name: str, category_name="未分类组"):
+    def get_category_object(self, channel_name: str, category_name="未分类组"):
         """
         根据频道名称获取分类名称
         """
-        return self._channel_relations[channel_name].name if channel_name in self._channel_relations else category_name
+        if channel_name in self._channel_relations:
+            return self._channel_relations[channel_name]
+        else:
+            return self._categories.get(category_name)
 
     def update_category(self, category_infos: Dict[str, Dict[str, object]]) -> None:
         """

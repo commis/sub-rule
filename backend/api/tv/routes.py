@@ -64,7 +64,7 @@ class BatchCheckRequest(BaseModel):
 class UpdateLiveRequest(BaseModel):
     """更新直播源请求"""
     output: str = Field(default="/usr/share/nginx/tvbox/result.txt", description="直播源输出文件名")
-    url: Optional[str] = Field(default="https://live.izbds.com/sitemap.xml", description="直播源同步URL")
+    url: Optional[str] = Field(default="https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/sitemap.xml", description="直播源同步URL")
     is_clear: Optional[bool] = Field(True, description="是否清空已有频道数据")
     thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限50")
     low_limit: Optional[int] = Field(100, ge=50, le=300, description="自动更新频道数量下限")

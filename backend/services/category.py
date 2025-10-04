@@ -141,8 +141,7 @@ class CategoryManager:
             return self._channel_relations[channel_name]
         else:
             info = self._categories.get(category_name)
-            if info is None:
-                return self._categories.get("未分类组")
+            return self._categories.get("未分类组") if info is None else info
 
     def update_category(self, category_infos: Dict[str, Dict[str, object]]) -> None:
         """

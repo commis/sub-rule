@@ -19,6 +19,10 @@ class CategoryManager:
                 "icon": "📺",
                 "excludes": ["精选推荐", "熊猫直播", "直播中国", "支持作者"]
             },
+            "卫视频道": {
+                "icon": "📡",
+                "excludes": []
+            },
             "央视精品": {
                 "icon": "✨",
                 "channels": [
@@ -31,10 +35,6 @@ class CategoryManager:
             "CGTN频道": {
                 "icon": "📢",
                 "channels": ["CGTN", "CGTN阿语", "CGTN俄语", "CGTN法语", "CGTN纪录", "CGTN西语"]
-            },
-            "卫视频道": {
-                "icon": "📡",
-                "excludes": []
             },
             "体育频道": {
                 "icon": "⚽",

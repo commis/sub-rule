@@ -67,7 +67,7 @@ class UpdateLiveRequest(BaseModel):
     url: Optional[str] = Field(default="https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/sitemap.xml", description="直播源同步URL")
     is_clear: Optional[bool] = Field(True, description="是否清空已有频道数据")
     thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限50")
-    low_limit: Optional[int] = Field(100, ge=50, le=300, description="自动更新频道数量下限")
+    low_limit: Optional[int] = Field(100, ge=5, le=300, description="自动更新频道数量下限")
 
 
 class ChannelQuery(BaseModel):

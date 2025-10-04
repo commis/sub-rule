@@ -137,13 +137,12 @@ class CategoryManager:
         """
         根据频道名称获取分类名称
         """
-        if category_name is None:
-            category_name = "未分类组"
-
         if channel_name in self._channel_relations:
             return self._channel_relations[channel_name]
         else:
-            return self._categories.get(category_name)
+            info = self._categories.get(category_name)
+            if info is None:
+                return self._categories.get("未分类组")
 
     def update_category(self, category_infos: Dict[str, Dict[str, object]]) -> None:
         """

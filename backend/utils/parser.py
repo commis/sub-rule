@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from core.constants import Constants
 from core.logger_factory import LoggerFactory
 from services import channel_manager, category_manager
+from services.const import Const
 
 logger = LoggerFactory.get_logger(__name__)
 
@@ -79,11 +80,12 @@ class Parser:
         for line in (line.strip() for line in text_data.splitlines() if line.strip() and not line.startswith('#')):
             if line.endswith('#genre#'):
                 category_stack = None
-                category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line).strip()
-                if use_ignore and category_manager.is_ignore(category):
+                parse_category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line).strip()
+                define_category = Const.get_category(parse_category)
+                if define_category is None or (use_ignore and category_manager.is_ignore(define_category)):
                     continue
-                if category and category_manager.exists(category):
-                    category_stack = category
+                if category_manager.exists(define_category):
+                    category_stack = define_category
                 continue
 
             if category_stack:
@@ -95,3 +97,18 @@ class Parser:
                         channel_manager.add_channel(category_stack, subgenre, url)
                 except ValueError:
                     continue
+
+    def load_m3u_data(cls, url: str):
+        try:
+            response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
+            response.raise_for_status()
+            for line in (line.strip() for line in response.text.splitlines() if
+                         line.strip() and not line.startswith('#')):
+                if line.startswith('http'):
+                    cls.load_channel_data(line)
+
+            # 处理自建频道
+            cls._get_remote_url_data(cls._live_url)
+            channel_manager.sort()
+        except Exception as e:
+            logger.error(f"parse m3u data failed: {e}")

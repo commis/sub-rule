@@ -18,7 +18,7 @@ from services.task import task_manager
 from utils.handler import handle_exception
 from utils.parser import Parser
 
-router = APIRouter(prefix="/tv", tags=["M3U检测器"])
+router = APIRouter(prefix="/tv", tags=["M3U工具"])
 logger = LoggerFactory.get_logger(__name__)
 
 
@@ -64,7 +64,8 @@ class BatchCheckRequest(BaseModel):
 class UpdateLiveRequest(BaseModel):
     """更新直播源请求"""
     output: str = Field(default="/usr/share/nginx/tvbox/result.txt", description="直播源输出文件名")
-    url: Optional[str] = Field(default="https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/sitemap.xml", description="直播源同步URL")
+    url: Optional[str] = Field(default="https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/sitemap.xml",
+                               description="直播源同步URL")
     is_clear: Optional[bool] = Field(True, description="是否清空已有频道数据")
     thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限50")
     low_limit: Optional[int] = Field(5, ge=5, le=300, description="自动更新频道数量下限")
@@ -145,8 +146,9 @@ def check_batch_channels(request: BatchCheckRequest, background_tasks: Backgroun
         handle_exception("batch check failed")
 
 
-@router.post("/update", summary="自动更新直播源", response_model=TaskResponse)
-def update_live_sources(request: UpdateLiveRequest, background_tasks: BackgroundTasks) -> TaskResponse:
+@router.post("/update/txt", summary="自动从txt更新直播源", response_model=TaskResponse)
+def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundTasks) -> TaskResponse:
+    # https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/sitemap.xml
     """
     自动更新直播源数据
     """
@@ -157,6 +159,60 @@ def update_live_sources(request: UpdateLiveRequest, background_tasks: Background
 
         parser = Parser()
         parser.load_sitemap_data(request.url)
+        total_count = channel_manager.total_count()
+        if total_count <= request.low_limit:
+            channel_manager.clear()
+            handle_exception(f"live sources count is too low: {total_count} (less than {request.low_limit})")
+
+        task_id = task_manager.create_task(
+            url=request.url,
+            total=total_count,
+            type="update_live_sources",
+            description=f"output: {request.output}"
+        )
+
+        def run_update_live_task() -> None:
+            """后台运行的批量检查任务"""
+            try:
+                task_manager.update_task(task_id, status="running")
+                task = task_manager.get_task(task_id)
+
+                checker = ChannelChecker(request.url)
+                success_count = checker.update_batch_live(
+                    threads=request.thread_size,
+                    task_status=task,
+                    output_file=request.output
+                )
+                task.update({
+                    "status": "completed",
+                    "result": {"success": success_count}
+                })
+            except Exception as re:
+                logger.error(f"update live sources task failed: {str(re)}", exc_info=True)
+                task_manager.update_task(task_id, status="error", error=str(re))
+
+        background_tasks.add_task(run_update_live_task)
+        return TaskResponse(data={"task_id": task_id})
+    except ValueError as ve:
+        handle_exception(str(ve), status.HTTP_400_BAD_REQUEST)
+    except Exception as e:
+        logger.error(f"update live sources request failed: {str(e)}", exc_info=True)
+        handle_exception("update live sources request failed")
+
+
+@router.post("/update/m3u", summary="自动从m3u更新直播源", response_model=TaskResponse)
+def update_m3u_sources(request: UpdateLiveRequest, background_tasks: BackgroundTasks) -> TaskResponse:
+    # https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt
+    """
+    自动更新直播源数据
+    """
+    try:
+        if request.is_clear:
+            channel_manager.clear()
+            task_manager.clear()
+
+        parser = Parser()
+        parser.load_m3u_data(request.url)
         total_count = channel_manager.total_count()
         if total_count <= request.low_limit:
             channel_manager.clear()

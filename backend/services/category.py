@@ -17,16 +17,15 @@ class CategoryManager:
             "锻炼": {"icon": "🏃"},
             "央视": {
                 "icon": "📺",
-                "channels": [
-                    "CCTV风云音乐", "CCTV风云足球", "CCTV风云剧场", "CCTV怀旧剧场", "CCTV第一剧场",
-                    "CCTV兵器科技", "CCTV世界地理", "CCTV央视台球",
-                    "CGTN", "CGTN阿语", "CGTN俄语", "CGTN法语", "CGTN纪录", "CGTN西语"
-                                                                            "军事评论", "农业致富"
-                ],
-                "excludes": ["精选推荐", "熊猫直播", "直播中国", "支持作者"]
+                "channels": [],
+                "excludes": [
+                    "CCTV风云音乐", "CCTV风云足球", "CCTV风云剧场", "CCTV怀旧剧场", "CCTV兵器科技", "CCTV世界地理",
+                    "CCTV央视台球", "CCTV第一剧场", "军事评论", "农业致富",
+                    "精选推荐", "熊猫直播", "直播中国", "支持作者"]
             },
             "卫视": {
                 "icon": "📡",
+                "channels": [],
                 "excludes": []
             },
             "纪录": {
@@ -34,13 +33,16 @@ class CategoryManager:
                 "channels": ["探索发现", "地理中国", "人与自然", "中国村庄", "自然传奇", "航拍中国第二季"],
                 "excludes": ["*"]
             },
+            "体育": {
+                "icon": "🏀",
+                "channels": [],
+                "excludes": []
+            },
             "综艺": {
                 "icon": "🎤",
                 "channels": [],
                 "excludes": []
             },
-            "戏曲": {"icon": "🎭"},
-            "电视": {"icon": "📽️"},
             "电影": {
                 "icon": "🎬",
                 "channels": [
@@ -68,11 +70,14 @@ class CategoryManager:
             "港台": {"icon": "🌉"},
             "海外": {"icon": "🌐"},
             "全球": {"icon": "🌏"},
-            "其他": {"icon": "📂"},
+            "其他": {
+                "icon": "📂",
+                "channels": ["钱塘江"],
+                "excludes": []
+            },
         }
         self._lock = threading.RLock()
         self._ignore_categories = [
-            "央视", "卫视",
             "直播", "熊猫", "春晚", "港台", "海外", "全球"
         ]
 
@@ -87,11 +92,6 @@ class CategoryManager:
                 channel_list = category_info.get("channels", [])
                 for channel in channel_list:
                     self._channel_relations[channel] = category_info
-
-    def clear(self) -> None:
-        """清空所有分类图标映射"""
-        with self._lock:
-            self._categories.clear()
 
     def is_ignore(self, category: str):
         """判断是否为忽略的分类"""

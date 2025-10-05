@@ -1,12 +1,21 @@
-from typing import Dict
+from typing import Dict, List
 
 from fastapi import APIRouter, HTTPException, Body
+from pydantic import BaseModel, Field
 from starlette import status
 
 from services.category import category_manager
 from utils.handler import handle_exception
 
 router = APIRouter(prefix="/category", tags=["分类图标管理"])
+
+
+class UpdateCategoryRequest(BaseModel):
+    """更新直播源请求"""
+    name: str = Field(..., description="分类名称")
+    icon: str = Field(..., description="分类图标")
+    channels: List[str] = Field(default=[], description="包含频道列表")
+    excludes: List[str] = Field(default=[], description="排除频道列表")
 
 
 @router.get("/icons", summary="获取所有分类图标", response_model=Dict[str, object])
@@ -25,15 +34,16 @@ def get_category_info(category_name: str):
 
 
 @router.post("/icons", summary="添加/更新分类图标", response_model=Dict[str, object])
-def update_category_data(category_infos: Dict[str, object] = Body(..., description="分类图标映射字典")):
+def update_category_data(
+        request: UpdateCategoryRequest = Body(..., media_type="application/json", description="更新分类数据")):
     """
-    批量添加或更新分类图标
+    添加或更新分类图标
     """
-    if not category_infos:
+    if not request:
         handle_exception("icon data is empty", status.HTTP_400_BAD_REQUEST)
 
     try:
-        category_manager.update_category(category_infos)
+        category_manager.update_category({request.name: request.model_dump()})
         return category_manager.list_categories()
     except Exception as e:
         handle_exception(str(e))
@@ -48,11 +58,4 @@ def delete_category_icon(category_name: str):
         raise HTTPException(status_code=404, detail=f"分类 '{category_name}' 不存在")
 
     category_manager.remove_category(category_name)
-    return category_manager.list_categories()
-
-
-@router.delete("/icons", summary="清空所有分类图标", response_model=Dict[str, object])
-def clear_all_category_icons():
-    """清空所有分类图标映射"""
-    category_manager.clear()
     return category_manager.list_categories()

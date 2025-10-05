@@ -44,12 +44,13 @@ class ChannelBaseModel:
         with self._lock:
             # 自动分类处理
             category_info = category_manager.get_category_object(channel_name, name)
-            category_name = category_info.get('name')
-            if category_name not in self._channelGroups:
-                self._channelGroups[category_name] = ChannelList()
-            channel_list = self._channelGroups[category_name]
-            if not category_manager.is_exclude(category_info, channel_name):
-                channel_list.add_channel(channel_name, channel_url, id)
+            if category_info:
+                category_name = category_info.get('name', name)
+                if category_name not in self._channelGroups:
+                    self._channelGroups[category_name] = ChannelList()
+                channel_list = self._channelGroups[category_name]
+                if not category_manager.is_exclude(category_info, channel_name):
+                    channel_list.add_channel(channel_name, channel_url, id)
 
     def add_channel_info(self, name, channel_info: ChannelInfo):
         if not name:

@@ -10,8 +10,8 @@ class LoggerFactory:
 
     LOG_DIR = "logs"
     LOG_FILE = f"app_{datetime.now().strftime('%Y%m%d')}.log"
-    DEFAULT_FORMAT = "%(asctime)s - %(levelname)s - %(module)s:%(lineno)d - %(message)s"
-    SIMPLE_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+    DEFAULT_FORMAT = "%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s"
+    SIMPLE_FORMAT = "%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s"
     DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
     _root_logger = None

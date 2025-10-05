@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+from api.tv.converter import LiveConverter
 from core.constants import Constants
 from core.logger_factory import LoggerFactory
 from services import channel_manager, category_manager
@@ -68,12 +69,12 @@ class Parser:
         try:
             response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
             response.raise_for_status()
-            cls.load_channel_data(response.text.strip(), use_ignore)
+            cls.load_channel_txt(response.text.strip(), use_ignore)
         except Exception as e:
             logger.error(f"access remote url data failed: {e}")
 
     @staticmethod
-    def load_channel_data(text_data, use_ignore: bool = False):
+    def load_channel_txt(text_data, use_ignore: bool = False):
         from services import category_manager
 
         category_stack = None
@@ -102,10 +103,27 @@ class Parser:
         try:
             response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
             response.raise_for_status()
-            for line in (line.strip() for line in response.text.splitlines() if
-                         line.strip() and not line.startswith('#')):
-                if line.startswith('http'):
-                    cls.load_channel_data(line)
+            m3u_data = response.text.strip()
+
+            channel_name = None
+            group_title = ''
+            for line in (line.strip() for line in m3u_data.splitlines() if line.strip()):
+                if line.startswith('#EXTM3U'):
+                    continue
+
+                if line.startswith('#EXTINF:'):
+                    tag_content = line[8:].strip()
+                    params, name = LiveConverter.parse_extinf_params(tag_content)
+                    channel_name = Const.get_channel(name)
+                    group_title = params.get('title', '')
+
+                elif line.startswith(('http:', 'https:')):
+                    define_category = Const.get_category(group_title)
+                    if (define_category is None
+                            or (category_manager.is_ignore(define_category))
+                            or not category_manager.exists(define_category)):
+                        continue
+                    channel_manager.add_channel(define_category, channel_name, line)
 
             # 处理自建频道
             cls._get_remote_url_data(cls._live_url)

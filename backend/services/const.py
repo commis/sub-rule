@@ -9,15 +9,15 @@ category_map = {
 }
 
 channel_map = {
-    'CCCTV1综合': 'CCCTV1',
+    'CCTV1综合': 'CCTV1',
     'CCTV2财经': 'CCTV2',
     'CCTV3综艺': 'CCTV3',
     'CCTV4中文国际': 'CCTV4',
     'CCTV5体育': 'CCTV5',
     'CCTV5+体育赛事': 'CCTV5+',
     'CCTV6电影': 'CCTV6',
-    'CCTV7财经': 'CCTV7',
-    'CCTV8财经': 'CCTV8',
+    'CCTV7国防军事': 'CCTV7',
+    'CCTV8电视剧': 'CCTV8',
     'CCTV9纪录': 'CCTV9',
     'CCTV10科教': 'CCTV10',
     'CCTV11戏曲': 'CCTV11',

@@ -64,7 +64,7 @@ class BatchCheckRequest(BaseModel):
 class UpdateLiveRequest(BaseModel):
     """更新直播源请求"""
     output: str = Field(default="/usr/share/nginx/tvbox/result.txt", description="直播源输出文件名")
-    url: Optional[str] = Field(default="https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/sitemap.xml",
+    url: Optional[str] = Field(default="https://vbskycn.github.io/iptv/sitemap.xml",
                                description="直播源同步URL")
     is_clear: Optional[bool] = Field(True, description="是否清空已有频道数据")
     thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限50")
@@ -148,7 +148,7 @@ def check_batch_channels(request: BatchCheckRequest, background_tasks: Backgroun
 
 @router.post("/update/txt", summary="自动从txt更新直播源", response_model=TaskResponse)
 def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundTasks) -> TaskResponse:
-    # https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/sitemap.xml
+    # https://vbskycn.github.io/iptv/sitemap.xml
     """
     自动更新直播源数据
     """
@@ -202,7 +202,7 @@ def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
 
 @router.post("/update/m3u", summary="自动从m3u更新直播源", response_model=TaskResponse)
 def update_m3u_sources(request: UpdateLiveRequest, background_tasks: BackgroundTasks) -> TaskResponse:
-    # https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt
+    # https://develop202.github.io/migu_video/interface.txt
     """
     自动更新直播源数据
     """

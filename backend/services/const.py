@@ -13,6 +13,8 @@ channel_map = {
     'CCTV2财经': 'CCTV2',
     'CCTV3综艺': 'CCTV3',
     'CCTV4中文国际': 'CCTV4',
+    'CCTV4美洲': 'CCTV4',
+    'CCTV4欧洲': 'CCTV4',
     'CCTV5体育': 'CCTV5',
     'CCTV5+体育赛事': 'CCTV5+',
     'CCTV6电影': 'CCTV6',

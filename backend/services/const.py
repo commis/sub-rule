@@ -29,6 +29,9 @@ channel_map = {
     'CCTV15音乐': 'CCTV15',
     'CCTV16财经': 'CCTV16',
     'CCTV17农业农村': 'CCTV17',
+    'CGTN外语纪录': 'CGTN纪录',
+    'CGTN西班牙语': 'CGTN西语',
+    'CGTN阿拉伯语': 'CGTN阿语',
 }
 
 

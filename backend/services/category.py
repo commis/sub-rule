@@ -41,7 +41,7 @@ class CategoryManager:
             },
             "体育": {
                 "icon": "🏀",
-                "channels": ["CETV1", "CETV2", "CETV4"],
+                "channels": [],
                 "excludes": []
             },
             "综艺": {
@@ -51,7 +51,7 @@ class CategoryManager:
             },
             "教育": {
                 "icon": "📚",
-                "channels": [],
+                "channels": ["CETV1", "CETV2", "CETV4"],
                 "excludes": []
             },
             "电影": {

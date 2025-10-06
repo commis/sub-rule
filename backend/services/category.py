@@ -19,6 +19,7 @@ class CategoryManager:
                 "icon": "📺",
                 "channels": [],
                 "excludes": [
+                    "CCTV4欧洲", "CCTV4美洲",
                     "CCTV风云音乐", "CCTV风云足球", "CCTV风云剧场", "CCTV怀旧剧场", "CCTV兵器科技", "CCTV世界地理",
                     "CCTV央视台球", "CCTV第一剧场", "军事评论", "农业致富",
                     "精选推荐", "熊猫直播", "直播中国", "支持作者"]
@@ -28,18 +29,28 @@ class CategoryManager:
                 "channels": [],
                 "excludes": []
             },
-            "纪录": {
+            "地方": {
+                "icon": "🏙️",
+                "channels": [],
+                "excludes": []
+            },
+            "纪实": {
                 "icon": "📜",
                 "channels": ["探索发现", "地理中国", "人与自然", "中国村庄", "自然传奇", "航拍中国第二季"],
                 "excludes": ["*"]
             },
             "体育": {
                 "icon": "🏀",
-                "channels": [],
+                "channels": ["CETV1", "CETV2", "CETV4"],
                 "excludes": []
             },
             "综艺": {
                 "icon": "🎤",
+                "channels": [],
+                "excludes": []
+            },
+            "教育": {
+                "icon": "📚",
                 "channels": [],
                 "excludes": []
             },
@@ -64,17 +75,17 @@ class CategoryManager:
                 ],
                 "excludes": []
             },
+            "其他": {
+                "icon": "📂",
+                "channels": ["钱塘江"],
+                "excludes": []
+            },
             "直播": {"icon": "📹"},
             "熊猫": {"icon": "🐼"},
             "春晚": {"icon": "🏮"},
             "港台": {"icon": "🌉"},
             "海外": {"icon": "🌐"},
             "全球": {"icon": "🌏"},
-            "其他": {
-                "icon": "📂",
-                "channels": ["钱塘江"],
-                "excludes": []
-            },
         }
         self._lock = threading.RLock()
         self._ignore_categories = [

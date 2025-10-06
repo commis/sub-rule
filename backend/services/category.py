@@ -19,10 +19,9 @@ class CategoryManager:
                 "icon": "📺",
                 "channels": [],
                 "excludes": [
-                    "CCTV4欧洲", "CCTV4美洲",
                     "CCTV风云音乐", "CCTV风云足球", "CCTV风云剧场", "CCTV怀旧剧场", "CCTV兵器科技", "CCTV世界地理",
                     "CCTV央视台球", "CCTV第一剧场", "军事评论", "农业致富",
-                    "精选推荐", "熊猫直播", "直播中国", "支持作者"]
+                    "精选推荐", "熊猫直播", "直播中国", "支持作者", "老故事", "中学生"]
             },
             "卫视": {
                 "icon": "📡",
@@ -30,7 +29,7 @@ class CategoryManager:
                 "excludes": []
             },
             "地方": {
-                "icon": "🏙️",
+                "icon": "📍",
                 "channels": [],
                 "excludes": []
             },
@@ -57,7 +56,8 @@ class CategoryManager:
             "电影": {
                 "icon": "🎬",
                 "channels": [
-                    "CHC电影", "CHC动作电影", "CHC家庭影院",
+                    "CHC电影", "CHC动作电影", "CHC家庭影院", "CHC影迷电影",
+                    "经典香港电影", "抗战经典影片", "新片放映厅", "高清大片", "南方影视",
                     "东森电影", "凤凰电影", "黑莓电影", "龙华电影"
                 ],
                 "excludes": ['*']

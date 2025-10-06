@@ -44,9 +44,9 @@ class LiveConverter:
                 params, name = LiveConverter.parse_extinf_params(tag_content)
                 channel_name = Const.get_channel(name)
                 try:
-                    channel_id = int(params.get('id')) if "id" in params else 0
+                    channel_id = params.get('id') if "id" in params else '0'
                 except ValueError:
-                    channel_id = 0
+                    channel_id = 'index'
                 group_title = params.get('title', '')
 
             elif line.startswith(('http:', 'https:')):

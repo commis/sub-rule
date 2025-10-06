@@ -34,11 +34,12 @@ class ChannelChecker:
         self._size = size
 
     @log_execution_time(name=ref("channel_info.name"), url=ref("url_info.url"))
-    def check_single_with_timeout(self, channel_info: ChannelInfo, url_info: ChannelUrl, timeout=60) -> bool:
+    def check_single_with_timeout(self, channel_info: ChannelInfo, url_info: ChannelUrl,
+                                  check_sub_m3u8, timeout=60) -> bool:
         """带超时控制的频道检测方法"""
         logger.debug(f"Checking {channel_info.name} with {url_info.url}")
         with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            future = executor.submit(self._check_single, channel_info, url_info)
+            future = executor.submit(self._check_single, channel_info, url_info, check_sub_m3u8)
             try:
                 return future.result(timeout=timeout)
             except concurrent.futures.TimeoutError:
@@ -50,38 +51,39 @@ class ChannelChecker:
                 logger.error(f"check_single error: {e}")
                 return False
 
-    def _check_single(self, channel_info: ChannelInfo, url_info: ChannelUrl) -> bool:
+    def _check_single(self, channel_info: ChannelInfo, url_info: ChannelUrl, check_sub_m3u8) -> bool:
         if url_info.url.endswith(".mp4"):
             return self._check_mp4_validity(url_info.url)
 
         if ".m3u8" not in url_info.url:
             return False
 
-        # 第一阶段：基础验证
-        m3u8_content = self._check_m3u8_url(url_info)
-        if not m3u8_content:
-            return False
+        if check_sub_m3u8:
+            # 第一阶段：基础验证
+            m3u8_content = self._check_m3u8_url(url_info)
+            if not m3u8_content:
+                return False
 
-        # 第二阶段：结构验证
-        is_valid, reason = self._check_m3u8_validity(m3u8_content)
-        if not is_valid:
-            logger.debug(f"M3U8 structure invalid for {channel_info.name} with {url_info.url}: {reason}")
-            return False
+            # 第二阶段：结构验证
+            is_valid, reason = self._check_m3u8_validity(m3u8_content)
+            if not is_valid:
+                logger.debug(f"M3U8 structure invalid for {channel_info.name} with {url_info.url}: {reason}")
+                return False
 
-        # 第三阶段：TS验证
-        base_url = url_info.url.rsplit('/', 1)[0]
-        ts_urls = self._extract_ts_urls(m3u8_content)
-        ts_valid, ts_reason, tested_urls = self._check_ts_availability(ts_urls, base_url)
-        if not ts_valid:
-            logger.debug(f"TS segments invalid for {channel_info.name} with {url_info.url}: {ts_reason}")
-            return False
+            # 第三阶段：TS验证
+            base_url = url_info.url.rsplit('/', 1)[0]
+            ts_urls = self._extract_ts_urls(m3u8_content)
+            ts_valid, ts_reason, tested_urls = self._check_ts_availability(ts_urls, base_url)
+            if not ts_valid:
+                logger.debug(f"TS segments invalid for {channel_info.name} with {url_info.url}: {ts_reason}")
+                return False
 
-        # 第四阶段：测速
-        url_info.set_speed(self._benchmark_speed(tested_urls))
+            # 第四阶段：测速
+            url_info.set_speed(self._benchmark_speed(tested_urls))
 
-        # 第五阶段：元数据提取
-        if not channel_info.name:
-            channel_info.set_name(self._extract_channel_name(m3u8_content, url_info.url))
+            # 第五阶段：元数据提取
+            if not channel_info.name:
+                channel_info.set_name(self._extract_channel_name(m3u8_content, url_info.url))
 
         return True
 
@@ -128,6 +130,7 @@ class ChannelChecker:
                     if child_content:
                         content = child_content
                         break
+
             return content
         except:
             return None
@@ -304,7 +307,7 @@ class ChannelChecker:
 
         return None
 
-    def check_batch(self, threads, task_status) -> int:
+    def check_batch(self, threads, task_status, check_sub_m3u8) -> int:
         task_status_lock = threading.Lock()
         success_count = Counter()
         processed_count = Counter()
@@ -314,16 +317,16 @@ class ChannelChecker:
         def task_generator():
             for index in range(self._start, self._start + self._size):
                 url_info = ChannelUrl(self._url.format(i=index))
-                tmp_channel_info = ChannelInfo(id=index)
+                tmp_channel_info = ChannelInfo(id=str(index))
                 tmp_channel_info.add_url(url_info)
-                yield tmp_channel_info, url_info
+                yield tmp_channel_info, url_info, check_sub_m3u8
 
         def check_task(args):
-            tmp_channel_info, url_info = args
+            tmp_channel_info, url_info, process_sub_m3u8 = args
             try:
-                return self.check_single_with_timeout(
-                    channel_info=tmp_channel_info,
-                    url_info=url_info), tmp_channel_info
+                return (self.check_single_with_timeout(channel_info=tmp_channel_info,
+                                                       url_info=url_info,
+                                                       check_sub_m3u8=process_sub_m3u8), tmp_channel_info)
             except TimeoutException as te:
                 logger.warning(f"Timeout checking {url_info.url}: {te}")
                 return False, None
@@ -353,7 +356,7 @@ class ChannelChecker:
         channel_manager.sort()
         return success_count.get_value()
 
-    def update_batch_live(self, threads, task_status, output_file=None) -> int:
+    def update_batch_live(self, threads, task_status, check_m3u8_invalid, output_file=None) -> int:
         """批量更新直播频道信息 - 最终优化版"""
         task_status_lock = threading.Lock()
         success_counter = Counter()
@@ -361,8 +364,8 @@ class ChannelChecker:
         total_count = task_status["total"]
 
         def process_url(task):
-            channel_info, url_info = task
-            check_result = self.check_single_with_timeout(channel_info, url_info)
+            channel_info, url_info, process_m3u8_invalid = task
+            check_result = self.check_single_with_timeout(channel_info, url_info, process_m3u8_invalid)
             try:
                 if check_result:
                     success_counter.increment()
@@ -393,7 +396,7 @@ class ChannelChecker:
                         url_list = list(channel_info.get_urls())
                         actual_count += len(url_list)
                         for url_info in url_list:
-                            yield channel_info, url_info
+                            yield channel_info, url_info, check_m3u8_invalid
                 # 验证实际任务数
                 nonlocal total_count
                 if actual_count != total_count:

@@ -45,11 +45,11 @@ class SingleCheckRequest(BaseModel):
             raise ValueError("规则必须包含{i}占位符")
         return value
 
-    def extract_id(self, url: str) -> int:
+    def extract_id(self, url: str) -> str:
         """从URL中提取频道ID，若未找到则返回1"""
         pattern = re.escape(self.rule).replace('\\{i\\}', '(\\d+)')
         match = re.search(pattern, url)
-        return int(match.group(1)) if match else 1
+        return match.group(1) if match else 'index'
 
 
 class BatchCheckRequest(BaseModel):
@@ -90,7 +90,7 @@ def check_single_channel(request: SingleCheckRequest) -> Response:
         channel_info.add_url(url_info)
 
         checker = ChannelChecker(request.url)
-        check_result = checker.check_single_with_timeout(channel_info, url_info)
+        check_result = checker.check_single_with_timeout(channel_info, url_info, check_sub_m3u8=True)
         if not check_result:
             return Response(content="", media_type="text/plain")
 
@@ -126,7 +126,7 @@ def check_batch_channels(request: BatchCheckRequest, background_tasks: Backgroun
                 task = task_manager.get_task(task_id)
 
                 checker = ChannelChecker(request.url, request.start, request.size)
-                success_count = checker.check_batch(threads=request.thread_size, task_status=task)
+                success_count = checker.check_batch(threads=request.thread_size, task_status=task, check_sub_m3u8=True)
 
                 success_ids = channel_manager.channel_ids()
                 task.update({
@@ -181,6 +181,7 @@ def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
                 success_count = checker.update_batch_live(
                     threads=request.thread_size,
                     task_status=task,
+                    check_m3u8_invalid=True,
                     output_file=request.output
                 )
                 task.update({
@@ -235,6 +236,7 @@ def update_m3u_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
                 success_count = checker.update_batch_live(
                     threads=request.thread_size,
                     task_status=task,
+                    check_m3u8_invalid=False,
                     output_file=request.output
                 )
                 task.update({
@@ -365,7 +367,9 @@ def check_live_sources(
                 task = task_manager.get_task(task_id)
 
                 checker = ChannelChecker()
-                success_count = checker.update_batch_live(threads=thread_size, task_status=task)
+                success_count = checker.update_batch_live(threads=thread_size,
+                                                          task_status=task,
+                                                          check_m3u8_invalid=True)
                 task.update({
                     "status": "completed",
                     "result": {"success": success_count}

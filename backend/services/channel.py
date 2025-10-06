@@ -40,7 +40,7 @@ class ChannelBaseModel:
                 if not category_manager.is_ignore(group_name)
             )
 
-    def add_channel(self, name: str, channel_name, channel_url, id: int = 0):
+    def add_channel(self, name: str, channel_name, channel_url, id: str = 'index'):
         with self._lock:
             # 自动分类处理
             category_info = category_manager.get_category_object(channel_name, name)

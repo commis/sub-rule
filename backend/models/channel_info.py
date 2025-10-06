@@ -51,7 +51,7 @@ class ChannelInfo:
     频道信息，包括频道数据流地址和速度信息
     """
 
-    def __init__(self, id: int = 0, name: str = None):
+    def __init__(self, id: str = 'index', name: str = None):
         self.id = id
         self.name = name
         self.title = "未分类组"
@@ -110,7 +110,7 @@ class ChannelList:
         with self._lock:
             return sum(len(info.urls) for info in self._channels.values())
 
-    def add_channel(self, channel_name, channel_url: str, id=0):
+    def add_channel(self, channel_name, channel_url: str, id='index'):
         with self._lock:
             if channel_name not in self._channels:
                 self._channels[channel_name] = ChannelInfo(id, channel_name)

@@ -29,7 +29,8 @@ channel_map = {
     'CCTV17': 'CCTV17农业农村',
     'CGTN纪录': 'CGTN外语纪录',
     'CGTN西语': 'CGTN西班牙语',
-    'CGTN阿语': 'CGTN阿拉伯语'
+    'CGTN阿语': 'CGTN阿拉伯语',
+    '中国农林卫视': '陕西农林卫视'
 }
 
 

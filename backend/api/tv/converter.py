@@ -64,7 +64,7 @@ class LiveConverter:
 
         param_str, *name_parts = content.rsplit(',', 1)
         if name_parts:
-            name = name_parts[0].strip().replace('频道', '')
+            name = name_parts[0].strip()
 
         param_pattern = re.compile(r'(\w+)="((?:[^"\\]|\\.)*)"')
         for match in param_pattern.finditer(param_str):

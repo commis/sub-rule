@@ -77,25 +77,26 @@ class Parser:
     def load_channel_txt(text_data, use_ignore: bool = False):
         from services import category_manager
 
-        category_stack = None
+        category_name = None
         for line in (line.strip() for line in text_data.splitlines() if line.strip() and not line.startswith('#')):
             if line.endswith('#genre#'):
-                category_stack = None
+                category_name = None
                 parse_category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line).strip()
                 define_category = Const.get_category(parse_category)
                 if define_category is None or (use_ignore and category_manager.is_ignore(define_category)):
                     continue
                 if category_manager.exists(define_category):
-                    category_stack = define_category
+                    category_name = define_category
                 continue
 
-            if category_stack:
+            if category_name:
                 # 解析频道信息
                 try:
                     subgenre, url = line.split(',', 1)
                     subgenre, url = subgenre.strip(), url.strip()
+                    channel_name = Const.get_channel(subgenre)
                     if url:
-                        channel_manager.add_channel(category_stack, subgenre, url)
+                        channel_manager.add_channel(category_name, channel_name, url)
                 except ValueError:
                     continue
 

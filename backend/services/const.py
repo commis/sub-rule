@@ -42,4 +42,4 @@ class Const:
 
     @staticmethod
     def get_channel(channel_name: str) -> str:
-        return channel_map.get(channel_name, channel_name)
+        return channel_map.get(channel_name, channel_name).replace('频道', '')

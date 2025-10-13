@@ -100,7 +100,7 @@ class Parser:
                 except ValueError:
                     continue
 
-    def load_m3u_data(cls, url: str):
+    def load_channel_m3u(cls, url: str):
         try:
             response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
             response.raise_for_status()

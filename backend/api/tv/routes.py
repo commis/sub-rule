@@ -197,8 +197,8 @@ def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
     except ValueError as ve:
         handle_exception(str(ve), status.HTTP_400_BAD_REQUEST)
     except Exception as e:
-        logger.error(f"update live sources request failed: {str(e)}", exc_info=True)
-        handle_exception("update live sources request failed")
+        logger.error(f"update txt live sources request failed: {str(e)}", exc_info=True)
+        handle_exception("update txt live sources request failed")
 
 
 @router.post("/update/m3u", summary="自动从m3u更新直播源", response_model=TaskResponse)
@@ -213,7 +213,7 @@ def update_m3u_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
             task_manager.clear()
 
         parser = Parser()
-        parser.load_m3u_data(request.url)
+        parser.load_channel_m3u(request.url)
         total_count = channel_manager.total_count()
         if total_count <= request.low_limit:
             channel_manager.clear()
@@ -252,8 +252,8 @@ def update_m3u_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
     except ValueError as ve:
         handle_exception(str(ve), status.HTTP_400_BAD_REQUEST)
     except Exception as e:
-        logger.error(f"update live sources request failed: {str(e)}", exc_info=True)
-        handle_exception("update live sources request failed")
+        logger.error(f"update m3u live sources request failed: {str(e)}", exc_info=True)
+        handle_exception("update m3u live sources request failed")
 
 
 @router.get("/show/txt", summary="获取频道列表(TXT格式)", response_class=Response)

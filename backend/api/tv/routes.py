@@ -64,7 +64,7 @@ class BatchCheckRequest(BaseModel):
 class UpdateLiveRequest(BaseModel):
     """更新直播源请求"""
     output: str = Field(default="/usr/share/nginx/tvbox/result.txt", description="直播源输出文件名")
-    url: Optional[str] = Field(default="https://vbskycn.github.io/iptv/sitemap.xml",
+    url: Optional[str] = Field(default="https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.txt",
                                description="直播源同步URL")
     is_clear: Optional[bool] = Field(True, description="是否清空已有频道数据")
     thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限50")
@@ -148,7 +148,7 @@ def check_batch_channels(request: BatchCheckRequest, background_tasks: Backgroun
 
 @router.post("/update/txt", summary="自动从txt更新直播源", response_model=TaskResponse)
 def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundTasks) -> TaskResponse:
-    # https://vbskycn.github.io/iptv/sitemap.xml
+    # https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.txt
     """
     自动更新直播源数据
     """
@@ -158,7 +158,7 @@ def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
             task_manager.clear()
 
         parser = Parser()
-        parser.load_sitemap_data(request.url)
+        parser.load_remote_url_txt(request.url)
         total_count = channel_manager.total_count()
         if total_count <= request.low_limit:
             channel_manager.clear()
@@ -213,7 +213,7 @@ def update_m3u_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
             task_manager.clear()
 
         parser = Parser()
-        parser.load_channel_m3u(request.url)
+        parser.load_remote_url_m3u(request.url)
         total_count = channel_manager.total_count()
         if total_count <= request.low_limit:
             channel_manager.clear()

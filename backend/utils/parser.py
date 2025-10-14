@@ -48,7 +48,7 @@ class Parser:
 
         return channel_list
 
-    def load_sitemap_data(cls, url: str):
+    def load_remote_sitemap(cls, url: str):
         try:
             response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
             response.raise_for_status()
@@ -57,15 +57,15 @@ class Parser:
                 url = loc.text.strip()
                 if not url.endswith("iptv4.txt"):
                     continue
-                cls._get_remote_url_data(url, True)
+                cls.load_remote_url_txt(url, True)
 
             # 处理自建频道
-            cls._get_remote_url_data(cls._live_url)
+            cls.load_remote_url_txt(cls._live_url)
             channel_manager.sort()
         except Exception as e:
             logger.error(f"parse sitemap data failed: {e}")
 
-    def _get_remote_url_data(cls, url, use_ignore=False):
+    def load_remote_url_txt(cls, url, use_ignore=False):
         try:
             response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
             response.raise_for_status()
@@ -100,7 +100,7 @@ class Parser:
                 except ValueError:
                     continue
 
-    def load_channel_m3u(cls, url: str):
+    def load_remote_url_m3u(cls, url: str):
         try:
             response = requests.get(url, timeout=Constants.REQUEST_TIMEOUT)
             response.raise_for_status()
@@ -127,7 +127,7 @@ class Parser:
                     channel_manager.add_channel(define_category, channel_name, line)
 
             # 处理自建频道
-            cls._get_remote_url_data(cls._live_url)
+            cls.load_remote_url_txt(cls._live_url)
             channel_manager.sort()
         except Exception as e:
             logger.error(f"parse m3u data failed: {e}")

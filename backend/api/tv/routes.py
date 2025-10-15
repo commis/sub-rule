@@ -181,7 +181,7 @@ def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
                 success_count = checker.update_batch_live(
                     threads=request.thread_size,
                     task_status=task,
-                    check_m3u8_invalid=True,
+                    check_m3u8_invalid=False,
                     output_file=request.output
                 )
                 task.update({

@@ -18,8 +18,11 @@ class CategoryManager:
             "央视": {
                 "icon": "📺",
                 "channels": [
+                    'CCTV1综合', 'CCTV2财经', 'CCTV3综艺', 'CCTV4中文国际', 'CCTV5体育', 'CCTV5+体育赛事',
+                    'CCTV6电影', 'CCTV7国防军事', 'CCTV8电视剧', 'CCTV9纪录', 'CCTV10科教', 'CCTV11戏曲',
+                    'CCTV12社会与法', 'CCTV13新闻', 'CCTV14少儿', 'CCTV15音乐', 'CCTV16奥林匹克', 'CCTV17农业农村',
                     "CCTV风云音乐", "CCTV风云足球", "CCTV风云剧场", "CCTV怀旧剧场", "CCTV兵器科技", "CCTV世界地理",
-                    "CCTV央视台球", "CCTV第一剧场", "CCTV电视指南"
+                    "CCTV央视台球", "CCTV第一剧场", "CCTV女性时尚", "CCTV电视指南"
                 ],
                 "excludes": [
                     "精选推荐", "熊猫直播", "直播中国", "支持作者", "老故事", "中学生"]
@@ -27,7 +30,7 @@ class CategoryManager:
             "卫视": {
                 "icon": "📡",
                 "channels": [],
-                "excludes": []
+                "excludes": ["内蒙古蒙语卫视"]
             },
             "地方": {
                 "icon": "📍",
@@ -44,7 +47,7 @@ class CategoryManager:
             },
             "体育": {
                 "icon": "🏀",
-                "channels": [],
+                "channels": ["江苏体育休闲", "快乐垂钓", "天元围棋"],
                 "excludes": []
             },
             "综艺": {
@@ -54,15 +57,15 @@ class CategoryManager:
             },
             "教育": {
                 "icon": "📚",
-                "channels": ["CETV1", "CETV2", "CETV4"],
+                "channels": ["CETV1", "CETV2", "CETV4", "山东教育"],
                 "excludes": []
             },
             "电影": {
                 "icon": "🎬",
                 "channels": [
-                    "CHC电影", "CHC动作电影", "CHC家庭影院", "CHC影迷电影",
-                    "经典香港电影", "抗战经典影片", "新片放映厅", "高清大片", "南方影视",
-                    "东森电影", "凤凰电影", "黑莓电影", "龙华电影"
+                    "CHC电影", "CHC动作电影", "CHC家庭影院", "CHC影迷电影", "黑莓电影", "南方影视",
+                    "经典香港电影", "抗战经典影片", "新片放映厅", "高清大片", "东森电影", "凤凰电影",
+                    "龙华电影"
                 ],
                 "excludes": ['*']
             },
@@ -74,8 +77,8 @@ class CategoryManager:
             "轮播": {
                 "icon": "🔁",
                 "channels": [
-                    "让子弹飞", "拆弹专家1", "拆弹专家2", "寒战", "龙门飞甲",
-                    "我不是药神", "人在囧途", "人在囧途之港囧", "人在囧途之泰囧",
+                    "拆弹专家1", "拆弹专家2", "寒战", "龙门飞甲", "让子弹飞", "我不是药神",
+                    "人在囧途", "人在囧途之港囧", "人在囧途之泰囧",
                 ],
                 "excludes": []
             },

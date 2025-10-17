@@ -10,6 +10,8 @@ worker_class = "uvicorn.workers.UvicornWorker"
 chdir = project_root
 preload_app = True
 
+worker_extra_args = ["--root-path", "/api"]
+
 raw_env = [
     f"PYTHONPATH={project_root}"
 ]

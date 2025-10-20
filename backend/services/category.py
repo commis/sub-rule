@@ -17,16 +17,18 @@ class CategoryManager:
             "锻炼": {"icon": "🏃"},
             "央视": {
                 "icon": "📺",
-                "channels": [
-                    'CCTV1综合', 'CCTV2财经', 'CCTV3综艺', 'CCTV4中文国际', 'CCTV5体育', 'CCTV5+体育赛事',
-                    'CCTV6电影', 'CCTV7国防军事', 'CCTV8电视剧', 'CCTV9纪录', 'CCTV10科教', 'CCTV11戏曲',
-                    'CCTV12社会与法', 'CCTV13新闻', 'CCTV14少儿', 'CCTV15音乐', 'CCTV16奥林匹克', 'CCTV17农业农村',
-                    "CCTV风云音乐", "CCTV风云足球", "CCTV风云剧场", "CCTV怀旧剧场", "CCTV兵器科技", "CCTV世界地理",
-                    "CCTV央视台球", "CCTV第一剧场", "CCTV女性时尚", "CCTV电视指南"
-                ],
+                "channels": [],
                 "excludes": [
-                    "精选推荐", "熊猫直播", "直播中国", "支持作者", "老故事", "中学生"
+                    "精选推荐", "熊猫直播", "直播中国", "支持作者"
                 ]
+            },
+            "精品": {
+                "icon": "💎",
+                "channels": [
+                    "风云音乐", "风云足球", "风云剧场", "怀旧剧场", "兵器科技", "世界地理",
+                    "央视台球", "第一剧场", "女性时尚", "电视指南", "老故事", "中学生"
+                ],
+                "excludes": []
             },
             "卫视": {
                 "icon": "📡",
@@ -36,7 +38,7 @@ class CategoryManager:
             "地方": {
                 "icon": "📍",
                 "channels": [],
-                "excludes": ["*"]
+                "excludes": []
             },
             "纪实": {
                 "icon": "📜",
@@ -44,12 +46,12 @@ class CategoryManager:
                     "新动力量创一流", "环球旅游", "军事评论", "农业致富",
                     "探索发现", "地理中国", "人与自然", "中国村庄", "自然传奇", "航拍中国第二季"
                 ],
-                "excludes": ["*"]
+                "excludes": []
             },
             "体育": {
                 "icon": "🏀",
                 "channels": ["江苏体育休闲", "快乐垂钓", "天元围棋"],
-                "excludes": ["*"]
+                "excludes": []
             },
             "综艺": {
                 "icon": "🎤",
@@ -68,7 +70,7 @@ class CategoryManager:
                     "经典香港电影", "抗战经典影片", "新片放映厅", "高清大片", "东森电影", "凤凰电影",
                     "龙华电影"
                 ],
-                "excludes": ['*']
+                "excludes": []
             },
             "儿童": {
                 "icon": "👶",
@@ -83,12 +85,12 @@ class CategoryManager:
                 ],
                 "excludes": []
             },
-            "其他": {"icon": "📂", "channels": ["钱塘江"], "excludes": []},
+            "其他": {"icon": "📂", "channels": ["钱塘江"]},
             "直播": {"icon": "📹"},
             "熊猫": {"icon": "🐼"},
             "春晚": {"icon": "🏮"},
-            "港台": {"icon": "🌉", "excludes": ["*"]},
-            "海外": {"icon": "🌐", "excludes": ["*"]},
+            "港台": {"icon": "🌉"},
+            "海外": {"icon": "🌐"},
             "全球": {"icon": "🌏"},
         }
         self._lock = threading.RLock()

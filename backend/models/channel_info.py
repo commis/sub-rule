@@ -60,7 +60,8 @@ class ChannelInfo:
         self._lock = threading.RLock()
 
     def set_logo(self, logo: str):
-        self.logo = logo
+        if logo is not None:
+            self.logo = logo
 
     def set_name(self, name: str):
         self.name = name or f"频道-{self.id}"

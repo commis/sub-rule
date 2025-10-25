@@ -94,7 +94,7 @@ class CategoryManager:
             "全球": {"icon": "🌏"},
         }
         self._lock = threading.RLock()
-        self._ignore_categories = ["直播", "熊猫", "春晚", "全球"]
+        self._ignore_categories = ["直播", "春晚", "全球"]
 
         self._init_channel_relations()
 

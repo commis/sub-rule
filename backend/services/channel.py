@@ -135,6 +135,7 @@ class ChannelBaseModel:
             file_handle.write(f"{self._get_extm3u_header()}\n")
             for group_name, channel_list in self._channelGroups.items():
                 file_handle.write(channel_list.get_m3u(group_name))
+                file_handle.write("\n")
 
 
 @singleton

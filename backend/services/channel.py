@@ -12,10 +12,16 @@ class ChannelBaseModel:
     """
 
     def __init__(self):
+        self._playback = None
+        self._source = "&playbackbegin=${(b)yyyyMMddHHmmss}&playbackend=${(e)yyyyMMddHHmmss}"
         self._channelGroups: Dict[str, ChannelList] = {}
         self._lock = threading.RLock()
 
+    def set_playback(self, url):
+        self._playback = url
+
     def clear(self):
+        self._playback = None
         self._channelGroups.clear()
 
     def sort(self):
@@ -40,7 +46,7 @@ class ChannelBaseModel:
                 if not category_manager.is_ignore(group_name)
             )
 
-    def add_channel(self, name: str, channel_name, channel_url, id: str = 'index'):
+    def add_channel(self, name: str, channel_name, channel_url, id: str = 'index', logo=None):
         with self._lock:
             # 自动分类处理
             category_info = category_manager.get_category_object(channel_name, name)
@@ -50,7 +56,7 @@ class ChannelBaseModel:
                     self._channelGroups[category_name] = ChannelList()
                 channel_list = self._channelGroups[category_name]
                 if not category_manager.is_exclude(category_info, channel_name):
-                    channel_list.add_channel(channel_name, channel_url, id)
+                    channel_list.add_channel(channel_name, channel_url, id, logo)
 
     def add_channel_info(self, name, channel_info: ChannelInfo):
         if not name:
@@ -78,9 +84,26 @@ class ChannelBaseModel:
                 result.append(channel_list.get_channle_ids())
             return sorted(result)
 
+    def _get_extm3u_header(self) -> str:
+        base_header = "#EXTM3U"
+        if not self._playback:
+            return base_header
+
+        escaped_playback = self._playback.replace('"', '\\"') if self._playback else ""
+        escaped_source = self._source.replace('"', '\\"') if self._source else ""
+
+        # 拼接额外参数
+        extra_params = (
+            f'x-tvg-url="{escaped_playback}" '
+            f'catchup="append" '
+            f'catchup-source="{escaped_source}"'
+        )
+
+        return f"{base_header} {extra_params}"
+
     def to_m3u_string(self) -> str:
         with self._lock:
-            result = ["#EXTM3U"]
+            result = [self._get_extm3u_header()]
             for group_name, channel_list in self._channelGroups.items():
                 result.append(channel_list.get_m3u(group_name))
             return "\n".join(result).strip()
@@ -109,7 +132,7 @@ class ChannelBaseModel:
 
     def write_to_m3u_file(self, file_handle):
         with self._lock:
-            file_handle.write("#EXTM3U\n")
+            file_handle.write(f"{self._get_extm3u_header()}\n")
             for group_name, channel_list in self._channelGroups.items():
                 file_handle.write(channel_list.get_m3u(group_name))
 

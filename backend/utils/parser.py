@@ -106,8 +106,10 @@ class Parser:
             response.raise_for_status()
             m3u_data = response.text.strip()
 
-            channel_name = None
+            svg_id = ''
+            svg_logo = ''
             group_title = ''
+            channel_name = None
             for line in (line.strip() for line in m3u_data.splitlines() if line.strip()):
                 if line.startswith('#EXTM3U'):
                     continue
@@ -116,6 +118,8 @@ class Parser:
                     tag_content = line[8:].strip()
                     params, name = LiveConverter.parse_extinf_params(tag_content)
                     channel_name = Const.get_channel(name)
+                    svg_id = params.get('id', '')
+                    svg_logo = params.get('logo', '')
                     group_title = params.get('title', '')
 
                 elif line.startswith(('http:', 'https:')):
@@ -124,7 +128,7 @@ class Parser:
                             or (category_manager.is_ignore(define_category))
                             or not category_manager.exists(define_category)):
                         continue
-                    channel_manager.add_channel(define_category, channel_name, line)
+                    channel_manager.add_channel(define_category, channel_name, line, svg_id, svg_logo)
 
             # 处理自建频道
             cls.load_remote_url_txt(cls._live_url)

@@ -54,9 +54,13 @@ class ChannelInfo:
     def __init__(self, id: str = 'index', name: str = None):
         self.id = id
         self.name = name
+        self.logo = None
         self.title = "未分类组"
         self.urls: Set[ChannelUrl] = set()
         self._lock = threading.RLock()
+
+    def set_logo(self, logo: str):
+        self.logo = logo
 
     def set_name(self, name: str):
         self.name = name or f"频道-{self.id}"
@@ -79,9 +83,12 @@ class ChannelInfo:
     def get_m3u(self, title=""):
         if not title:
             title = self.title
+
+        svg_id = f"{self.id}" if self.id != "index" else f"{self.name}"
+        tvg_logo = f"tvg-logo=\"{self.logo}\"" if self.logo else ""
         return "\n".join(
-            f"#EXTINF:-1 tvg-id=\"{self.id}\" tvg-name=\"{self.name}\" group-title=\"{title}\""
-            f",{self.name}\n{url.url}"
+            f"#EXTINF:-1 svg-id=\"{svg_id}\" svg-name=\"{self.name}\" {tvg_logo} group-title=\"{title}\","
+            f"{self.name}\n{url.url}"
             for url in sorted(self.urls, key=lambda url: url.speed)
         )
 
@@ -90,10 +97,13 @@ class ChannelInfo:
             title = self.title
         sorted_urls = sorted(self.urls, key=lambda url: url.speed)
         separator = ["", "===============================================================", ""]
+        svg_id = f"{self.id}" if self.id != "index" else f"{self.name}"
+        tvg_logo = f"tvg-logo=\"{self.logo}\"" if self.logo else ""
         return ("\n".join(f"{self.name},{url.url}" for url in sorted_urls) + "\n"
                 + "\n".join(separator) + "\n"
-                + "\n".join(f"#EXTINF:-1 tvg-id=\"{self.id}\" tvg-name=\"{self.name}\" group-title=\"{title}\","
-                            f"{self.name}\n{url.url}" for url in sorted_urls)
+                + "\n".join(
+                    f"#EXTINF:-1 svg-id=\"{svg_id}\" svg-name=\"{self.name}\" {tvg_logo} group-title=\"{title}\","
+                    f"{self.name}\n{url.url}" for url in sorted_urls)
                 )
 
 
@@ -110,11 +120,12 @@ class ChannelList:
         with self._lock:
             return sum(len(info.urls) for info in self._channels.values())
 
-    def add_channel(self, channel_name, channel_url: str, id='index'):
+    def add_channel(self, channel_name, channel_url: str, id='index', logo=None):
         with self._lock:
             if channel_name not in self._channels:
                 self._channels[channel_name] = ChannelInfo(id, channel_name)
             channel_info = self._channels[channel_name]
+            channel_info.set_logo(logo)
             channel_info.add_url(ChannelUrl(channel_url))
 
     def add_channel_info(self, channel_info: ChannelInfo):

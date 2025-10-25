@@ -64,8 +64,8 @@ class BatchCheckRequest(BaseModel):
 class UpdateLiveRequest(BaseModel):
     """更新直播源请求"""
     output: str = Field(default="/usr/share/nginx/tvbox/result.txt", description="直播源输出文件名")
-    url: Optional[str] = Field(default="https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.txt",
-                               description="直播源同步URL")
+    url: Optional[str] = Field(default=None, description="直播源同步URL")
+    playback: Optional[str] = Field(default=None, description="直播源回放信息文件")
     is_clear: Optional[bool] = Field(True, description="是否清空已有频道数据")
     thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限50")
     low_limit: Optional[int] = Field(5, ge=5, le=300, description="自动更新频道数量下限")
@@ -148,11 +148,14 @@ def check_batch_channels(request: BatchCheckRequest, background_tasks: Backgroun
 
 @router.post("/update/txt", summary="自动从txt更新直播源", response_model=TaskResponse)
 def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundTasks) -> TaskResponse:
-    # https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.txt
     """
     自动更新直播源数据
     """
     try:
+        # 填充默认值
+        if request.url is None:
+            request.url = "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.txt"
+
         if request.is_clear:
             channel_manager.clear()
             task_manager.clear()
@@ -203,17 +206,22 @@ def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
 
 @router.post("/update/m3u", summary="自动从m3u更新直播源", response_model=TaskResponse)
 def update_m3u_sources(request: UpdateLiveRequest, background_tasks: BackgroundTasks) -> TaskResponse:
-    # https://develop202.github.io/migu_video/interface.txt
     """
     自动更新直播源数据
     """
     try:
+        # 填充默认值
+        if request.url is None:
+            request.url = "https://develop202.github.io/migu_video/interface.txt"
+            request.playback = "https://develop202.github.io/migu_video/playback.xml"
+
         if request.is_clear:
             channel_manager.clear()
             task_manager.clear()
 
         parser = Parser()
         parser.load_remote_url_m3u(request.url)
+        channel_manager.set_playback(request.playback)
         total_count = channel_manager.total_count()
         if total_count <= request.low_limit:
             channel_manager.clear()

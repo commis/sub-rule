@@ -357,7 +357,7 @@ class ChannelChecker:
         return success_count.get_value()
 
     def update_batch_live(self, threads, task_status, check_m3u8_invalid, output_file=None) -> int:
-        """批量更新直播频道信息 - 最终优化版"""
+        """批量更新直播频道信息"""
         task_status_lock = threading.Lock()
         success_counter = Counter()
         processed_counter = Counter()

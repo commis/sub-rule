@@ -109,24 +109,18 @@ class ChannelBaseModel:
             return "\n".join(result).strip()
 
     def to_txt_string(self) -> str:
-        from services.category import category_manager
         with self._lock:
             result = []
             for group_name, channel_list in self._channelGroups.items():
-                category_info = category_manager.get_category_info(group_name)
-                icon = "" if not category_info else category_info.get("icon", "")
-                result.append(f"{icon}{group_name},#genre#")
+                result.append(f"{group_name},#genre#")
                 result.append(channel_list.get_txt())
                 result.append("")
             return "\n".join(result).strip()
 
     def write_to_txt_file(self, file_handle):
-        from services.category import category_manager
         with self._lock:
             for group_name, channel_list in self._channelGroups.items():
-                category_info = category_manager.get_category_info(group_name)
-                icon = category_info.get("icon", "")
-                file_handle.write(f"{icon}{group_name},#genre#\n")
+                file_handle.write(f"{group_name},#genre#\n")
                 channel_list.write_to_txt_file(file_handle)
                 file_handle.write("\n")
 

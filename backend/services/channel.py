@@ -13,7 +13,7 @@ class ChannelBaseModel:
 
     def __init__(self):
         self._playback = None
-        self._source = "&playbackbegin=${(b)yyyyMMddHHmmss}&playbackend=${(e)yyyyMMddHHmmss}"
+        self._source = "?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"
         self._channelGroups: Dict[str, ChannelList] = {}
         self._lock = threading.RLock()
 

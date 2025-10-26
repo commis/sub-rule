@@ -51,11 +51,11 @@ class ChannelInfo:
     频道信息，包括频道数据流地址和速度信息
     """
 
-    def __init__(self, id: str = 'index', name: str = None):
-        self.id = id
+    def __init__(self, id: str = '', name: str = None):
+        self.id = id if id != name else ''
         self.name = name
         self.logo = None
-        self.title = "未分类组"
+        self.title = '其他'
         self.urls: Set[ChannelUrl] = set()
         self._lock = threading.RLock()
 
@@ -79,31 +79,31 @@ class ChannelInfo:
             self.urls.discard(url_info)
 
     def get_txt(self):
-        return "\n".join(f"{self.name},{url.url}" for url in sorted(self.urls, key=lambda url: url.speed))
+        return '\n'.join(f"{self.name},{url.url}" for url in sorted(self.urls, key=lambda url: url.speed))
 
-    def get_m3u(self, title=""):
+    def get_m3u(self, title=''):
         if not title:
             title = self.title
 
-        tvg_id = f"tvg-id=\"{self.id}\"" if self.id != "index" else ""
-        tvg_logo = f"tvg-logo=\"{self.logo}\"" if self.logo else ""
-        return "\n".join(
-            f"#EXTINF:-1 {tvg_id} tvg-name=\"{self.name}\" {tvg_logo} group-title=\"{title}\","
+        tvg_id = f"tvg-id=\"{self.id}\" " if self.id != '' else ""
+        tvg_logo = f"tvg-logo=\"{self.logo}\" " if self.logo else ""
+        return '\n'.join(
+            f"#EXTINF:-1 {tvg_id}tvg-name=\"{self.name}\" {tvg_logo}group-title=\"{title}\","
             f"{self.name}\n{url.url}"
             for url in sorted(self.urls, key=lambda url: url.speed)
         )
 
-    def get_all(self, title="") -> str:
+    def get_all(self, title='') -> str:
         if not title:
             title = self.title
         sorted_urls = sorted(self.urls, key=lambda url: url.speed)
-        separator = ["", "===============================================================", ""]
-        tvg_id = f"tvg-id=\"{self.id}\"" if self.id != "index" else ""
-        tvg_logo = f"tvg-logo=\"{self.logo}\"" if self.logo else ""
-        return ("\n".join(f"{self.name},{url.url}" for url in sorted_urls) + "\n"
-                + "\n".join(separator) + "\n"
-                + "\n".join(
-                    f"#EXTINF:-1 {tvg_id} tvg-name=\"{self.name}\" {tvg_logo} group-title=\"{title}\","
+        separator = ['', '===============================================================', '']
+        tvg_id = f"tvg-id=\"{self.id}\" " if self.id != '' else ''
+        tvg_logo = f"tvg-logo=\"{self.logo}\"" if self.logo else ''
+        return ('\n'.join(f"{self.name},{url.url}" for url in sorted_urls) + '\n'
+                + '\n'.join(separator) + "\n"
+                + '\n'.join(
+                    f"#EXTINF:-1 {tvg_id}tvg-name=\"{self.name}\" {tvg_logo}group-title=\"{title}\","
                     f"{self.name}\n{url.url}" for url in sorted_urls)
                 )
 
@@ -121,7 +121,7 @@ class ChannelList:
         with self._lock:
             return sum(len(info.urls) for info in self._channels.values())
 
-    def add_channel(self, channel_name, channel_url: str, id='index', logo=None):
+    def add_channel(self, channel_name, channel_url: str, id='', logo=None):
         with self._lock:
             if channel_name not in self._channels:
                 self._channels[channel_name] = ChannelInfo(id, channel_name)
@@ -158,13 +158,13 @@ class ChannelList:
                 key=lambda channel: mixed_sort_key(channel.name)
             )
 
-    def get_m3u(self, title=""):
+    def get_m3u(self, title=''):
         with self._lock:
             return "\n".join(filter(None, (channel_info.get_m3u(title) for channel_info in self._sorted_channels())))
 
     def get_txt(self):
         with self._lock:
-            return "\n".join(filter(None, (channel_info.get_txt() for channel_info in self._sorted_channels())))
+            return '\n'.join(filter(None, (channel_info.get_txt() for channel_info in self._sorted_channels())))
 
     def write_to_txt_file(self, file_handle):
         with self._lock:

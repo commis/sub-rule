@@ -155,6 +155,7 @@ def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
         # 填充默认值
         if request.url is None:
             request.url = "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.txt"
+            request.playback = "https://raw.githubusercontent.com/fanmingming/live/refs/heads/main/e.xml"
 
         if request.is_clear:
             channel_manager.clear()

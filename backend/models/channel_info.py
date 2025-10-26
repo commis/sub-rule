@@ -85,10 +85,10 @@ class ChannelInfo:
         if not title:
             title = self.title
 
-        svg_id = f"{self.id}" if self.id != "index" else f"{self.name}"
+        tvg_id = f"tvg-id=\"{self.id}\"" if self.id != "index" else ""
         tvg_logo = f"tvg-logo=\"{self.logo}\"" if self.logo else ""
         return "\n".join(
-            f"#EXTINF:-1 tvg-id=\"{svg_id}\" tvg-name=\"{self.name}\" {tvg_logo} group-title=\"{title}\","
+            f"#EXTINF:-1 {tvg_id} tvg-name=\"{self.name}\" {tvg_logo} group-title=\"{title}\","
             f"{self.name}\n{url.url}"
             for url in sorted(self.urls, key=lambda url: url.speed)
         )
@@ -98,12 +98,12 @@ class ChannelInfo:
             title = self.title
         sorted_urls = sorted(self.urls, key=lambda url: url.speed)
         separator = ["", "===============================================================", ""]
-        svg_id = f"{self.id}" if self.id != "index" else f"{self.name}"
+        tvg_id = f"tvg-id=\"{self.id}\"" if self.id != "index" else ""
         tvg_logo = f"tvg-logo=\"{self.logo}\"" if self.logo else ""
         return ("\n".join(f"{self.name},{url.url}" for url in sorted_urls) + "\n"
                 + "\n".join(separator) + "\n"
                 + "\n".join(
-                    f"#EXTINF:-1 tvg-id=\"{svg_id}\" tvg-name=\"{self.name}\" {tvg_logo} group-title=\"{title}\","
+                    f"#EXTINF:-1 {tvg_id} tvg-name=\"{self.name}\" {tvg_logo} group-title=\"{title}\","
                     f"{self.name}\n{url.url}" for url in sorted_urls)
                 )
 

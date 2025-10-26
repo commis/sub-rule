@@ -61,13 +61,19 @@ class BatchCheckRequest(BaseModel):
     thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限50")
 
 
+class EpgRequest(BaseModel):
+    file: Optional[str] = Field(default=None, description="直播源回放信息文件")
+    source: Optional[str] = Field(default=None, description="EPG源名称")
+    domain: Optional[str] = Field(default=None, description="LOGO文件域名")
+
+
 class UpdateLiveRequest(BaseModel):
     """更新直播源请求"""
     output: str = Field(default="/usr/share/nginx/tvbox/result.txt", description="直播源输出文件名")
     url: Optional[str] = Field(default=None, description="直播源同步URL")
-    playback: Optional[str] = Field(default=None, description="直播源回放信息文件")
+    epg: Optional[EpgRequest] = Field(default=None, description="EPG源信息")
     is_clear: Optional[bool] = Field(True, description="是否清空已有频道数据")
-    thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限50")
+    thread_size: Optional[int] = Field(20, ge=2, le=64, description="并发线程数上限64")
     low_limit: Optional[int] = Field(5, ge=5, le=300, description="自动更新频道数量下限")
 
 
@@ -152,14 +158,21 @@ def update_txt_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
     自动更新直播源数据
     """
     try:
-        # 填充默认值
-        if request.url is None:
-            request.url = "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.txt"
-            request.playback = "https://raw.githubusercontent.com/fanmingming/live/refs/heads/main/e.xml"
-
         if request.is_clear:
             channel_manager.clear()
             task_manager.clear()
+
+        # 填充默认值
+        if request.url is None:
+            request.url = "https://gh-proxy.com/github.com/vbskycn/iptv/blob/master/tv/iptv4.txt"
+        if request.epg is None:
+            request.epg = EpgRequest(
+                file="http://epg.51zmt.top:8000/e.xml",
+                source="?ch={name}&date={date}",
+                domain=""
+            )
+
+        channel_manager.set_epg(file=request.epg.file, source=request.epg.source, domain=request.epg.domain)
 
         parser = Parser()
         parser.load_remote_url_txt(request.url)
@@ -211,18 +224,24 @@ def update_m3u_sources(request: UpdateLiveRequest, background_tasks: BackgroundT
     自动更新直播源数据
     """
     try:
-        # 填充默认值
-        if request.url is None:
-            request.url = "https://develop202.github.io/migu_video/interface.txt"
-            request.playback = "https://develop202.github.io/migu_video/playback.xml"
-
         if request.is_clear:
             channel_manager.clear()
             task_manager.clear()
 
+        # 填充默认值
+        if request.url is None:
+            request.url = "https://develop202.github.io/migu_video/interface.txt"
+        if request.epg is None:
+            request.epg = EpgRequest(
+                file="https://develop202.github.io/migu_video/playback.xml",
+                source="&playbackbegin=${(b)yyyyMMddHHmmss}&playbackend=${(e)yyyyMMddHHmmss}",
+                domain=""
+            )
+
+        channel_manager.set_epg(file=request.epg.file, source=request.epg.source, domain=request.epg.domain)
+
         parser = Parser()
         parser.load_remote_url_m3u(request.url)
-        channel_manager.set_playback(request.playback)
         total_count = channel_manager.total_count()
         if total_count <= request.low_limit:
             channel_manager.clear()

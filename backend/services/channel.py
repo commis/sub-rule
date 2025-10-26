@@ -1,3 +1,4 @@
+import os
 import threading
 from typing import Dict
 
@@ -6,22 +7,48 @@ from models.channel_info import ChannelList, ChannelInfo
 from services import category_manager
 
 
+class EpgBaseModel:
+
+    def __init__(self, file: str, source: str, domain: str = None):
+        self._file = file
+        self._source = source
+        self._domain = None if domain is None or domain == '' else domain
+
+    @property
+    def file(self):
+        return self._file
+
+    @property
+    def source(self):
+        return self._source
+
+    def get_logo(self, source_logo: str) -> str:
+        if self._domain is None:
+            return source_logo
+
+        filename = os.path.basename(source_logo)
+        return f"{self._domain}/{filename}"
+
+
 class ChannelBaseModel:
     """
     频道基类，提供频道管理的基本功能
     """
 
     def __init__(self):
-        self._playback = None
-        self._source = "?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"
+        self._epg = None
         self._channelGroups: Dict[str, ChannelList] = {}
         self._lock = threading.RLock()
 
-    def set_playback(self, url):
-        self._playback = url
+    @property
+    def epg(self):
+        return self._epg
+
+    def set_epg(self, file: str, source: str, domain: str = None):
+        self._epg = EpgBaseModel(file, source, domain)
 
     def clear(self):
-        self._playback = None
+        self._epg = None
         self._channelGroups.clear()
 
     def sort(self):
@@ -46,7 +73,7 @@ class ChannelBaseModel:
                 if not category_manager.is_ignore(group_name)
             )
 
-    def add_channel(self, name: str, channel_name, channel_url, id: str = 'index', logo=None):
+    def add_channel(self, name: str, channel_name, channel_url, id: str = '', logo=None):
         with self._lock:
             # 自动分类处理
             category_info = category_manager.get_category_object(channel_name, name)
@@ -86,17 +113,13 @@ class ChannelBaseModel:
 
     def _get_extm3u_header(self) -> str:
         base_header = "#EXTM3U"
-        if not self._playback:
+        if not self._epg:
             return base_header
 
-        escaped_playback = self._playback.replace('"', '\\"') if self._playback else ""
-        escaped_source = self._source.replace('"', '\\"') if self._source else ""
-
-        # 拼接额外参数
         extra_params = (
-            f'x-tvg-url="{escaped_playback}" '
+            f'x-tvg-url="{self._epg.file}" '
             f'catchup="append" '
-            f'catchup-source="{escaped_source}"'
+            f'catchup-source="{self._epg.source}"'
         )
 
         return f"{base_header} {extra_params}"

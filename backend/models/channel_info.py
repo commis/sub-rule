@@ -85,8 +85,8 @@ class ChannelInfo:
         if not title:
             title = self.title
 
-        tvg_id = f"tvg-id=\"{self.id}\" " if self.id != '' else ""
-        tvg_logo = f"tvg-logo=\"{self.logo}\" " if self.logo else ""
+        tvg_id = f"tvg-id=\"{self.id}\" " if self.id != '' else ''
+        tvg_logo = f"tvg-logo=\"{self.logo}\" " if self.logo else ''
         return '\n'.join(
             f"#EXTINF:-1 {tvg_id}tvg-name=\"{self.name}\" {tvg_logo}group-title=\"{title}\","
             f"{self.name}\n{url.url}"
@@ -99,7 +99,7 @@ class ChannelInfo:
         sorted_urls = sorted(self.urls, key=lambda url: url.speed)
         separator = ['', '===============================================================', '']
         tvg_id = f"tvg-id=\"{self.id}\" " if self.id != '' else ''
-        tvg_logo = f"tvg-logo=\"{self.logo}\"" if self.logo else ''
+        tvg_logo = f"tvg-logo=\"{self.logo}\" " if self.logo else ''
         return ('\n'.join(f"{self.name},{url.url}" for url in sorted_urls) + '\n'
                 + '\n'.join(separator) + "\n"
                 + '\n'.join(

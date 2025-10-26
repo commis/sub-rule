@@ -46,7 +46,7 @@ class LiveConverter:
                 try:
                     channel_id = params.get('id') if "id" in params else '0'
                 except ValueError:
-                    channel_id = 'index'
+                    channel_id = ''
                 group_title = params.get('title', '')
 
             elif line.startswith(('http:', 'https:')):

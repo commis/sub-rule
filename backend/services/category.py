@@ -35,10 +35,10 @@ class CategoryManager:
                 ]
             },
             "地方": {
-                "channels": [
-                    '北京新闻', '北京影视', '北京文艺', '北京纪实'
-                ],
-                "excludes": []
+                "channels": [],
+                "excludes": [
+                    '北京纪实', '北京文艺', '北京新闻', '北京影视'
+                ]
             },
             "纪实": {
                 "channels": [

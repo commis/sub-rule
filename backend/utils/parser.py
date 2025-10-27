@@ -118,7 +118,7 @@ class Parser:
                     tag_content = line[8:].strip()
                     params, name = LiveConverter.parse_extinf_params(tag_content)
                     channel_name = Const.get_channel(name)
-                    tvg_id = params.get('id', '')
+                    tvg_id = Const.get_channel(params.get('id', ''))
                     tvg_logo = params.get('logo', '')
                     group_title = params.get('title', '')
 

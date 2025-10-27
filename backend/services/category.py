@@ -49,7 +49,10 @@ class CategoryManager:
                 "excludes": []
             },
             "体育": {
-                "channels": ["江苏体育休闲", "快乐垂钓", "天元围棋"],
+                "channels": [
+                    "北京体育休闲", "江苏体育休闲",
+                    "快乐垂钓", "天元围棋"
+                ],
                 "excludes": []
             },
             "综艺": {

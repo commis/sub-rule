@@ -28,11 +28,11 @@ class CategoryManager:
             },
             "卫视": {
                 "channels": ['农林卫视', '内蒙古蒙语卫视'],
-                "excludes": ['上海纪实', '金鹰纪实', '北京体育']
+                "excludes": []
             },
             "地方": {
-                "channels": [],
-                "excludes": ['北京纪实', '北京文艺', '北京新闻', '北京影视']
+                "channels": ['北京纪实', '北京文艺', '北京新闻', '北京影视', '上海纪实', '金鹰纪实'],
+                "excludes": []
             },
             "纪实": {
                 "channels": [
@@ -42,7 +42,7 @@ class CategoryManager:
                 "excludes": []
             },
             "体育": {
-                "channels": ['江苏体育休闲', '快乐垂钓', '天元围棋'],
+                "channels": ['北京体育', '江苏体育休闲', '快乐垂钓', '天元围棋'],
                 "excludes": []
             },
             "综艺": {

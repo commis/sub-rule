@@ -364,7 +364,7 @@ def check_live_sources(
         background_tasks: BackgroundTasks,
         txt_data: str = Body(..., media_type="text/plain", min_length=1, description="待合并的TXT格式直播源数据"),
         is_clear: Optional[bool] = Query(True, description="是否清空已有频道数据"),
-        thread_size: Optional[int] = Query(20, ge=2, le=64, description="并发线程数上限50")):
+        thread_size: Optional[int] = Query(20, ge=2, le=64, description="并发线程数上限64")):
     """
     检测TXT格式直播源有效性
     """

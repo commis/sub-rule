@@ -19,7 +19,6 @@ class Parser:
         将用户提供的频道数据文本解析为 [(类别, 子类型, URL), ...] 格式的元组列表
         """
         category_stack = None
-        special_category = None
         channel_list = []
 
         for line in text_data.splitlines():
@@ -29,8 +28,7 @@ class Parser:
 
             if line.endswith('#genre#'):
                 category = Constants.CATEGORY_CLEAN_PATTERN.sub(' ', line[:-7]).strip()
-                category_stack = category if category else None
-                special_category = None
+                category_stack = Const.get_category(category) if category else None
                 continue
 
             if category_stack:
@@ -41,7 +39,7 @@ class Parser:
                 if not url:
                     continue
 
-                category_info = category_manager.get_category_object(channel_name, special_category)
+                category_info = category_manager.get_category_object(channel_name, category_stack)
                 category_name = category_info.get('name')
                 if not category_manager.is_exclude(category_info, channel_name):
                     channel_list.append((category_name, channel_name, url))

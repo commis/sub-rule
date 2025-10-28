@@ -17,7 +17,7 @@ class CategoryManager:
             "锻炼": {},
             "央视": {
                 "channels": [],
-                "excludes": ['精选推荐', '熊猫直播', '直播中国', '支持作者']
+                "excludes": ['北京体育', '精选推荐', '熊猫直播', '直播中国', '支持作者']
             },
             "精品": {
                 "channels": [
@@ -43,7 +43,7 @@ class CategoryManager:
                 "excludes": []
             },
             "体育": {
-                "channels": ['北京体育', '江苏体育休闲', '快乐垂钓', '天元围棋'],
+                "channels": ['北京体育休闲', '江苏体育休闲', '快乐垂钓', '天元围棋'],
                 "excludes": []
             },
             "综艺": {

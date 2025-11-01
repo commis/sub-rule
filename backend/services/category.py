@@ -9,6 +9,7 @@ class CategoryManager:
     """
     管理分类与图标映射关系的单例类
     """
+
     _channel_relations: Dict[str, Dict[str, object]] = {}
 
     def __init__(self):
@@ -17,62 +18,94 @@ class CategoryManager:
             "锻炼": {},
             "央视": {
                 "channels": [],
-                "excludes": ['精选推荐', '熊猫直播', '直播中国', '支持作者']
+                "excludes": ["精选推荐", "熊猫直播", "直播中国", "支持作者"],
             },
             "精品": {
                 "channels": [
-                    '风云音乐', '风云足球', '风云剧场', '怀旧剧场', '兵器科技', '世界地理',
-                    '央视台球', '第一剧场', '女性时尚', '电视指南', '老故事', '中学生'
+                    "风云音乐",
+                    "风云足球",
+                    "风云剧场",
+                    "怀旧剧场",
+                    "兵器科技",
+                    "世界地理",
+                    "央视台球",
+                    "第一剧场",
+                    "女性时尚",
+                    "电视指南",
+                    "老故事",
+                    "中学生",
                 ],
-                "excludes": []
+                "excludes": [],
             },
             "卫视": {
-                "channels": ['农林卫视', '内蒙古蒙语卫视'],
-                "excludes": ['北京体育', '金鹰纪实', '上海纪实', '上海卫视', '河北4K']
+                "channels": ["农林卫视", "内蒙古蒙语卫视"],
+                "excludes": ["北京体育", "金鹰纪实", "上海纪实", "上海卫视", "河北4K"],
             },
-            "地方": {
-                "channels": ['北京文艺', '北京新闻', '北京影视'],
-                "excludes": []
-            },
+            "地方": {"channels": ["北京文艺", "北京新闻", "北京影视"], "excludes": []},
             "纪实": {
                 "channels": [
-                    '新动力量创一流', '环球旅游', '军事评论', '农业致富',
-                    '探索发现', '地理中国', '人与自然', '中国村庄', '自然传奇', '航拍中国第二季',
-                    '之江纪录'
+                    "新动力量创一流",
+                    "环球旅游",
+                    "军事评论",
+                    "农业致富",
+                    "探索发现",
+                    "地理中国",
+                    "人与自然",
+                    "中国村庄",
+                    "自然传奇",
+                    "航拍中国第二季",
+                    "之江纪录",
                 ],
-                "excludes": []
+                "excludes": [],
             },
             "体育": {
-                "channels": ['北京体育休闲', '江苏体育休闲', '快乐垂钓', '天元围棋'],
-                "excludes": []
+                "channels": ["北京体育休闲", "江苏体育休闲", "快乐垂钓", "天元围棋"],
+                "excludes": [],
             },
-            "综艺": {
-                "channels": [],
-                "excludes": []
-            },
+            "综艺": {"channels": [], "excludes": []},
             "教育": {
-                "channels": ['CETV1', 'CETV2', 'CETV4', '山东教育'],
-                "excludes": []
+                "channels": ["CETV1", "CETV2", "CETV4", "山东教育"],
+                "excludes": [],
             },
             "电影": {
                 "channels": [
-                    'CHC电影', 'CHC动作电影', 'CHC家庭影院', 'CHC影迷电影', '黑莓电影', '南方影视',
-                    '经典香港电影', '抗战经典影片', '新片放映厅', '高清大片', '东森电影', '凤凰电影',
-                    '龙华电影'
+                    "CHC电影",
+                    "CHC动作电影",
+                    "CHC家庭影院",
+                    "CHC影迷电影",
+                    "黑莓电影",
+                    "南方影视",
+                    "经典香港电影",
+                    "抗战经典影片",
+                    "新片放映厅",
+                    "高清大片",
+                    "东森电影",
+                    "凤凰电影",
+                    "龙华电影",
                 ],
                 "excludes": [
-                    '淘剧场', '淘娱乐', '韩国电影1', '韩国电影2', '倩女幽魂道道道', '倩女幽魂人间道', '倩女幽魂妖魔道'
-                ]
+                    "淘剧场",
+                    "淘娱乐",
+                    "韩国电影1",
+                    "韩国电影2",
+                    "倩女幽魂道道道",
+                    "倩女幽魂人间道",
+                    "倩女幽魂妖魔道",
+                ],
             },
             "儿童": {
-                "channels": ['哈哈炫动', '金鹰卡通', '卡酷少儿', '优漫卡通', '黑龙江少儿', '浙江少儿'],
-                "excludes": ['韩国EBS少儿']
+                "channels": [
+                    "哈哈炫动",
+                    "金鹰卡通",
+                    "卡酷少儿",
+                    "优漫卡通",
+                    "黑龙江少儿",
+                    "浙江少儿",
+                ],
+                "excludes": ["韩国EBS少儿"],
             },
-            "轮播": {
-                "channels": [],
-                "excludes": ['*']
-            },
-            "其他": {"channels": ['钱塘江']},
+            "轮播": {"channels": [], "excludes": ["*"]},
+            "其他": {"channels": ["钱塘江"]},
             "直播": {},
             "熊猫": {},
             "春晚": {},
@@ -81,7 +114,7 @@ class CategoryManager:
             "全球": {},
         }
         self._lock = threading.RLock()
-        self._ignore_categories = ['直播', '熊猫', '春晚', '港台', '海外', '全球']
+        self._ignore_categories = ["直播", "春晚", "港台", "海外", "全球"]
 
         self._init_channel_relations()
 
@@ -103,7 +136,9 @@ class CategoryManager:
         """判断是否为排除的频道"""
         channels = category_info.get("channels", [])
         excludes = category_info.get("excludes", [])
-        return ('*' in excludes and channel_name not in channels) or channel_name in excludes
+        return (
+            "*" in excludes and channel_name not in channels
+        ) or channel_name in excludes
 
     def get_groups(self):
         """获取所有分类的组"""

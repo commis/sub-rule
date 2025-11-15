@@ -15,7 +15,7 @@ if [ ! -f "$ENV_FILE" ]; then
 fi
 source "${SCRIPT_DIR}/../.env"
 
-PIDFILE="${SCRIPT_DIR}/tvbox.pid"
+PIDFILE="/var/run//tvbox.pid"
 COMMAND="gunicorn -c gunicorn.conf.py application:app"
 
 function init_env() {

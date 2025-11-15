@@ -8,6 +8,8 @@ from utils.scanner import RouteScanner
 
 logger = LoggerFactory.get_logger(__name__)
 
+api_prefix = os.getenv("API_PREFIX", "")
+
 
 class CreateApplication:
     def __init__(self):
@@ -15,6 +17,7 @@ class CreateApplication:
             title="IPTV API文档",
             description="自动生成的API文档",
             version="1.0.0",
+            openapi_prefix=api_prefix,
             debug=True)
 
         # 初始化路由扫描器

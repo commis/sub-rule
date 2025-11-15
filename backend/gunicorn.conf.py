@@ -12,4 +12,4 @@ preload_app = True
 
 worker_extra_args = ["--root-path", "/api"]
 
-raw_env = [f"PYTHONPATH={project_root}"]
+raw_env = [f"PYTHONPATH={project_root}", "API_PREFIX=/api"]

@@ -27,10 +27,6 @@ class RouteScanner:
             StaticFiles(directory=f"{self._project_path}/static"),
             name="static")
 
-        # @app.get("/", include_in_schema=False)
-        # def redirect_index():
-        #     return FileResponse(f"{self._project_path}/static/index.html")
-
         @app.get("/", include_in_schema=False)
         def redirect_swagger():
             swagger_url = app.url_path_for("swagger_ui_html")

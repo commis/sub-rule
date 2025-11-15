@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#set -ex
+
 SCRIPT_DIR=$(
   cd "$(dirname "$0")" || exit 1
   pwd
@@ -13,7 +15,7 @@ if [ ! -f "$ENV_FILE" ]; then
 fi
 source "${SCRIPT_DIR}/../.env"
 
-PIDFILE="/var/run/tvbox.pid"
+PIDFILE="${SCRIPT_DIR}/tvbox.pid"
 COMMAND="gunicorn -c gunicorn.conf.py application:app"
 
 function init_env() {
